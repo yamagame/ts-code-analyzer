@@ -3,7 +3,7 @@ import * as ts from 'typescript';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
-export type LineInfo = {
+export type AstInfo = {
   element: boolean;
   level: number;
   kind: string;
@@ -19,7 +19,7 @@ export type LineInfo = {
 const indent = (level: number) => new Array(level).fill('  ').join('');
 
 export function scanAllChildren(
-  result: LineInfo[],
+  result: AstInfo[],
   node: ts.Node,
   pos: number,
   depth = 0
@@ -83,7 +83,7 @@ export function scanAllChildren(
 }
 
 class TreeParser {
-  constructor(private nodes: LineInfo[]) {
+  constructor(private nodes: AstInfo[]) {
     //
   }
 
@@ -132,7 +132,7 @@ class TreeParser {
   };
 }
 
-export function scanJsxFunctions(result: LineInfo[]) {
+export function scanJsxFunctions(result: AstInfo[]) {
   const tree = new TreeParser(result);
   for (let i = 0; i < result.length; i++) {
     const node = result[i];
@@ -171,7 +171,7 @@ type ScanNode = {
   name?: string;
 };
 
-export function scanJsxElements(nodes: LineInfo[]) {
+export function scanJsxElements(nodes: AstInfo[]) {
   const result: ScanNode[] = [];
   const tree = new TreeParser(nodes);
   for (let i = 0; i < nodes.length; i++) {
@@ -296,7 +296,7 @@ async function main(arg: string[]) {
     true
   );
 
-  const result: LineInfo[] = [];
+  const result: AstInfo[] = [];
   scanAllChildren(result, sourceFile, -1);
 
   // ソース再生成

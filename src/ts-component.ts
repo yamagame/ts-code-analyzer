@@ -5,16 +5,24 @@ import * as ts from 'typescript';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import { scanAsync } from 'ts-scan';
-import { scanAllChildren, LineInfo } from 'ts-parser';
+import { scanAllChildren, AstInfo } from 'ts-parser';
 
 const indent = (level: number) => new Array(level).fill('  ').join('');
 
-type ParserKind = string;
+class AstStack extends Array<AstInfo> {
+  replace(ast: AstInfo) {
+    this.pop();
+    this.push(ast);
+  }
+  get astPath() {
+    return this.map((v) => v.kind).join('/');
+  }
+}
 
 class Parser {
   _ptr = 0;
-  _info: LineInfo[];
-  constructor(info: LineInfo[]) {
+  _info: AstInfo[];
+  constructor(info: AstInfo[]) {
     this._info = info;
   }
   prev() {
@@ -30,36 +38,40 @@ class Parser {
     return this._ptr >= this._info.length;
   }
 
-  stack: LineInfo[] = [];
+  stack: AstStack = new AstStack();
 
-  traverse = (node: LineInfo) => {
-    const isJsxElement = (node: LineInfo) =>
+  debugLog = (m: AstInfo) => {
+    const isJsxElement = (node: AstInfo) =>
       node.kind === 'JsxOpeningElement' ||
       node.kind === 'JsxClosingElement' ||
       node.kind === 'JsxSelfClosingElement';
-    const isComment = (node: LineInfo) =>
+    const isComment = (node: AstInfo) =>
       node.kind === 'MultiLineCommentTrivia' ||
       node.kind === 'SingleLineCommentTrivia';
-    const printLog = (node: LineInfo) => {
+    const printLog = (node: AstInfo) => {
       if (node.kind === 'Identifier' || node.kind === 'ImportKeyword') {
         console.log(`${indent(node.level)}${node.kind} - ${node.text}`);
       } else {
         console.log(`${indent(node.level)}${node.kind}`);
       }
     };
+    printLog(m);
+    if (
+      m.kind.search(/Declaration$/) >= 0 ||
+      m.kind === 'Identifier' ||
+      isJsxElement(m) ||
+      isComment(m)
+    ) {
+      console.log(this.stack.astPath, m.text);
+    }
+  };
+
+  traverse = (node: AstInfo) => {
     this.stack.push(node);
     let m = node;
     let n = node;
     while (!this.isEnd()) {
-      printLog(m);
-      if (
-        m.kind.search(/Declaration$/) >= 0 ||
-        m.kind === 'Identifier' ||
-        isJsxElement(m) ||
-        isComment(m)
-      ) {
-        console.log(this.stack.map((v) => v.kind).join('/'), m.text);
-      }
+      this.debugLog(m);
       n = this.next();
       if (n.level < m.level) {
         this.stack.splice(n.level + 1);
@@ -116,7 +128,7 @@ async function main(argv: string[]) {
       .flat();
     console.log(imports);
 
-    const lineInfo: LineInfo[] = [];
+    const lineInfo: AstInfo[] = [];
     scanAllChildren(lineInfo, sourceFile, -1);
 
     const parser = new Parser(lineInfo);

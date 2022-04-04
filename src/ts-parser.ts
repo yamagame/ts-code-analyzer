@@ -12,7 +12,7 @@ export type AstInfo = {
   pos: number;
   end: number;
   text: string;
-  node?: ts.Node;
+  tsNode: ts.Node;
   hasNodes: boolean;
 };
 
@@ -48,6 +48,7 @@ export function scanAllChildren(
         endl: commentEndLine.line,
         pos: trivia.pos + node.pos,
         end: trivia.end + node.pos,
+        tsNode: node,
         text,
         hasNodes: false,
         // node,
@@ -73,6 +74,7 @@ export function scanAllChildren(
     endl: nextEndLine.line,
     pos: node.pos + node.getLeadingTriviaWidth(),
     end: node.end,
+    tsNode: node,
     text,
     hasNodes: childrend.length > 0,
     // node,

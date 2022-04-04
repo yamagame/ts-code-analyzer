@@ -10,22 +10,34 @@ import { scanAllChildren, AstInfo } from 'ts-parser';
 enum AttentionKind {
   none,
   arrow,
-  arrowParen,
+  arrowVariable,
+  export,
+  paren,
   function,
+  functionCall,
   variable,
   component,
   comment,
   property,
+  object,
+  objectProperty,
   block,
 }
 
 interface AstNode extends AstInfo {
   identifier?: AstNode;
   returnStatement?: AstNode;
-  components?: AstNode[];
+  children?: AstNode[];
   attention?: AttentionKind;
   note?: string;
+  syntax: {
+    export: boolean;
+  };
 }
+
+const initAstNode = (n: AstNode) => {
+  n.syntax = { export: false };
+};
 
 interface AstRegExp {
   exp: RegExp | RegExp[];
@@ -44,7 +56,7 @@ class AstStack extends Array<AstNode> {
     return this[this.length - 1 + offset];
   }
   indexFromLast(kind: string | string[], hook?: (index: number) => void) {
-    for (let i = this.length - 1; i >= 0; i--) {
+    for (let i = this.length - 2; i >= 0; i--) {
       if (Array.isArray(kind)) {
         for (let j = 0; j < kind.length; j++) {
           if (this[i].kind === kind[j]) {
@@ -99,15 +111,22 @@ class AstStack extends Array<AstNode> {
 function getText(node: AstNode | undefined, kind = AttentionKind.none): string {
   if (node) {
     if (
-      node.attention === AttentionKind.arrow ||
-      node.attention === AttentionKind.variable ||
-      node.attention === AttentionKind.function
+      node.attention === AttentionKind.arrowVariable
+      // node.attention === AttentionKind.variable ||
+      // node.attention === AttentionKind.function
     ) {
       return getText(node.identifier, node.attention);
     }
-    return `${node.line} ${
-      AttentionKind[kind === AttentionKind.none ? node.attention || 0 : kind]
-    }: ${node.text.replace(/[ \n]/g, '')} #${node.note || ''}`;
+    const kindStr =
+      AttentionKind[kind === AttentionKind.none ? node.attention || 0 : kind];
+    const textStr =
+      node.attention === AttentionKind.comment ||
+      node.attention === AttentionKind.export
+        ? node.text
+        : node.text.replace(/[ \n]/g, '');
+    return `${node.line} ${kindStr}: ${textStr} #${node.note || ''}, !${
+      node.syntax.export ? 'export' : 'intarnal'
+    }`;
   }
   return '';
 }
@@ -155,6 +174,7 @@ class Parser {
     if (
       m.kind.search(/Declaration$/) >= 0 ||
       m.kind === 'Identifier' ||
+      m.kind === 'ExportKeyword' ||
       isArrow(m) ||
       isJsxElement(m) ||
       isComment(m)
@@ -174,26 +194,32 @@ class Parser {
   };
 
   attentions: AstNode[] = [];
-  arrowFunctions: AstNode[] = [];
-  functions: AstNode[] = [];
-  variables: AstNode[] = [];
-  components: AstNode[] = [];
-  comments: AstNode[] = [];
-  blocks: AstNode[] = [];
 
   traverse = (_node: AstNode) => {
     this.stack.push(_node);
     let node = _node;
     let next = _node;
+    const isExport = (offset: number, kind?: string) => {
+      const node = this.stack.last(offset);
+      if (node && node.syntax.export === true) {
+        if (kind) {
+          if (node.kind === kind) return node;
+        } else {
+          return node;
+        }
+      }
+      return null;
+    };
     while (!this.isEnd()) {
       this.stack.match([
         // 変数を特定
         {
           exp: /VariableDeclaration\/Identifier$/,
           match: () => {
-            const ast = this.stack.last(-1);
-            ast.identifier = node;
-            this.arrowFunctions.push(ast);
+            const ast = this.stack.last();
+            if (isExport(-4, 'VariableStatement')) {
+              ast.syntax.export = true;
+            }
             this.pushAttention(ast, AttentionKind.variable);
           },
         },
@@ -202,20 +228,19 @@ class Parser {
         {
           exp: /FunctionDeclaration\/Identifier$/,
           match: () => {
-            const ast = this.stack.last(-1);
-            ast.identifier = node;
-            this.functions.push(ast);
+            const ast = this.stack.last();
+            if (isExport(-1)) {
+              ast.syntax.export = true;
+            }
             this.pushAttention(ast, AttentionKind.function);
           },
         },
-        // 変数名を特定
+        // 関数呼び出し
         {
-          exp: /VariableDeclaration\/Identifier$/,
+          exp: /CallExpression\/Identifier$/,
           match: () => {
-            const ast = this.stack.last(-1);
-            ast.identifier = node;
-            this.variables.push(ast);
-            this.pushAttention(ast, AttentionKind.variable);
+            const ast = this.stack.last();
+            this.pushAttention(ast, AttentionKind.functionCall);
           },
         },
         // コンポーネントが戻り値になっている関数を特定
@@ -227,23 +252,22 @@ class Parser {
             /ReturnStatement\/ParenthesizedExpression\/JsxFragment\/JsxOpeningFragment$/,
           ],
           options: [
-            [-4, 'open'],
-            [-2, 'self'],
-            [-3, 'self'],
-            [-2, 'open'],
+            [-4, 'jsx-open-return'],
+            [-2, 'jsx-self-return'],
+            [-3, 'jsx-self-return'],
+            [-2, 'jsx-open-return'],
           ],
           match: (option) => {
             const ast = this.stack.last();
             ast.note = option[1];
-            this.components.push(ast);
             const returnStatementAst = this.stack.last(option[0]);
             returnStatementAst.identifier = node;
             this.stack.findFromLast(
               ['FunctionDeclaration', 'VariableDeclaration'],
               (node: AstNode) => {
                 node.returnStatement = returnStatementAst;
-                if (!node.components) node.components = [];
-                node.components?.push(ast);
+                if (!node.children) node.children = [];
+                node.children?.push(ast);
                 this.pushAttention(ast, AttentionKind.component);
               }
             );
@@ -254,41 +278,81 @@ class Parser {
           exp: [
             /JsxOpeningElement\/Identifier$/,
             /JsxOpeningElement\/PropertyAccessExpression\/Identifier$/,
+            /JsxOpeningElement\/PropertyAccessExpression\/DotToken$/,
             /JsxSelfClosingElement\/Identifier$/,
             /JsxSelfClosingElement\/PropertyAccessExpression\/Identifier$/,
             /JsxClosingElement\/Identifier$/,
             /JsxClosingElement\/PropertyAccessExpression\/Identifier$/,
             /JsxFragment\/JsxClosingFragment$/,
           ],
-          options: ['open', 'open', 'self', 'self', 'close', 'close', 'close'],
+          options: [
+            'jsx-open',
+            'jsx-open-prop',
+            'jsx-dot-prop',
+            'jsx-self',
+            'jsx-self-prop',
+            'jsx-close',
+            'jsx-close-prop',
+            'jsx-close',
+          ],
           match: (option) => {
             const ast = this.stack.last();
             ast.note = option;
-            this.components.push(ast);
-            this.stack.findFromLast(
-              ['FunctionDeclaration', 'VariableDeclaration'],
-              (node: AstNode) => {
-                if (!node.components) node.components = [];
-                node.components?.push(ast);
-                this.pushAttention(ast, AttentionKind.component);
-              }
-            );
+            if (option.indexOf('prop') >= 0) {
+              this.stack.findFromLast(
+                ['PropertyAccessExpression'],
+                (node: AstNode) => {
+                  node.text += ast.text;
+                }
+              );
+            } else {
+              this.stack.findFromLast(
+                ['FunctionDeclaration', 'VariableDeclaration'],
+                (node: AstNode) => {
+                  if (!node.children) node.children = [];
+                  node.children?.push(ast);
+                  this.pushAttention(ast, AttentionKind.component);
+                }
+              );
+            }
           },
         },
         // プロパティ
         {
-          exp: [/PropertyAccessExpression$/],
-          options: [],
+          exp: [
+            /JsxOpeningElement\/PropertyAccessExpression$/,
+            /JsxClosingElement\/PropertyAccessExpression$/,
+            /PropertyAccessExpression$/,
+            /PropertyAccessExpression\/Identifier$/,
+            /PropertyAccessExpression\/DotToken$/,
+          ],
+          options: ['jsx-open', 'jsx-close', 'prop', 'word', 'word'],
           match: (option) => {
-            // プロパティは一旦スキップ
-            this.pushAttention(node, AttentionKind.property);
-            while (!this.isEnd()) {
-              const ast = this.next();
-              if (ast.level <= node.level) {
-                break;
+            const ast = this.stack.last();
+            if (option === 'word') {
+              this.stack.findFromLast(
+                ['PropertyAccessExpression'],
+                (node: AstNode) => {
+                  node.text += ast.text;
+                }
+              );
+            } else {
+              ast.text = '';
+              this.stack.match({
+                exp: [/PropertyAccessExpression\/PropertyAccessExpression$/],
+                match: (option) => {
+                  const node = this.stack.last(-1);
+                  if (!node.children) node.children = [];
+                  node.children?.push(ast);
+                },
+              });
+              if (option.indexOf('jsx') >= 0) {
+                ast.note = option;
+                this.pushAttention(ast, AttentionKind.component);
+              } else {
+                this.pushAttention(ast, AttentionKind.property);
               }
             }
-            this.prev();
           },
         },
         // アロー関数
@@ -296,13 +360,25 @@ class Parser {
           exp: [
             /ArrowFunction\/OpenParenToken$/,
             /ArrowFunction\/CloseParenToken$/,
+            /CallExpression\/OpenParenToken$/,
+            /CallExpression\/CloseParenToken$/,
             /ArrowFunction\/EqualsGreaterThanToken$/,
             /ArrowFunction\/OpenParenToken\/Block\/OpenBraceToken$/,
             /ArrowFunction\/OpenParenToken\/Block\/CloseBraceToken$/,
             /ArrowFunction\/(.+?)Expression\/OpenParenToken$/,
             /ArrowFunction\/(.+?)Expression\/CloseParenToken$/,
           ],
-          options: ['open', 'close', '', 'open', 'close', 'open', 'close'],
+          options: [
+            'open',
+            'close',
+            'open',
+            'close',
+            'arrow',
+            'open',
+            'close',
+            'open',
+            'close',
+          ],
           match: (option) => {
             const ast = this.stack.last();
             this.stack.match({
@@ -313,11 +389,61 @@ class Parser {
               options: [-2, -3],
               match: (option) => {
                 const variableAst = this.stack.last(option);
-                variableAst.attention = AttentionKind.arrow;
+                if (isExport(option - 3)) {
+                  if (variableAst.identifier)
+                    variableAst.identifier.syntax.export = true;
+                }
+                variableAst.attention = AttentionKind.arrowVariable;
               },
-            }),
-              (ast.note = option);
-            this.pushAttention(ast, AttentionKind.arrowParen);
+            });
+            ast.note = option;
+            if (option === 'arrow') {
+              this.pushAttention(ast, AttentionKind.arrow);
+            } else {
+              this.pushAttention(ast, AttentionKind.paren);
+            }
+          },
+        },
+        // オブジェクト
+        {
+          exp: [
+            /ObjectLiteralExpression\/OpenBraceToken$/,
+            /ObjectLiteralExpression\/CloseBraceToken$/,
+          ],
+          options: ['object-open', 'object-close'],
+          match: (option) => {
+            const ast = this.stack.last();
+            ast.note = option;
+            this.pushAttention(ast, AttentionKind.object);
+          },
+        },
+        // オブジェクトプロパティ
+        {
+          exp: [/PropertyAssignment\/Identifier$/],
+          match: (option) => {
+            const ast = this.stack.last();
+            ast.note = 'object-prop';
+            this.pushAttention(ast, AttentionKind.objectProperty);
+          },
+        },
+        // エキスポート
+        {
+          exp: [
+            /SyntaxList\/ExportKeyword$/,
+            /SyntaxList\/ExportAssignment\/ExportKeyword$/,
+          ],
+          options: [-3, -2],
+          match: (option) => {
+            const ast = this.stack.last();
+            {
+              const ast = this.stack.last(option);
+              this.stack
+                .slice(option)
+                .forEach((node) => (node.syntax.export = true));
+            }
+            node.syntax = { export: true };
+            ast.note = 'export';
+            // this.pushAttention(ast, AttentionKind.export);
           },
         },
         // ブロック
@@ -327,7 +453,6 @@ class Parser {
           match: (option) => {
             const ast = this.stack.last();
             ast.note = option;
-            this.blocks.push(ast);
             this.pushAttention(ast, AttentionKind.block);
           },
         },
@@ -336,7 +461,6 @@ class Parser {
           exp: [/SingleLineCommentTrivia$/, /MultiLineCommentTrivia$/],
           match: () => {
             const ast = this.stack.last();
-            this.comments.push(ast);
             this.pushAttention(ast, AttentionKind.comment);
           },
         },
@@ -376,9 +500,9 @@ async function main(argv: string[]) {
 
   const baseDir = `${arg.base}`;
   const srcPath = `${arg.source}`;
-  const cachedFiles = await scanAsync(srcPath, baseDir);
+  const importedFiles = await scanAsync(srcPath, baseDir);
 
-  const result = new Set(cachedFiles.map((file) => file.source));
+  const result = new Set(importedFiles.map((file) => file.source));
   new Array(...result).forEach((sourcePath) => {
     const sourcePathWithBase = path.join(baseDir, sourcePath);
     const sourceCode = fs.readFileSync(sourcePathWithBase, 'utf-8').trim();
@@ -394,7 +518,7 @@ async function main(argv: string[]) {
     console.log('');
 
     console.log('## imports');
-    const imports = cachedFiles
+    const imports = importedFiles
       .filter((file) => file.source === sourcePath)
       .map((file) => file.imports)
       .flat();
@@ -402,6 +526,8 @@ async function main(argv: string[]) {
 
     const lineInfo: AstNode[] = [];
     scanAllChildren(lineInfo, sourceFile, -1);
+
+    lineInfo.forEach((n) => initAstNode(n));
 
     const parser = new Parser(lineInfo);
 
@@ -417,64 +543,6 @@ async function main(argv: string[]) {
         '  '
       )
     );
-
-    // console.log('## arrow functions');
-    // console.log(
-    //   JSON.stringify(
-    //     parser.arrowFunctions.map(
-    //       (ast) =>
-    //         `${getText(ast.identifier)}, ${getText(
-    //           ast.returnStatement?.identifier
-    //         )}, [${ast.components?.map((c) => getText(c)).join(',') || ''}]`
-    //     ),
-    //     null,
-    //     '  '
-    //   )
-    // );
-
-    // console.log('## functions');
-    // console.log(
-    //   JSON.stringify(
-    //     parser.functions.map(
-    //       (ast) =>
-    //         `${getText(ast.identifier)}, ${getText(
-    //           ast.returnStatement?.identifier
-    //         )}, [${ast.components?.map((c) => getText(c)).join(',') || ''}]`
-    //     ),
-    //     null,
-    //     '  '
-    //   )
-    // );
-
-    // console.log('## components');
-    // console.log(
-    //   JSON.stringify(
-    //     parser.components?.map((c) => `${getText(c)}`),
-    //     null,
-    //     '  '
-    //   )
-    // );
-
-    // console.log('## comments');
-    // console.log(
-    //   JSON.stringify(
-    //     parser.comments?.map((c) => getText(c)),
-    //     null,
-    //     '  '
-    //   )
-    // );
-
-    // console.log('## blocks');
-    // console.log(
-    //   JSON.stringify(
-    //     parser.blocks?.map((c) => `${getText(c)}`),
-    //     null,
-    //     '  '
-    //   )
-    // );
-
-    console.log('');
-    console.log('');
   });
 }
 

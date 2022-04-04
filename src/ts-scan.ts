@@ -108,23 +108,28 @@ const findFile = (basePath: string, baseDir: string, filename: string) => {
 
 type CachedFiles = { [index: string]: string[] };
 
-const cachedFiles: CachedFiles = {};
+const cachedImportedFiles: CachedFiles = {};
 
 const scanTypescriptAsync = async (srcPath: string, baseDir: string) => {
   try {
-    if (cachedFiles[srcPath]) {
+    if (cachedImportedFiles[srcPath]) {
       return;
     }
     // console.log(`${srcPath} -------------------------------------------`);
     const fileInfo = ts.preProcessFile(fs.readFileSync(srcPath).toString());
-    const imports = fileInfo.importedFiles
+    // const referencedFiles = fileInfo.referencedFiles
+    //   .map((file) => file.fileName)
+    //   .map((file) => findFile(path.dirname(srcPath), baseDir, file))
+    //   .filter(isDefined);
+    const importedFiles = fileInfo.importedFiles
       .map((file) => file.fileName)
       .map((file) => findFile(path.dirname(srcPath), baseDir, file))
       .filter(isDefined);
-    // console.log(imports);
-    cachedFiles[srcPath] = imports;
-    imports.forEach((importFile) => {
-      scanTypescriptAsync(importFile, baseDir);
+    // console.log(referencedFiles);
+    // console.log(importedFiles);
+    cachedImportedFiles[srcPath] = importedFiles;
+    importedFiles.forEach((importedFiles) => {
+      scanTypescriptAsync(importedFiles, baseDir);
     });
   } catch (err) {
     console.error(srcPath);
@@ -134,7 +139,7 @@ const scanTypescriptAsync = async (srcPath: string, baseDir: string) => {
 
 export async function scanAsync(srcPath: string, baseDir: string) {
   await scanTypescriptAsync(srcPath, baseDir);
-  const result = Object.entries(cachedFiles).map(([src, imports]) => ({
+  const result = Object.entries(cachedImportedFiles).map(([src, imports]) => ({
     source: removeRootDir(baseDir, src),
     imports: imports.map((src) => removeRootDir(baseDir, src)),
   }));

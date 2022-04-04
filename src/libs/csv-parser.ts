@@ -84,6 +84,7 @@ export function stringify(parsed: CSVItem[][]) {
       }
       if (
         col.value.indexOf(',') >= 0 ||
+        col.value.indexOf(' ') >= 0 ||
         col.value.indexOf('"') >= 0 ||
         col.value.indexOf('\n') >= 0
       ) {

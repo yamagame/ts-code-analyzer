@@ -6,6 +6,8 @@ import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import { scanAsync } from 'ts-scan';
 import { scanAllChildren, AstInfo } from 'ts-parser';
+import * as CSV from 'libs/csv-parser';
+import { CSVItem } from 'libs/csv-parser';
 
 enum AttentionKind {
   none,
@@ -129,6 +131,51 @@ function getText(node: AstNode | undefined, kind = AttentionKind.none): string {
     }`;
   }
   return '';
+}
+
+class ExportCSV {
+  level: number = 0;
+  getCsv(node: AstNode | undefined, kind = AttentionKind.none): CSVItem[] {
+    if (node) {
+      if (
+        node.attention === AttentionKind.arrowVariable
+        // node.attention === AttentionKind.variable ||
+        // node.attention === AttentionKind.function
+      ) {
+        return this.getCsv(node.identifier, node.attention);
+      }
+      const kindStr =
+        AttentionKind[kind === AttentionKind.none ? node.attention || 0 : kind];
+      const textStr =
+        node.attention === AttentionKind.comment ||
+        node.attention === AttentionKind.export
+          ? node.text
+          : node.text.replace(/[ \n]/g, '');
+      const getIndentCell = (level: number) => {
+        return new Array(level < 0 ? 0 : level).fill('  ').join('');
+      };
+      const note = node.note || '';
+      if (note.indexOf('open') >= 0) this.level++;
+      const getCsvCol = () => {
+        if (kindStr === 'paren' || kindStr === 'block' || kindStr === 'arrow') {
+          return [];
+        } else {
+          return [
+            { value: `` },
+            { value: `${node.line}` },
+            { value: `${kindStr}` },
+            { value: `${getIndentCell(this.level)}${textStr}` },
+            { value: node.syntax.export ? 'export' : '' },
+            { value: note },
+          ];
+        }
+      };
+      const retval = getCsvCol();
+      if (note.indexOf('close') >= 0) this.level--;
+      return retval;
+    }
+    return [];
+  }
 }
 
 class Parser {
@@ -494,6 +541,11 @@ async function main(argv: string[]) {
       describe: 'Set base directory',
       demandOption: true,
     })
+    .option('mode', {
+      choices: ['log', 'csv'],
+      default: 'csv',
+      describe: 'Select output format',
+    })
     .option('source', { type: 'string', demandOption: true })
     .help()
     .parseSync();
@@ -514,16 +566,6 @@ async function main(argv: string[]) {
       true
     );
 
-    console.log(`# ${sourcePath}, ${sourcePathWithBase}, ---------`);
-    console.log('');
-
-    console.log('## imports');
-    const imports = importedFiles
-      .filter((file) => file.source === sourcePath)
-      .map((file) => file.imports)
-      .flat();
-    console.log(imports);
-
     const lineInfo: AstNode[] = [];
     scanAllChildren(lineInfo, sourceFile, -1);
 
@@ -534,15 +576,36 @@ async function main(argv: string[]) {
     const topNode = parser.next();
     parser.traverse(topNode);
 
-    console.log('## attentions');
     const attentions = parser.attentions.sort((a, b) => a.line - b.line);
-    console.log(
-      JSON.stringify(
-        attentions.map((c) => `${getText(c)}`),
-        null,
-        '  '
-      )
-    );
+
+    if (arg.mode === 'csv') {
+      console.log(`${sourcePath}, ${sourcePathWithBase}`);
+      const csvExport = new ExportCSV();
+      const csvData = attentions
+        .map((c) => csvExport.getCsv(c, 0))
+        .filter((v) => v.length > 0);
+      console.log(CSV.stringify(csvData));
+      console.log('');
+    } else {
+      console.log(`# ${sourcePath}, ${sourcePathWithBase}, ---------`);
+      console.log('');
+
+      console.log('## imports');
+      const imports = importedFiles
+        .filter((file) => file.source === sourcePath)
+        .map((file) => file.imports)
+        .flat();
+      console.log(imports);
+
+      console.log('## attentions');
+      console.log(
+        JSON.stringify(
+          attentions.map((c) => `${getText(c)}`),
+          null,
+          '  '
+        )
+      );
+    }
   });
 }
 

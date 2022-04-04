@@ -1,3 +1,5 @@
+# TypeScript のコードを解析するツール類
+
 ## ファイルの依存関係を CSV ファイルで出力
 
 ### yarn コマンドを使用した例
@@ -20,7 +22,7 @@ npx ts-node -r tsconfig-paths/register src/dependency.ts dep --base ../../react-
 cat temp-result.csv | cut -d ',' -f 1 | uniq
 ```
 
-### React コード解析ツール
+## React コード解析ツール
 
 React コードからコンポーネントとコメントなどを抜き出すツールです。
 以下、実行例です。

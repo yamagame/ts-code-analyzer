@@ -146,16 +146,33 @@ class ExportCSV {
       }
       const kindStr =
         AttentionKind[kind === AttentionKind.none ? node.attention || 0 : kind];
-      const textStr =
-        node.attention === AttentionKind.comment ||
-        node.attention === AttentionKind.export
-          ? node.text
-          : node.text.replace(/[ \n]/g, '');
+      const textStr = (node: AstNode) => {
+        const note = node.note || '';
+        const r =
+          node.attention === AttentionKind.comment ||
+          node.attention === AttentionKind.export
+            ? node.text
+            : node.text.replace(/[ \n]/g, '');
+        if (note.indexOf('fragment') < 0) {
+          if (note === 'jsx-close') {
+            return `</${r}>`;
+          }
+          if (note.indexOf('jsx-self') === 0) {
+            return `<${r} />`;
+          }
+          if (note.indexOf('jsx-open') === 0) {
+            return `<${r}>`;
+          }
+        }
+        return r;
+      };
       const getIndentCell = (level: number) => {
         return new Array(level < 0 ? 0 : level).fill('  ').join('');
       };
       const note = node.note || '';
       if (note.indexOf('open') >= 0) this.level++;
+      const returnStatement = node.returnStatement;
+      const returnComponent = returnStatement ? textStr(returnStatement) : '';
       const getCsvCol = () => {
         if (kindStr === 'paren' || kindStr === 'block' || kindStr === 'arrow') {
           return [];
@@ -163,8 +180,10 @@ class ExportCSV {
           return [
             { value: `` },
             { value: `${node.line}` },
-            { value: `${kindStr}` },
-            { value: `${getIndentCell(this.level)}${textStr}` },
+            {
+              value: `${kindStr}${returnComponent !== '' ? '-component' : ''}`,
+            },
+            { value: `${getIndentCell(this.level)}${textStr(node)}` },
             { value: node.syntax.export ? 'export' : '' },
             { value: note },
           ];
@@ -268,6 +287,12 @@ class Parser {
               ast.syntax.export = true;
             }
             this.pushAttention(ast, AttentionKind.variable);
+            this.stack.findFromLast(
+              ['VariableDeclaration'],
+              (node: AstNode) => {
+                node.identifier = ast;
+              }
+            );
           },
         },
         //
@@ -280,6 +305,12 @@ class Parser {
               ast.syntax.export = true;
             }
             this.pushAttention(ast, AttentionKind.function);
+            this.stack.findFromLast(
+              ['FunctionDeclaration'],
+              (node: AstNode) => {
+                node.identifier = ast;
+              }
+            );
           },
         },
         // 関数呼び出し
@@ -302,20 +333,18 @@ class Parser {
             [-4, 'jsx-open-return'],
             [-2, 'jsx-self-return'],
             [-3, 'jsx-self-return'],
-            [-2, 'jsx-open-return'],
+            [-2, 'jsx-open-return-fragment'],
           ],
           match: (option) => {
             const ast = this.stack.last();
             ast.note = option[1];
-            const returnStatementAst = this.stack.last(option[0]);
-            returnStatementAst.identifier = node;
+            this.pushAttention(ast, AttentionKind.component);
             this.stack.findFromLast(
               ['FunctionDeclaration', 'VariableDeclaration'],
               (node: AstNode) => {
-                node.returnStatement = returnStatementAst;
-                if (!node.children) node.children = [];
-                node.children?.push(ast);
-                this.pushAttention(ast, AttentionKind.component);
+                if (node.identifier) {
+                  node.identifier.returnStatement = ast;
+                }
               }
             );
           },
@@ -340,7 +369,7 @@ class Parser {
             'jsx-self-prop',
             'jsx-close',
             'jsx-close-prop',
-            'jsx-close',
+            'jsx-close-fragment',
           ],
           match: (option) => {
             const ast = this.stack.last();

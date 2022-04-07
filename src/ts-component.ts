@@ -42,7 +42,7 @@ const initAstNode = (n: AstNode) => {
 };
 
 interface AstRegExp {
-  exp: RegExp | RegExp[];
+  exp: RegExp | RegExp[] | [any, RegExp][];
   options?: any[];
   match?: (option: any, reg?: AstRegExp) => void;
 }
@@ -82,13 +82,19 @@ class AstStack extends Array<AstNode> {
   }
   match(regs: AstRegExp[] | AstRegExp) {
     const path = this.astPath;
-    const test = (reg: AstRegExp, exp: RegExp | RegExp[]) => {
+    const test = (reg: AstRegExp, exp: RegExp | RegExp[] | [any, RegExp][]) => {
       // exp が配列の場合
       if (Array.isArray(exp)) {
         return exp.some((e, i) => {
-          const result = e.test(path);
-          if (result && reg.match) reg.match(reg.options?.[i], reg);
-          return result;
+          if (Array.isArray(e)) {
+            const result = e[1].test(path);
+            if (result && reg.match) reg.match(e[0], reg);
+            return result;
+          } else {
+            const result = e.test(path);
+            if (result && reg.match) reg.match(reg.options?.[i], reg);
+            return result;
+          }
         });
       }
       // exp が単体の場合
@@ -324,20 +330,38 @@ class Parser {
         // コンポーネントが戻り値になっている関数を特定
         {
           exp: [
-            /ReturnStatement\/ParenthesizedExpression\/JsxElement\/JsxOpeningElement\/Identifier$/,
-            /ReturnStatement\/JsxSelfClosingElement\/Identifier$/,
-            /ReturnStatement\/ParenthesizedExpression\/JsxSelfClosingElement\/Identifier$/,
-            /ReturnStatement\/ParenthesizedExpression\/JsxFragment\/JsxOpeningFragment$/,
-          ],
-          options: [
-            [-4, 'jsx-open-return'],
-            [-2, 'jsx-self-return'],
-            [-3, 'jsx-self-return'],
-            [-2, 'jsx-open-return-fragment'],
+            [
+              'jsx-open-return',
+              /ReturnStatement\/ParenthesizedExpression\/JsxElement\/JsxOpeningElement\/Identifier$/,
+            ],
+            [
+              'jsx-self-return',
+              /ReturnStatement\/ParenthesizedExpression\/JsxSelfClosingElement\/Identifier$/,
+            ],
+            [
+              'jsx-open-return-fragment',
+              /ReturnStatement\/ParenthesizedExpression\/JsxFragment\/JsxOpeningFragment$/,
+            ],
+            [
+              'jsx-open-return',
+              /ReturnStatement\/JsxElement\/JsxOpeningElement\/Identifier$/,
+            ],
+            [
+              'jsx-self-return',
+              /ReturnStatement\/JsxSelfClosingElement\/Identifier$/,
+            ],
+            [
+              'jsx-open-return-fragment',
+              /ReturnStatement\/JsxFragment\/JsxOpeningFragment$/,
+            ],
+            [
+              'jsx-open-return',
+              /ReturnStatement\/JsxSelfClosingElement\/Identifier$/,
+            ],
           ],
           match: (option) => {
             const ast = this.stack.last();
-            ast.note = option[1];
+            ast.note = option;
             this.pushAttention(ast, AttentionKind.component);
             this.stack.findFromLast(
               ['FunctionDeclaration', 'VariableDeclaration'],
@@ -347,6 +371,58 @@ class Parser {
                 }
               }
             );
+          },
+        },
+        // コンポーネントが戻り値になっているアロー関数を特定
+        {
+          exp: [
+            [
+              [-4, 'jsx-open-return'],
+              /VariableDeclaration\/ArrowFunction\/ParenthesizedExpression\/JsxElement\/JsxOpeningElement$/,
+            ],
+            [
+              [-4, 'jsx-self-return'],
+              /VariableDeclaration\/ArrowFunction\/ParenthesizedExpression\/JsxElement\/JsxSelfClosingElement$/,
+            ],
+            [
+              [-4, 'jsx-open-return-fragment'],
+              /VariableDeclaration\/ArrowFunction\/ParenthesizedExpression\/JsxFragment\/JsxOpeningFragment$/,
+            ],
+            [
+              [-3, 'jsx-open-return'],
+              /VariableDeclaration\/ArrowFunction\/JsxElement\/JsxOpeningElement$/,
+            ],
+            [
+              [-3, 'jsx-self-return'],
+              /VariableDeclaration\/ArrowFunction\/JsxElement\/JsxSelfClosingElement$/,
+            ],
+            [
+              [-3, 'jsx-open-return-fragment'],
+              /VariableDeclaration\/ArrowFunction\/JsxFragment\/JsxOpeningFragment$/,
+            ],
+            [
+              [-2, 'jsx-open-return'],
+              /VariableDeclaration\/ArrowFunction\/JsxOpeningElement$/,
+            ],
+            [
+              [-2, 'jsx-self-return'],
+              /VariableDeclaration\/ArrowFunction\/JsxSelfClosingElement$/,
+            ],
+            [
+              [-2, 'jsx-open-return-fragment'],
+              /VariableDeclaration\/ArrowFunction\/JsxOpeningFragment$/,
+            ],
+          ],
+          match: (option) => {
+            const ast = this.stack.last();
+            ast.note = option[1];
+            if (option[1].indexOf('fragment') >= 0) {
+              this.pushAttention(ast, AttentionKind.component);
+            }
+            const node = this.stack.last(option[0]);
+            if (node.identifier) {
+              node.identifier.returnStatement = ast;
+            }
           },
         },
         // 関数で使用しているコンポーネント
@@ -396,13 +472,12 @@ class Parser {
         // プロパティ
         {
           exp: [
-            /JsxOpeningElement\/PropertyAccessExpression$/,
-            /JsxClosingElement\/PropertyAccessExpression$/,
-            /PropertyAccessExpression$/,
-            /PropertyAccessExpression\/Identifier$/,
-            /PropertyAccessExpression\/DotToken$/,
+            ['jsx-open', /JsxOpeningElement\/PropertyAccessExpression$/],
+            ['jsx-close', /JsxClosingElement\/PropertyAccessExpression$/],
+            ['prop', /PropertyAccessExpression$/],
+            ['word', /PropertyAccessExpression\/Identifier$/],
+            ['word', /PropertyAccessExpression\/DotToken$/],
           ],
-          options: ['jsx-open', 'jsx-close', 'prop', 'word', 'word'],
           match: (option) => {
             const ast = this.stack.last();
             if (option === 'word') {
@@ -434,35 +509,26 @@ class Parser {
         // アロー関数
         {
           exp: [
-            /ArrowFunction\/OpenParenToken$/,
-            /ArrowFunction\/CloseParenToken$/,
-            /CallExpression\/OpenParenToken$/,
-            /CallExpression\/CloseParenToken$/,
-            /ArrowFunction\/EqualsGreaterThanToken$/,
-            /ArrowFunction\/OpenParenToken\/Block\/OpenBraceToken$/,
-            /ArrowFunction\/OpenParenToken\/Block\/CloseBraceToken$/,
-            /ArrowFunction\/(.+?)Expression\/OpenParenToken$/,
-            /ArrowFunction\/(.+?)Expression\/CloseParenToken$/,
-          ],
-          options: [
-            'open',
-            'close',
-            'open',
-            'close',
-            'arrow',
-            'open',
-            'close',
-            'open',
-            'close',
+            ['open', /ArrowFunction\/OpenParenToken$/],
+            ['close', /ArrowFunction\/CloseParenToken$/],
+            ['open', /CallExpression\/OpenParenToken$/],
+            ['close', /CallExpression\/CloseParenToken$/],
+            ['arrow', /ArrowFunction\/EqualsGreaterThanToken$/],
+            ['open', /ArrowFunction\/OpenParenToken\/Block\/OpenBraceToken$/],
+            ['close', /ArrowFunction\/OpenParenToken\/Block\/CloseBraceToken$/],
+            ['open', /ArrowFunction\/(.+?)Expression\/OpenParenToken$/],
+            ['close', /ArrowFunction\/(.+?)Expression\/CloseParenToken$/],
           ],
           match: (option) => {
             const ast = this.stack.last();
             this.stack.match({
               exp: [
-                /VariableDeclaration\/ArrowFunction\/OpenParenToken$/,
-                /VariableDeclaration\/ArrowFunction\/ParenthesizedExpression\/OpenBraceToken$/,
+                [-2, /VariableDeclaration\/ArrowFunction\/OpenParenToken$/],
+                [
+                  -3,
+                  /VariableDeclaration\/ArrowFunction\/ParenthesizedExpression\/OpenBraceToken$/,
+                ],
               ],
-              options: [-2, -3],
               match: (option) => {
                 const variableAst = this.stack.last(option);
                 if (isExport(option - 3)) {
@@ -483,10 +549,9 @@ class Parser {
         // オブジェクト
         {
           exp: [
-            /ObjectLiteralExpression\/OpenBraceToken$/,
-            /ObjectLiteralExpression\/CloseBraceToken$/,
+            ['object-open', /ObjectLiteralExpression\/OpenBraceToken$/],
+            ['object-close', /ObjectLiteralExpression\/CloseBraceToken$/],
           ],
-          options: ['object-open', 'object-close'],
           match: (option) => {
             const ast = this.stack.last();
             ast.note = option;
@@ -505,10 +570,9 @@ class Parser {
         // エキスポート
         {
           exp: [
-            /SyntaxList\/ExportKeyword$/,
-            /SyntaxList\/ExportAssignment\/ExportKeyword$/,
+            [-3, /SyntaxList\/ExportKeyword$/],
+            [-2, /SyntaxList\/ExportAssignment\/ExportKeyword$/],
           ],
-          options: [-3, -2],
           match: (option) => {
             const ast = this.stack.last();
             {
@@ -524,8 +588,10 @@ class Parser {
         },
         // ブロック
         {
-          exp: [/Block\/OpenBraceToken$/, /Block\/CloseBraceToken$/],
-          options: ['open', 'close'],
+          exp: [
+            ['open', /Block\/OpenBraceToken$/],
+            ['close', /Block\/CloseBraceToken$/],
+          ],
           match: (option) => {
             const ast = this.stack.last();
             ast.note = option;

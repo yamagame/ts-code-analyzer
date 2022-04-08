@@ -4,13 +4,14 @@ import path from 'path';
 import * as ts from 'typescript';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { scanAsync } from 'ts-scan';
+import { scanAsync, findFile } from 'ts-scan';
 import { scanAllChildren, AstInfo } from 'ts-parser';
 import * as CSV from 'libs/csv-parser';
 import { CSVItem } from 'libs/csv-parser';
 
 enum AttentionKind {
   none,
+  import,
   arrow,
   arrowVariable,
   export,
@@ -30,6 +31,7 @@ interface AstNode extends AstInfo {
   identifier?: AstNode;
   returnStatement?: AstNode;
   children?: AstNode[];
+  path?: string;
   attention?: AttentionKind;
   note?: string;
   syntax: {
@@ -48,6 +50,12 @@ interface AstRegExp {
 }
 
 const indent = (level: number) => new Array(level).fill('  ').join('');
+
+const trimQuat = (str: string) => {
+  const t = str.match(/^['"](.+)['"]$/);
+  if (t) return t[1];
+  return str;
+};
 
 class AstStack extends Array<AstNode> {
   replace(ast: AstNode) {
@@ -129,6 +137,7 @@ function getText(node: AstNode | undefined, kind = AttentionKind.none): string {
       AttentionKind[kind === AttentionKind.none ? node.attention || 0 : kind];
     const textStr =
       node.attention === AttentionKind.comment ||
+      node.attention === AttentionKind.import ||
       node.attention === AttentionKind.export
         ? node.text
         : node.text.replace(/[ \n]/g, '');
@@ -154,6 +163,11 @@ class ExportCSV {
         AttentionKind[kind === AttentionKind.none ? node.attention || 0 : kind];
       const textStr = (node: AstNode) => {
         const note = node.note || '';
+        if (node.attention === AttentionKind.import) {
+          return `${
+            node.children ? node.children?.map((v) => v.text).join(' ') : ''
+          }`;
+        }
         const r =
           node.attention === AttentionKind.comment ||
           node.attention === AttentionKind.export
@@ -191,7 +205,7 @@ class ExportCSV {
             },
             { value: `${getIndentCell(this.level)}${textStr(node)}` },
             { value: node.syntax.export ? 'export' : '' },
-            { value: note },
+            { value: node.path || note },
           ];
         }
       };
@@ -205,12 +219,14 @@ class ExportCSV {
 
 interface ParserOption {
   debug?: boolean;
+  baseDir: string;
+  srcPath: string;
 }
 class Parser {
   _ptr = 0;
   _info: AstNode[];
   _options: ParserOption;
-  constructor(info: AstNode[], options: ParserOption = {}) {
+  constructor(info: AstNode[], options: ParserOption) {
     this._info = info;
     this._options = options;
   }
@@ -270,6 +286,13 @@ class Parser {
     this.attentions.push(node);
   };
 
+  toAbsolutePath = (p: string) => {
+    const { srcPath, baseDir } = this._options;
+    const r = findFile(path.dirname(srcPath), baseDir, p);
+    if (r === undefined) return p;
+    return r;
+  };
+
   attentions: AstNode[] = [];
 
   traverse = (_node: AstNode) => {
@@ -289,6 +312,41 @@ class Parser {
     };
     while (!this.isEnd()) {
       this.stack.match([
+        // import 定義
+        {
+          exp: [/ImportDeclaration$/],
+          match: () => {
+            const ast = this.stack.last();
+            this.pushAttention(ast, AttentionKind.import);
+          },
+        },
+        // import ID
+        {
+          exp: [
+            /ImportDeclaration\/ImportClause\/Identifier$/,
+            /ImportDeclaration\/ImportClause\/NamespaceImport\/Identifier$/,
+            /ImportDeclaration\/ImportClause\/NamedImports\/SyntaxList\/ImportSpecifier\/Identifier$/,
+          ],
+          match: () => {
+            const ast = this.stack.last();
+            this.stack.findFromLast(['ImportDeclaration'], (node: AstNode) => {
+              if (!node.children) node.children = [];
+              node.children?.push(ast);
+            });
+          },
+        },
+        // import パス
+        {
+          exp: [/ImportDeclaration\/StringLiteral$/],
+          match: () => {
+            const ast = this.stack.last();
+            this.stack.findFromLast(['ImportDeclaration'], (node: AstNode) => {
+              // if (!node.children) node.children = [];
+              node.path = `${this.toAbsolutePath(trimQuat(ast.text))}`;
+              // node.children?.push(ast);
+            });
+          },
+        },
         // 変数を特定
         {
           exp: /VariableDeclaration\/Identifier$/,
@@ -466,8 +524,8 @@ class Parser {
               this.stack.findFromLast(
                 ['FunctionDeclaration', 'VariableDeclaration'],
                 (node: AstNode) => {
-                  if (!node.children) node.children = [];
-                  node.children?.push(ast);
+                  // if (!node.children) node.children = [];
+                  // node.children?.push(ast);
                   this.pushAttention(ast, AttentionKind.component);
                 }
               );
@@ -497,9 +555,9 @@ class Parser {
               this.stack.match({
                 exp: [/PropertyAccessExpression\/PropertyAccessExpression$/],
                 match: (option) => {
-                  const node = this.stack.last(-1);
-                  if (!node.children) node.children = [];
-                  node.children?.push(ast);
+                  // const node = this.stack.last(-1);
+                  // if (!node.children) node.children = [];
+                  // node.children?.push(ast);
                 },
               });
               if (option.indexOf('jsx') >= 0) {
@@ -674,7 +732,7 @@ async function main(argv: string[]) {
 
     lineInfo.forEach((n) => initAstNode(n));
 
-    const parser = new Parser(lineInfo, { debug: arg.debug });
+    const parser = new Parser(lineInfo, { debug: arg.debug, srcPath, baseDir });
 
     const topNode = parser.next();
     parser.traverse(topNode);

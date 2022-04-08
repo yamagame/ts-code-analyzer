@@ -4,6 +4,13 @@
 [ 'index.css', 'app/App.tsx', 'store/index.ts', 'serviceWorker.ts' ]
 ## attentions
 [
+  "0 import: import React from 'react'; #, !intarnal",
+  "1 import: import ReactDOM from 'react-dom'; #, !intarnal",
+  "2 import: import './index.css'; #, !intarnal",
+  "3 import: import { App } from 'app/App'; #, !intarnal",
+  "4 import: import { store } from 'store'; #, !intarnal",
+  "5 import: import { Provider } from 'react-redux'; #, !intarnal",
+  "6 import: import * as serviceWorker from './serviceWorker'; #, !intarnal",
   "8 variable: HelloComponent #, !intarnal",
   "8 paren: ( #open, !intarnal",
   "8 paren: ) #close, !intarnal",
@@ -73,6 +80,10 @@
 ]
 ## attentions
 [
+  "0 import: import React from 'react'; #, !intarnal",
+  "1 import: import { useAppDispatch } from 'store'; #, !intarnal",
+  "2 import: import { actions } from 'features/article'; #, !intarnal",
+  "3 import: import { AppRouter } from 'routers/ApplicationRouter'; #, !intarnal",
   "5 function: App #, !export",
   "5 block: { #open, !intarnal",
   "6 variable: dispatch #, !intarnal",
@@ -113,6 +124,19 @@
 ]
 ## attentions
 [
+  "0 import: import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'; #, !intarnal",
+  "1 import: import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'; #, !intarnal",
+  "2 import: import { setupListeners } from '@reduxjs/toolkit/query'; #, !intarnal",
+  "4 import: import applicatoinReducer from 'features/application'; #, !intarnal",
+  "5 import: import counterReducer from 'features/counter'; #, !intarnal",
+  "6 import: import articleReducer from 'features/article'; #, !intarnal",
+  "7 import: import formSampleReducer from 'features/formSample'; #, !intarnal",
+  "8 import: import todoReducer from 'features/todo'; #, !intarnal",
+  "9 import: import myPageReducer from 'features/mypage'; #, !intarnal",
+  "10 import: import testPageReducer from 'features/testpage'; #, !intarnal",
+  "11 import: import todoCounterReducer from 'features/todoCounter'; #, !intarnal",
+  "12 import: import d3sampleReducer from 'features/d3sample'; #, !intarnal",
+  "13 import: import { d3sampleApi } from 'features/d3sample/services'; #, !intarnal",
   "24 variable: useAppDispatch #, !export",
   "24 paren: ( #open, !intarnal",
   "24 paren: ) #close, !intarnal",
@@ -174,6 +198,8 @@
 [ 'config/index.ts' ]
 ## attentions
 [
+  "0 import: import { createSlice } from '@reduxjs/toolkit'; #, !intarnal",
+  "1 import: import { config } from 'config'; #, !intarnal",
   "7 variable: initialState #, !intarnal",
   "7 object: { #object-open, !intarnal",
   "8 objectProperty: version #object-prop, !intarnal",
@@ -219,6 +245,10 @@
 ]
 ## attentions
 [
+  "0 import: import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'; #, !intarnal",
+  "1 import: import { RootState, AppThunk } from 'store'; #, !intarnal",
+  "2 import: import { fetchCountAsync } from 'core/gateways/counter'; #, !intarnal",
+  "3 import: import { Counter } from './usecase'; #, !intarnal",
   "10 variable: initialState #, !intarnal",
   "10 object: { #object-open, !intarnal",
   "11 objectProperty: value #object-prop, !intarnal",
@@ -417,6 +447,8 @@
 [ 'core/gateways/article/index.ts' ]
 ## attentions
 [
+  "0 import: import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'; #, !intarnal",
+  "1 import: import { Article, getPagesAsync } from 'core/gateways/article'; #, !intarnal",
   "8 variable: initialState #, !intarnal",
   "8 object: { #object-open, !intarnal",
   "9 objectProperty: status #object-prop, !intarnal",
@@ -523,6 +555,7 @@
 []
 ## attentions
 [
+  "0 import: import { createSlice, PayloadAction } from '@reduxjs/toolkit'; #, !intarnal",
   "17 variable: initialState #, !intarnal",
   "17 object: { #object-open, !intarnal",
   "18 objectProperty: name #object-prop, !intarnal",
@@ -605,6 +638,8 @@
 [ 'core/gateways/todo/index.ts' ]
 ## attentions
 [
+  "0 import: import {\n  createSlice,\n  createAsyncThunk,\n  SerializedError,\n} from '@reduxjs/toolkit'; #, !intarnal",
+  "5 import: import {\n  ToDo as ToDoModel,\n  getTodoAsync,\n  postTodoAsync,\n  patchToDoAsync,\n} from 'core/gateways/todo'; #, !intarnal",
   "25 variable: initialState #, !intarnal",
   "25 object: { #object-open, !intarnal",
   "26 objectProperty: status #object-prop, !intarnal",
@@ -820,6 +855,7 @@
 [ 'core/gateways/utils/api.ts' ]
 ## attentions
 [
+  "0 import: import { API } from 'core/gateways/utils/api'; #, !intarnal",
   "8 variable: headers #, !intarnal",
   "8 object: { #object-open, !intarnal",
   "8 object: } #object-close, !intarnal",
@@ -907,6 +943,7 @@
 []
 ## attentions
 [
+  "0 import: import axios, { AxiosError } from 'axios'; #, !intarnal",
   "2 variable: bodyToData #, !intarnal",
   "2 paren: ( #open, !intarnal",
   "2 paren: ) #close, !intarnal",
@@ -1067,6 +1104,7 @@
 []
 ## attentions
 [
+  "0 import: import { createSlice } from '@reduxjs/toolkit'; #, !intarnal",
   "6 variable: initialState #, !intarnal",
   "6 object: { #object-open, !intarnal",
   "7 objectProperty: count #object-prop, !intarnal",
@@ -1116,6 +1154,7 @@
 []
 ## attentions
 [
+  "0 import: import { createSlice } from '@reduxjs/toolkit'; #, !intarnal",
   "6 variable: initialState #, !intarnal",
   "6 object: { #object-open, !intarnal",
   "7 objectProperty: count #object-prop, !intarnal",
@@ -1172,6 +1211,7 @@
 []
 ## attentions
 [
+  "0 import: import { createSlice } from '@reduxjs/toolkit'; #, !intarnal",
   "6 variable: initialState #, !intarnal",
   "6 object: { #object-open, !intarnal",
   "7 objectProperty: count #object-prop, !intarnal",
@@ -1214,6 +1254,7 @@
 []
 ## attentions
 [
+  "0 import: import { createSlice } from '@reduxjs/toolkit'; #, !intarnal",
   "3 comment: // #, !intarnal",
   "6 variable: initialState #, !intarnal",
   "6 object: { #object-open, !intarnal",
@@ -1242,6 +1283,8 @@
 [ 'features/d3sample/types.ts' ]
 ## attentions
 [
+  "0 import: import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'; #, !intarnal",
+  "1 import: import { D3SampleData } from './types'; #, !intarnal",
   "8 variable: d3sampleApi #, !export",
   "8 functionCall: createApi #, !intarnal",
   "8 paren: ( #open, !intarnal",
@@ -1325,6 +1368,18 @@
 ]
 ## attentions
 [
+  "0 import: import { BrowserRouter, Routes, Route } from 'react-router-dom'; #, !intarnal",
+  "1 import: import { CounterAdapter } from 'features/counter/components/CounterAdapter'; #, !intarnal",
+  "2 import: import { TopAdapter } from 'features/top/TopAdapter'; #, !intarnal",
+  "3 import: import { FormAdapter } from 'features/formSample/components/FormAdapter'; #, !intarnal",
+  "4 import: import { FormFormikAdapter } from 'features/formSample/components/FormFormikAdapter'; #, !intarnal",
+  "5 import: import { ArticleAdapter } from 'features/article/components/ArticleAdapter'; #, !intarnal",
+  "6 import: import { MyPageAdapter } from 'features/mypage/components/MyPageAdapter'; #, !intarnal",
+  "7 import: import { TestPageAdapter } from 'features/testpage/components/TestPageAdapter'; #, !intarnal",
+  "8 import: import { ToDoAdapter } from 'features/todo/components/ToDoAdapter'; #, !intarnal",
+  "9 import: import { ToDoCounterAdapter } from 'features/todoCounter/components/ToDoCounterAdapter'; #, !intarnal",
+  "10 import: import { D3SampleLinkAdapter } from 'features/d3sample/components/D3SampleLinkAdapter'; #, !intarnal",
+  "11 import: import { D3SamplePageAdapter } from 'features/d3sample/components/D3SamplePageAdapter'; #, !intarnal",
   "13 function: AppRouter #, !export",
   "13 block: { #open, !intarnal",
   "15 component: BrowserRouter #jsx-open-return, !intarnal",
@@ -1378,6 +1433,12 @@
 ]
 ## attentions
 [
+  "0 import: import React from 'react'; #, !intarnal",
+  "1 import: import { useAppSelector, useAppDispatch } from 'store'; #, !intarnal",
+  "2 import: import { counterSelector } from '../selector'; #, !intarnal",
+  "3 import: import { CounterPage } from 'components/pages/CounterPage'; #, !intarnal",
+  "4 import: import { actions } from 'features/counter'; #, !intarnal",
+  "5 import: import { useTemplateProps } from 'features/utils'; #, !intarnal",
   "7 variable: cardData #, !intarnal",
   "7 object: { #object-open, !intarnal",
   "8 objectProperty: React #object-prop, !intarnal",
@@ -1494,6 +1555,7 @@
 [ 'store/index.ts' ]
 ## attentions
 [
+  "0 import: import { RootState } from 'store'; #, !intarnal",
   "2 variable: counterSelector #, !export",
   "2 paren: ( #open, !intarnal",
   "2 paren: ) #close, !intarnal",
@@ -1513,6 +1575,12 @@
 ]
 ## attentions
 [
+  "0 import: import { Counter } from 'components/organisms/Counter'; #, !intarnal",
+  "1 import: import {\n  MainTemplate,\n  MainTemplateProps,\n} from 'components/templates/MainTemplate'; #, !intarnal",
+  "5 import: import { CounterLinks } from 'components/organisms/CounterLinks'; #, !intarnal",
+  "6 import: import { AppLinkCardProps } from 'components/molecules/AppLinkCard'; #, !intarnal",
+  "7 import: import logo from './logo.svg'; #, !intarnal",
+  "8 import: import { Props as CounterProps } from 'components/organisms/Counter'; #, !intarnal",
   "15 function: CounterPage #, !export",
   "15 block: { #open, !intarnal",
   "16 variable: props #, !intarnal",
@@ -1536,6 +1604,8 @@
 [ 'components/organisms/Counter/Counter.module.css' ]
 ## attentions
 [
+  "0 import: import React from 'react'; #, !intarnal",
+  "1 import: import styles from './Counter.module.css'; #, !intarnal",
   "14 function: Counter #, !export",
   "14 block: { #open, !intarnal",
   "15 variable: props #, !intarnal",
@@ -1658,6 +1728,8 @@
 [ 'components/templates/MainTemplate/index.css' ]
 ## attentions
 [
+  "0 import: import React from 'react'; #, !intarnal",
+  "1 import: import './index.css'; #, !intarnal",
   "9 function: MainTemplate #, !export",
   "9 block: { #open, !intarnal",
   "10 variable: props #, !intarnal",
@@ -1723,6 +1795,7 @@
 [ 'components/molecules/AppLinkCard/index.tsx' ]
 ## attentions
 [
+  "0 import: import {\n  AppLinkCard,\n  AppLinkCardProps,\n} from 'components/molecules/AppLinkCard'; #, !intarnal",
   "9 variable: CounterLinks #, !export",
   "9 paren: ( #open, !intarnal",
   "9 paren: ) #close, !intarnal",
@@ -1753,6 +1826,7 @@
 [ 'components/atoms/AppLink/index.tsx' ]
 ## attentions
 [
+  "0 import: import { AppLink } from 'components/atoms/AppLink'; #, !intarnal",
   "8 variable: AppLinkCard #, !export",
   "8 paren: ( #open, !intarnal",
   "8 paren: ) #close, !intarnal",
@@ -1800,6 +1874,8 @@
 [ 'config/index.ts' ]
 ## attentions
 [
+  "0 import: import React from 'react'; #, !intarnal",
+  "1 import: import { config } from 'config'; #, !intarnal",
   "3 variable: useTemplateProps #, !export",
   "3 paren: ( #open, !intarnal",
   "3 paren: ) #close, !intarnal",
@@ -1830,6 +1906,10 @@
 ]
 ## attentions
 [
+  "0 import: import { useAppSelector } from 'store'; #, !intarnal",
+  "1 import: import { articleSelector } from 'features/article/selector'; #, !intarnal",
+  "2 import: import { ListPage } from 'components/pages/ListPage'; #, !intarnal",
+  "3 import: import { useTemplateProps } from 'features/utils'; #, !intarnal",
   "5 variable: urls #, !intarnal",
   "6 object: { #object-open, !intarnal",
   "6 objectProperty: url #object-prop, !intarnal",
@@ -1881,6 +1961,7 @@
 [ 'store/index.ts' ]
 ## attentions
 [
+  "0 import: import { RootState } from 'store'; #, !intarnal",
   "2 variable: articleSelector #, !export",
   "2 paren: ( #open, !intarnal",
   "2 paren: ) #close, !intarnal",
@@ -1896,6 +1977,8 @@
 ]
 ## attentions
 [
+  "0 import: import {\n  MainTemplate,\n  MainTemplateProps,\n} from 'components/templates/MainTemplate'; #, !intarnal",
+  "4 import: import { LinkTable } from 'components/molecules/LinkTable'; #, !intarnal",
   "19 function: ListPage #, !export",
   "19 block: { #open, !intarnal",
   "20 variable: props #, !intarnal",
@@ -1926,6 +2009,7 @@
 []
 ## attentions
 [
+  "0 import: import { Link } from 'react-router-dom'; #, !intarnal",
   "6 variable: LinkTable #, !export",
   "6 paren: ( #open, !intarnal",
   "6 paren: ) #close, !intarnal",
@@ -1965,6 +2049,12 @@
 ]
 ## attentions
 [
+  "0 import: import { FormPage } from 'components/pages/FormPage'; #, !intarnal",
+  "1 import: import { useNavigate } from 'react-router-dom'; #, !intarnal",
+  "2 import: import { useAppSelector, useAppDispatch } from 'store'; #, !intarnal",
+  "3 import: import { formSampleSelector } from '../selector'; #, !intarnal",
+  "4 import: import { actions } from 'features/formSample'; #, !intarnal",
+  "5 import: import { useTemplateProps } from 'features/utils'; #, !intarnal",
   "7 function: FormAdapter #, !export",
   "7 block: { #open, !intarnal",
   "8 variable: template #, !intarnal",
@@ -2063,6 +2153,8 @@
 ]
 ## attentions
 [
+  "0 import: import {\n  MainTemplate,\n  MainTemplateProps,\n} from 'components/templates/MainTemplate'; #, !intarnal",
+  "4 import: import { FormSample, FormSampleProps } from 'components/organisms/FormSample'; #, !intarnal",
   "13 function: FormPage #, !export",
   "13 block: { #open, !intarnal",
   "15 variable: props #, !intarnal",
@@ -2078,6 +2170,7 @@
 []
 ## attentions
 [
+  "0 import: import { useNavigate } from 'react-router-dom'; #, !intarnal",
   "27 function: FormSample #, !export",
   "27 block: { #open, !intarnal",
   "29 variable: props #, !intarnal",
@@ -2216,6 +2309,7 @@
 [ 'store/index.ts' ]
 ## attentions
 [
+  "0 import: import { RootState } from 'store'; #, !intarnal",
   "2 variable: formSampleSelector #, !export",
   "2 paren: ( #open, !intarnal",
   "2 paren: ) #close, !intarnal",
@@ -2233,6 +2327,13 @@
 ]
 ## attentions
 [
+  "0 import: import React from 'react'; #, !intarnal",
+  "1 import: import { FormPage } from 'components/pages/FormPage'; #, !intarnal",
+  "2 import: import { useNavigate } from 'react-router-dom'; #, !intarnal",
+  "3 import: import { useFormik } from 'formik'; #, !intarnal",
+  "4 import: import {\n  FormSampleSize,\n  FormSampleFruit,\n} from 'components/organisms/FormSample'; #, !intarnal",
+  "8 import: import { useTemplateProps } from 'features/utils'; #, !intarnal",
+  "9 import: import { API } from 'core/gateways/utils/api'; #, !intarnal",
   "19 function: FormFormikAdapter #, !export",
   "19 block: { #open, !intarnal",
   "20 property: React.useState #, !intarnal",
@@ -2426,6 +2527,11 @@
 ]
 ## attentions
 [
+  "0 import: import { useParams } from 'react-router-dom'; #, !intarnal",
+  "1 import: import { useAppSelector } from 'store'; #, !intarnal",
+  "2 import: import { articleSelector } from '../selector'; #, !intarnal",
+  "3 import: import { ArticlePage } from 'components/pages/ArticlePage'; #, !intarnal",
+  "4 import: import { useTemplateProps } from 'features/utils'; #, !intarnal",
   "6 function: ArticleAdapter #, !export",
   "6 block: { #open, !intarnal",
   "7 variable: template #, !intarnal",
@@ -2455,6 +2561,7 @@
 [ 'components/templates/MainTemplate/index.tsx' ]
 ## attentions
 [
+  "0 import: import {\n  MainTemplate,\n  MainTemplateProps,\n} from 'components/templates/MainTemplate'; #, !intarnal",
   "13 function: ArticlePage #, !export",
   "13 block: { #open, !intarnal",
   "14 variable: props #, !intarnal",
@@ -2481,6 +2588,11 @@
 ]
 ## attentions
 [
+  "0 import: import { MyPage, MyPageMessageProps } from 'components/pages/MyPage'; #, !intarnal",
+  "1 import: import { useTemplateProps } from 'features/utils'; #, !intarnal",
+  "2 import: import { useAppSelector, useAppDispatch } from 'store'; #, !intarnal",
+  "3 import: import { mypageSelector } from '../selector'; #, !intarnal",
+  "4 import: import { actions } from 'features/mypage'; #, !intarnal",
   "6 variable: messages #, !intarnal",
   "6 object: { #object-open, !intarnal",
   "7 objectProperty: title #object-prop, !intarnal",
@@ -2548,6 +2660,9 @@
 ]
 ## attentions
 [
+  "0 import: import {\n  MainTemplate,\n  MainTemplateProps,\n} from 'components/templates/MainTemplate'; #, !intarnal",
+  "4 import: import { Button } from 'components/atoms/Button'; #, !intarnal",
+  "5 import: import { useComponentState } from './componentState'; #, !intarnal",
   "21 function: MyPage #, !export",
   "21 block: { #open, !intarnal",
   "22 variable: props #, !intarnal",
@@ -2612,6 +2727,8 @@
 [ 'components/atoms/Button/button.css' ]
 ## attentions
 [
+  "0 import: import React from 'react'; #, !intarnal",
+  "1 import: import './button.css'; #, !intarnal",
   "4 comment: /**\n   * Is this the principal call to action on the page?\n   */ #, !intarnal",
   "8 comment: /**\n   * What background color to use\n   */ #, !intarnal",
   "12 comment: /**\n   * How large should the button be?\n   */ #, !intarnal",
@@ -2664,6 +2781,8 @@
 []
 ## attentions
 [
+  "0 import: import React from 'react'; #, !intarnal",
+  "1 import: import { MyPageProps } from '.'; #, !intarnal",
   "3 variable: useComponentState #, !export",
   "3 paren: ( #open, !intarnal",
   "3 paren: ) #close, !intarnal",
@@ -2754,6 +2873,7 @@
 [ 'store/index.ts' ]
 ## attentions
 [
+  "0 import: import { RootState } from 'store'; #, !intarnal",
   "2 variable: mypageSelector #, !export",
   "2 paren: ( #open, !intarnal",
   "2 paren: ) #close, !intarnal",
@@ -2772,6 +2892,11 @@
 ]
 ## attentions
 [
+  "0 import: import { MyPage, MyPageMessageProps } from 'components/pages/MyPage'; #, !intarnal",
+  "1 import: import { useTemplateProps } from 'features/utils'; #, !intarnal",
+  "2 import: import { useAppSelector, useAppDispatch } from 'store'; #, !intarnal",
+  "3 import: import { testpageSelector } from '../selector'; #, !intarnal",
+  "4 import: import { actions } from '../'; #, !intarnal",
   "6 variable: messages #, !intarnal",
   "6 object: { #object-open, !intarnal",
   "7 objectProperty: title #object-prop, !intarnal",
@@ -2835,6 +2960,7 @@
 [ 'store/index.ts' ]
 ## attentions
 [
+  "0 import: import { RootState } from 'store'; #, !intarnal",
   "2 variable: testpageSelector #, !export",
   "2 paren: ( #open, !intarnal",
   "2 paren: ) #close, !intarnal",
@@ -2853,6 +2979,12 @@
 ]
 ## attentions
 [
+  "0 import: import React from 'react'; #, !intarnal",
+  "1 import: import { ToDoPage } from 'components/pages/ToDoPage'; #, !intarnal",
+  "2 import: import { useAppDispatch, useAppSelector } from 'store'; #, !intarnal",
+  "3 import: import { todoSelector } from '../selector'; #, !intarnal",
+  "4 import: import { actions, ToDo } from 'features/todo'; #, !intarnal",
+  "5 import: import { useTemplateProps } from 'features/utils'; #, !intarnal",
   "7 function: ToDoAdapter #, !export",
   "7 block: { #open, !intarnal",
   "8 variable: template #, !intarnal",
@@ -2927,6 +3059,10 @@
 ]
 ## attentions
 [
+  "0 import: import {\n  MainTemplate,\n  MainTemplateProps,\n} from 'components/templates/MainTemplate'; #, !intarnal",
+  "4 import: import {\n  ToDoForm,\n  FormProps as ToDoFormProps,\n} from 'components/molecules/ToDoForm'; #, !intarnal",
+  "8 import: import { useFormik } from 'formik'; #, !intarnal",
+  "9 import: import * as Yup from 'yup'; #, !intarnal",
   "25 function: ToDoPage #, !export",
   "25 block: { #open, !intarnal",
   "26 variable: props #, !intarnal",
@@ -3020,6 +3156,8 @@
 [ 'components/atoms/Button/index.tsx' ]
 ## attentions
 [
+  "0 import: import { Button } from 'components/atoms/Button'; #, !intarnal",
+  "1 import: import { FormikProps } from 'formik'; #, !intarnal",
   "11 variable: ToDoForm #, !export",
   "11 paren: ( #open, !intarnal",
   "11 paren: ) #close, !intarnal",
@@ -3067,6 +3205,7 @@
 [ 'store/index.ts' ]
 ## attentions
 [
+  "0 import: import { RootState } from 'store'; #, !intarnal",
   "2 variable: todoSelector #, !export",
   "2 paren: ( #open, !intarnal",
   "2 paren: ) #close, !intarnal",
@@ -3086,6 +3225,13 @@
 ]
 ## attentions
 [
+  "0 import: import React from 'react'; #, !intarnal",
+  "1 import: import {\n  ToDoCounterPage,\n  ToDoCounterPageProps,\n} from 'components/pages/ToDoCounterPage'; #, !intarnal",
+  "5 import: import { useAppDispatch, useAppSelector } from 'store'; #, !intarnal",
+  "6 import: import { todoCounterSelector } from '../selector'; #, !intarnal",
+  "7 import: import { actions as todoCounterActions } from 'features/todoCounter'; #, !intarnal",
+  "8 import: import { actions as todoActions } from 'features/todo'; #, !intarnal",
+  "9 import: import { useTemplateProps } from 'features/utils'; #, !intarnal",
   "11 function: ToDoCounterAdapter #, !export",
   "11 block: { #open, !intarnal",
   "12 variable: dispatch #, !intarnal",
@@ -3163,6 +3309,8 @@
 ]
 ## attentions
 [
+  "0 import: import {\n  MainTemplate,\n  MainTemplateProps,\n} from 'components/templates/MainTemplate'; #, !intarnal",
+  "4 import: import { Button } from 'components/atoms/Button'; #, !intarnal",
   "14 function: ToDoCounterPage #, !export",
   "14 block: { #open, !intarnal",
   "15 variable: props #, !intarnal",
@@ -3185,6 +3333,7 @@
 [ 'store/index.ts' ]
 ## attentions
 [
+  "0 import: import { RootState } from 'store'; #, !intarnal",
   "2 variable: todoCounterSelector #, !export",
   "2 paren: ( #open, !intarnal",
   "2 paren: ) #close, !intarnal",
@@ -3221,6 +3370,9 @@
 ]
 ## attentions
 [
+  "0 import: import { Link } from 'react-router-dom'; #, !intarnal",
+  "1 import: import { useTemplateProps } from 'features/utils'; #, !intarnal",
+  "2 import: import { MainTemplate } from 'components/templates/MainTemplate'; #, !intarnal",
   "4 function: D3SampleLinkAdapter #, !export",
   "4 block: { #open, !intarnal",
   "5 variable: template #, !intarnal",
@@ -3245,6 +3397,13 @@
 ]
 ## attentions
 [
+  "0 import: import React from 'react'; #, !intarnal",
+  "1 import: import { useParams } from 'react-router-dom'; #, !intarnal",
+  "2 import: import { D3Sample } from 'components/pages/D3SamplePage'; #, !intarnal",
+  "3 import: import { useTemplateProps } from 'features/utils'; #, !intarnal",
+  "4 import: import {\n  useGetD3SampleByNameQuery,\n  useUpdateD3SampleMutation,\n} from 'features/d3sample/services'; #, !intarnal",
+  "8 import: import { D3SampleItem } from 'components/pages/D3SamplePage/types'; #, !intarnal",
+  "9 import: import { D3SampleDataToItem, D3SampleItemToData } from '../usecase'; #, !intarnal",
   "11 variable: D3SamplePageAdapter #, !export",
   "11 paren: ( #open, !intarnal",
   "11 paren: ) #close, !intarnal",
@@ -3308,6 +3467,10 @@
 ]
 ## attentions
 [
+  "0 import: import React from 'react'; #, !intarnal",
+  "1 import: import {\n  MainTemplate,\n  MainTemplateProps,\n} from 'components/templates/MainTemplate'; #, !intarnal",
+  "5 import: import { useComponentState } from './usecase/componentState'; #, !intarnal",
+  "6 import: import { D3SampleItem, D3SampleGraphType } from './types'; #, !intarnal",
   "17 function: D3Sample #, !export",
   "17 block: { #open, !intarnal",
   "18 property: React.useState #, !intarnal",
@@ -3402,6 +3565,12 @@
 ]
 ## attentions
 [
+  "0 import: import React from 'react'; #, !intarnal",
+  "1 import: import { D3SampleProps } from '..'; #, !intarnal",
+  "2 import: import * as CSV from './csv-parser'; #, !intarnal",
+  "3 import: import { updateElement } from './updateElement'; #, !intarnal",
+  "4 import: import { D3SampleItem, FormProps, D3SampleGraphType } from '../types'; #, !intarnal",
+  "5 import: import { useFormik } from 'formik'; #, !intarnal",
   "7 variable: toCSVFromData #, !intarnal",
   "7 paren: ( #open, !intarnal",
   "7 paren: ) #close, !intarnal",
@@ -3744,6 +3913,12 @@
 ]
 ## attentions
 [
+  "0 import: import * as d3 from 'd3'; #, !intarnal",
+  "1 import: import { D3SampleItem, D3SampleGraphType } from '../types'; #, !intarnal",
+  "2 import: import { textGraph } from './graph/normalTextGraph'; #, !intarnal",
+  "3 import: import { text2Graph } from './graph/redTextGraph'; #, !intarnal",
+  "4 import: import { horizontalBarGraph } from './graph/horizontalBarGraph'; #, !intarnal",
+  "5 import: import { verticalBarGraph } from './graph/verticalBarGraph'; #, !intarnal",
   "7 variable: graph #, !intarnal",
   "7 object: { #object-open, !intarnal",
   "8 property: D3SampleGraphType.NORMAL_TEXT #, !intarnal",
@@ -3788,6 +3963,8 @@
 [ 'components/pages/D3SamplePage/types.ts' ]
 ## attentions
 [
+  "0 import: import * as d3 from 'd3'; #, !intarnal",
+  "1 import: import { D3SampleItem } from '../../types'; #, !intarnal",
   "3 variable: textGraph #, !export",
   "3 paren: ( #open, !intarnal",
   "3 paren: ) #close, !intarnal",
@@ -3837,6 +4014,8 @@
 [ 'components/pages/D3SamplePage/types.ts' ]
 ## attentions
 [
+  "0 import: import * as d3 from 'd3'; #, !intarnal",
+  "1 import: import { D3SampleItem } from '../../types'; #, !intarnal",
   "3 variable: text2Graph #, !export",
   "3 paren: ( #open, !intarnal",
   "3 paren: ) #close, !intarnal",
@@ -3889,6 +4068,8 @@
 [ 'components/pages/D3SamplePage/types.ts' ]
 ## attentions
 [
+  "0 import: import * as d3 from 'd3'; #, !intarnal",
+  "1 import: import { D3SampleItem } from '../../types'; #, !intarnal",
   "3 variable: horizontalBarGraph #, !export",
   "3 paren: ( #open, !intarnal",
   "6 paren: ) #close, !intarnal",
@@ -4050,6 +4231,8 @@
 [ 'components/pages/D3SamplePage/types.ts' ]
 ## attentions
 [
+  "0 import: import * as d3 from 'd3'; #, !intarnal",
+  "1 import: import { D3SampleItem } from '../../types'; #, !intarnal",
   "3 variable: verticalBarGraph #, !export",
   "3 paren: ( #open, !intarnal",
   "6 paren: ) #close, !intarnal",
@@ -4218,6 +4401,8 @@
 ]
 ## attentions
 [
+  "0 import: import { D3SampleData } from '../types'; #, !intarnal",
+  "1 import: import { D3SampleItem } from 'components/pages/D3SamplePage/types'; #, !intarnal",
   "3 variable: D3SampleItemToData #, !export",
   "3 paren: ( #open, !intarnal",
   "3 paren: ) #close, !intarnal",

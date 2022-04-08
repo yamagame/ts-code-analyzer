@@ -47,7 +47,11 @@ const findFileWithExts = (makePathCallback: (ext: string) => string) => {
   return findFile;
 };
 
-const findFile = (basePath: string, baseDir: string, filename: string) => {
+export const findFile = (
+  basePath: string,
+  baseDir: string,
+  filename: string
+) => {
   try {
     if (filename.startsWith('/')) return undefined;
     if (filename === '.') {
@@ -98,7 +102,7 @@ const findFile = (basePath: string, baseDir: string, filename: string) => {
       );
       if (file) return file;
     }
-    // console.log(`## not found : ${basePath} : ${filename}`);
+    // console.log(`## not found : ${basePath} : ${baseDir} : ${filename}`);
     return undefined;
   } catch (err) {
     console.error(err);

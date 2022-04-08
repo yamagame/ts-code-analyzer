@@ -1,4 +1,11 @@
 index.tsx, ../../react-typescript-starter-app/src/index.tsx
+,0,import,React,,react
+,1,import,ReactDOM,,react-dom
+,2,import,,,../../react-typescript-starter-app/src/index.css
+,3,import,App,,../../react-typescript-starter-app/src/app/App.tsx
+,4,import,store,,../../react-typescript-starter-app/src/store/index.ts
+,5,import,Provider,,react-redux
+,6,import,serviceWorker,,../../react-typescript-starter-app/src/serviceWorker.ts
 ,8,variable-component,HelloComponent,,
 ,8,component,"  <>",,jsx-open-return-fragment
 ,8,component,"  </>",,jsx-close-fragment
@@ -28,6 +35,10 @@ index.css, ../../react-typescript-starter-app/src/index.css
 
 
 app/App.tsx, ../../react-typescript-starter-app/src/app/App.tsx
+,0,import,React,,react
+,1,import,useAppDispatch,,../../react-typescript-starter-app/src/store/index.ts
+,2,import,actions,,../../react-typescript-starter-app/src/features/article/index.ts
+,3,import,AppRouter,,../../react-typescript-starter-app/src/routers/ApplicationRouter.tsx
 ,5,function-component,App,export,
 ,6,variable,"  dispatch",,
 ,6,functionCall,"  useAppDispatch",,
@@ -37,6 +48,19 @@ app/App.tsx, ../../react-typescript-starter-app/src/app/App.tsx
 ,12,component,"  <AppRouter />",,jsx-self-return
 
 store/index.ts, ../../react-typescript-starter-app/src/store/index.ts
+,0,import,"configureStore ThunkAction Action",,@reduxjs/toolkit
+,1,import,"TypedUseSelectorHook useDispatch useSelector",,react-redux
+,2,import,setupListeners,,@reduxjs/toolkit/query
+,4,import,applicatoinReducer,,../../react-typescript-starter-app/src/features/application/index.ts
+,5,import,counterReducer,,../../react-typescript-starter-app/src/features/counter/index.ts
+,6,import,articleReducer,,../../react-typescript-starter-app/src/features/article/index.ts
+,7,import,formSampleReducer,,../../react-typescript-starter-app/src/features/formSample/index.ts
+,8,import,todoReducer,,../../react-typescript-starter-app/src/features/todo/index.ts
+,9,import,myPageReducer,,../../react-typescript-starter-app/src/features/mypage/index.ts
+,10,import,testPageReducer,,../../react-typescript-starter-app/src/features/testpage/index.ts
+,11,import,todoCounterReducer,,../../react-typescript-starter-app/src/features/todoCounter/index.ts
+,12,import,d3sampleReducer,,../../react-typescript-starter-app/src/features/d3sample/index.ts
+,13,import,d3sampleApi,,../../react-typescript-starter-app/src/features/d3sample/services.ts
 ,24,variable,useAppDispatch,export,
 ,24,functionCall,useDispatch,,
 ,25,variable,useAppSelector,export,
@@ -77,6 +101,8 @@ store/index.ts, ../../react-typescript-starter-app/src/store/index.ts
 ,45,property,"  store.dispatch",,
 
 features/application/index.ts, ../../react-typescript-starter-app/src/features/application/index.ts
+,0,import,createSlice,,@reduxjs/toolkit
+,1,import,config,,../../react-typescript-starter-app/src/config/index.ts
 ,7,variable,initialState,,
 ,7,object,"  {",,object-open
 ,8,objectProperty,"  version",,object-prop
@@ -106,6 +132,10 @@ config/index.ts, ../../react-typescript-starter-app/src/config/index.ts
 ,2,object,"  }",,object-close
 
 features/counter/index.ts, ../../react-typescript-starter-app/src/features/counter/index.ts
+,0,import,"createAsyncThunk createSlice PayloadAction",,@reduxjs/toolkit
+,1,import,"RootState AppThunk",,../../react-typescript-starter-app/src/store/index.ts
+,2,import,fetchCountAsync,,../../react-typescript-starter-app/src/core/gateways/counter/index.ts
+,3,import,Counter,,./usecase
 ,10,variable,initialState,,
 ,10,object,"  {",,object-open
 ,11,objectProperty,"  value",,object-prop
@@ -200,6 +230,8 @@ features/counter/usecase.ts, ../../react-typescript-starter-app/src/features/cou
 
 
 features/article/index.ts, ../../react-typescript-starter-app/src/features/article/index.ts
+,0,import,"createSlice createAsyncThunk",,@reduxjs/toolkit
+,1,import,"Article getPagesAsync",,../../react-typescript-starter-app/src/core/gateways/article/index.ts
 ,8,variable,initialState,,
 ,8,object,"  {",,object-open
 ,9,objectProperty,"  status",,object-prop
@@ -248,6 +280,7 @@ core/gateways/article/index.ts, ../../react-typescript-starter-app/src/core/gate
 ,7,object,"      }",,object-close
 
 features/formSample/index.ts, ../../react-typescript-starter-app/src/features/formSample/index.ts
+,0,import,"createSlice PayloadAction",,@reduxjs/toolkit
 ,17,variable,initialState,,
 ,17,object,"  {",,object-open
 ,18,objectProperty,"  name",,object-prop
@@ -298,6 +331,8 @@ features/formSample/index.ts, ../../react-typescript-starter-app/src/features/fo
 ,61,property,formSampleSlice.reducer,,
 
 features/todo/index.ts, ../../react-typescript-starter-app/src/features/todo/index.ts
+,0,import,"createSlice createAsyncThunk SerializedError",,@reduxjs/toolkit
+,5,import,"ToDo ToDoModel getTodoAsync postTodoAsync patchToDoAsync",,../../react-typescript-starter-app/src/core/gateways/todo/index.ts
 ,25,variable,initialState,,
 ,25,object,"  {",,object-open
 ,26,objectProperty,"  status",,object-prop
@@ -396,6 +431,7 @@ features/todo/index.ts, ../../react-typescript-starter-app/src/features/todo/ind
 ,109,property,todoSlice.reducer,,
 
 core/gateways/todo/index.ts, ../../react-typescript-starter-app/src/core/gateways/todo/index.ts
+,0,import,API,,../../react-typescript-starter-app/src/core/gateways/utils/api.ts
 ,8,variable,headers,,
 ,8,object,"  {",,object-open
 ,8,object,"  }",,object-close
@@ -459,6 +495,7 @@ core/gateways/todo/index.ts, ../../react-typescript-starter-app/src/core/gateway
 ,75,object,"    }",,object-close
 
 core/gateways/utils/api.ts, ../../react-typescript-starter-app/src/core/gateways/utils/api.ts
+,0,import,"axios AxiosError",,axios
 ,2,variable,bodyToData,,
 ,4,property,"    config.data",,
 ,5,property,"      config.body",,
@@ -529,6 +566,7 @@ core/gateways/utils/api.ts, ../../react-typescript-starter-app/src/core/gateways
 ,63,variable,AxiosAPI,export,
 
 features/mypage/index.ts, ../../react-typescript-starter-app/src/features/mypage/index.ts
+,0,import,createSlice,,@reduxjs/toolkit
 ,6,variable,initialState,,
 ,6,object,"  {",,object-open
 ,7,objectProperty,"  count",,object-prop
@@ -556,6 +594,7 @@ features/mypage/index.ts, ../../react-typescript-starter-app/src/features/mypage
 ,30,property,myPageSlice.reducer,,
 
 features/testpage/index.ts, ../../react-typescript-starter-app/src/features/testpage/index.ts
+,0,import,createSlice,,@reduxjs/toolkit
 ,6,variable,initialState,,
 ,6,object,"  {",,object-open
 ,7,objectProperty,"  count",,object-prop
@@ -585,6 +624,7 @@ features/testpage/index.ts, ../../react-typescript-starter-app/src/features/test
 ,33,property,testPageSlice.reducer,,
 
 features/todoCounter/index.ts, ../../react-typescript-starter-app/src/features/todoCounter/index.ts
+,0,import,createSlice,,@reduxjs/toolkit
 ,6,variable,initialState,,
 ,6,object,"  {",,object-open
 ,7,objectProperty,"  count",,object-prop
@@ -610,6 +650,7 @@ features/todoCounter/index.ts, ../../react-typescript-starter-app/src/features/t
 ,27,property,toDoCounterSlice.reducer,,
 
 features/d3sample/index.ts, ../../react-typescript-starter-app/src/features/d3sample/index.ts
+,0,import,createSlice,,@reduxjs/toolkit
 ,3,comment,//,,
 ,6,variable,initialState,,
 ,6,object,"  {",,object-open
@@ -631,6 +672,8 @@ features/d3sample/index.ts, ../../react-typescript-starter-app/src/features/d3sa
 ,20,property,d3sampleSlice.reducer,,
 
 features/d3sample/services.ts, ../../react-typescript-starter-app/src/features/d3sample/services.ts
+,0,import,"createApi fetchBaseQuery",,@reduxjs/toolkit/query/react
+,1,import,D3SampleData,,./types
 ,8,variable,d3sampleApi,export,
 ,8,functionCall,createApi,,
 ,8,object,"    {",,object-open
@@ -671,6 +714,18 @@ features/d3sample/types.ts, ../../react-typescript-starter-app/src/features/d3sa
 ,0,comment,"// API側の型定義",,
 
 routers/ApplicationRouter.tsx, ../../react-typescript-starter-app/src/routers/ApplicationRouter.tsx
+,0,import,"BrowserRouter Routes Route",,react-router-dom
+,1,import,CounterAdapter,,../../react-typescript-starter-app/src/features/counter/components/CounterAdapter.tsx
+,2,import,TopAdapter,,../../react-typescript-starter-app/src/features/top/TopAdapter.tsx
+,3,import,FormAdapter,,../../react-typescript-starter-app/src/features/formSample/components/FormAdapter.tsx
+,4,import,FormFormikAdapter,,../../react-typescript-starter-app/src/features/formSample/components/FormFormikAdapter.tsx
+,5,import,ArticleAdapter,,../../react-typescript-starter-app/src/features/article/components/ArticleAdapter.tsx
+,6,import,MyPageAdapter,,../../react-typescript-starter-app/src/features/mypage/components/MyPageAdapter.tsx
+,7,import,TestPageAdapter,,../../react-typescript-starter-app/src/features/testpage/components/TestPageAdapter.tsx
+,8,import,ToDoAdapter,,../../react-typescript-starter-app/src/features/todo/components/ToDoAdapter.tsx
+,9,import,ToDoCounterAdapter,,../../react-typescript-starter-app/src/features/todoCounter/components/ToDoCounterAdapter.tsx
+,10,import,D3SampleLinkAdapter,,../../react-typescript-starter-app/src/features/d3sample/components/D3SampleLinkAdapter.tsx
+,11,import,D3SamplePageAdapter,,../../react-typescript-starter-app/src/features/d3sample/components/D3SamplePageAdapter.tsx
 ,13,function-component,AppRouter,export,
 ,15,component,"    <BrowserRouter>",,jsx-open-return
 ,16,component,"      <Routes>",,jsx-open
@@ -711,6 +766,12 @@ routers/ApplicationRouter.tsx, ../../react-typescript-starter-app/src/routers/Ap
 ,40,component,"    </BrowserRouter>",,jsx-close
 
 features/counter/components/CounterAdapter.tsx, ../../react-typescript-starter-app/src/features/counter/components/CounterAdapter.tsx
+,0,import,React,,react
+,1,import,"useAppSelector useAppDispatch",,../../react-typescript-starter-app/src/store/index.ts
+,2,import,counterSelector,,../selector
+,3,import,CounterPage,,../../react-typescript-starter-app/src/components/pages/CounterPage/index.tsx
+,4,import,actions,,../../react-typescript-starter-app/src/features/counter/index.ts
+,5,import,useTemplateProps,,../../react-typescript-starter-app/src/features/utils/index.ts
 ,7,variable,cardData,,
 ,7,object,"  {",,object-open
 ,8,objectProperty,"  React",,object-prop
@@ -765,10 +826,17 @@ features/counter/components/CounterAdapter.tsx, ../../react-typescript-starter-a
 ,51,object,"    }",,object-close
 
 features/counter/selector/index.ts, ../../react-typescript-starter-app/src/features/counter/selector/index.ts
+,0,import,RootState,,../../react-typescript-starter-app/src/store/index.ts
 ,2,variable,counterSelector,export,
 ,2,property,state.counter,,
 
 components/pages/CounterPage/index.tsx, ../../react-typescript-starter-app/src/components/pages/CounterPage/index.tsx
+,0,import,Counter,,../../react-typescript-starter-app/src/components/organisms/Counter/index.tsx
+,1,import,"MainTemplate MainTemplateProps",,../../react-typescript-starter-app/src/components/templates/MainTemplate/index.tsx
+,5,import,CounterLinks,,../../react-typescript-starter-app/src/components/organisms/CounterLinks/index.tsx
+,6,import,AppLinkCardProps,,../../react-typescript-starter-app/src/components/molecules/AppLinkCard/index.tsx
+,7,import,logo,,./logo.svg
+,8,import,"Props CounterProps",,../../react-typescript-starter-app/src/components/organisms/Counter/index.tsx
 ,15,function-component,CounterPage,export,
 ,16,variable,"  props",,
 ,18,component,"    <MainTemplate>",,jsx-open-return
@@ -785,6 +853,8 @@ components/pages/CounterPage/index.tsx, ../../react-typescript-starter-app/src/c
 ,27,component,"    </MainTemplate>",,jsx-close
 
 components/organisms/Counter/index.tsx, ../../react-typescript-starter-app/src/components/organisms/Counter/index.tsx
+,0,import,React,,react
+,1,import,styles,,./Counter.module.css
 ,14,function-component,Counter,export,
 ,15,variable,"  props",,
 ,16,property,"  React.useState",,
@@ -837,6 +907,8 @@ components/organisms/Counter/Counter.module.css, ../../react-typescript-starter-
 ,63,functionCall,"  rgba",,
 
 components/templates/MainTemplate/index.tsx, ../../react-typescript-starter-app/src/components/templates/MainTemplate/index.tsx
+,0,import,React,,react
+,1,import,,,../../react-typescript-starter-app/src/index.css
 ,9,function-component,MainTemplate,export,
 ,10,variable,"  props",,
 ,12,component,"    <div>",,jsx-open-return
@@ -864,6 +936,7 @@ components/templates/MainTemplate/index.css, ../../react-typescript-starter-app/
 ,37,object,"    }",,object-close
 
 components/organisms/CounterLinks/index.tsx, ../../react-typescript-starter-app/src/components/organisms/CounterLinks/index.tsx
+,0,import,"AppLinkCard AppLinkCardProps",,../../react-typescript-starter-app/src/components/molecules/AppLinkCard/index.tsx
 ,9,variable-component,CounterLinks,export,
 ,11,component,"      <span>",,jsx-open-return
 ,12,property,"      .map",,
@@ -875,6 +948,7 @@ components/organisms/CounterLinks/index.tsx, ../../react-typescript-starter-app/
 ,20,component,"      </span>",,jsx-close
 
 components/molecules/AppLinkCard/index.tsx, ../../react-typescript-starter-app/src/components/molecules/AppLinkCard/index.tsx
+,0,import,AppLink,,../../react-typescript-starter-app/src/components/atoms/AppLink/index.tsx
 ,8,variable-component,AppLinkCard,export,
 ,10,component,"      <>",,jsx-open-return-fragment
 ,11,component,"        <span>",,jsx-open
@@ -895,6 +969,8 @@ components/pages/CounterPage/logo.svg, ../../react-typescript-starter-app/src/co
 
 
 features/utils/index.ts, ../../react-typescript-starter-app/src/features/utils/index.ts
+,0,import,React,,react
+,1,import,config,,../../react-typescript-starter-app/src/config/index.ts
 ,3,variable,useTemplateProps,export,
 ,4,property,"  React.useMemo",,
 ,4,object,"        {",,object-open
@@ -903,6 +979,10 @@ features/utils/index.ts, ../../react-typescript-starter-app/src/features/utils/i
 ,4,object,"        }",,object-close
 
 features/top/TopAdapter.tsx, ../../react-typescript-starter-app/src/features/top/TopAdapter.tsx
+,0,import,useAppSelector,,../../react-typescript-starter-app/src/store/index.ts
+,1,import,articleSelector,,../../react-typescript-starter-app/src/features/article/selector/index.ts
+,2,import,ListPage,,../../react-typescript-starter-app/src/components/pages/ListPage/index.tsx
+,3,import,useTemplateProps,,../../react-typescript-starter-app/src/features/utils/index.ts
 ,5,variable,urls,,
 ,6,object,"  {",,object-open
 ,6,objectProperty,"  url",,object-prop
@@ -943,10 +1023,13 @@ features/top/TopAdapter.tsx, ../../react-typescript-starter-app/src/features/top
 ,19,component,"  <ListPage />",,jsx-self-return
 
 features/article/selector/index.ts, ../../react-typescript-starter-app/src/features/article/selector/index.ts
+,0,import,RootState,,../../react-typescript-starter-app/src/store/index.ts
 ,2,variable,articleSelector,export,
 ,2,property,state.article,,
 
 components/pages/ListPage/index.tsx, ../../react-typescript-starter-app/src/components/pages/ListPage/index.tsx
+,0,import,"MainTemplate MainTemplateProps",,../../react-typescript-starter-app/src/components/templates/MainTemplate/index.tsx
+,4,import,LinkTable,,../../react-typescript-starter-app/src/components/molecules/LinkTable/index.tsx
 ,19,function-component,ListPage,export,
 ,20,variable,"  props",,
 ,22,component,"    <MainTemplate>",,jsx-open-return
@@ -963,6 +1046,7 @@ components/pages/ListPage/index.tsx, ../../react-typescript-starter-app/src/comp
 ,30,component,"    </MainTemplate>",,jsx-close
 
 components/molecules/LinkTable/index.tsx, ../../react-typescript-starter-app/src/components/molecules/LinkTable/index.tsx
+,0,import,Link,,react-router-dom
 ,6,variable-component,LinkTable,export,
 ,8,component,"      <>",,jsx-open-return-fragment
 ,9,property,"      .map",,
@@ -977,6 +1061,12 @@ components/molecules/LinkTable/index.tsx, ../../react-typescript-starter-app/src
 ,14,component,"      </>",,jsx-close-fragment
 
 features/formSample/components/FormAdapter.tsx, ../../react-typescript-starter-app/src/features/formSample/components/FormAdapter.tsx
+,0,import,FormPage,,../../react-typescript-starter-app/src/components/pages/FormPage/index.tsx
+,1,import,useNavigate,,react-router-dom
+,2,import,"useAppSelector useAppDispatch",,../../react-typescript-starter-app/src/store/index.ts
+,3,import,formSampleSelector,,../selector
+,4,import,actions,,../../react-typescript-starter-app/src/features/formSample/index.ts
+,5,import,useTemplateProps,,../../react-typescript-starter-app/src/features/utils/index.ts
 ,7,function-component,FormAdapter,export,
 ,8,variable,"  template",,
 ,8,functionCall,"  useTemplateProps",,
@@ -1017,6 +1107,8 @@ features/formSample/components/FormAdapter.tsx, ../../react-typescript-starter-a
 ,29,object,"    }",,object-close
 
 components/pages/FormPage/index.tsx, ../../react-typescript-starter-app/src/components/pages/FormPage/index.tsx
+,0,import,"MainTemplate MainTemplateProps",,../../react-typescript-starter-app/src/components/templates/MainTemplate/index.tsx
+,4,import,"FormSample FormSampleProps",,../../react-typescript-starter-app/src/components/organisms/FormSample/index.tsx
 ,13,function-component,FormPage,export,
 ,15,variable,"  props",,
 ,17,component,"    <MainTemplate>",,jsx-open-return
@@ -1025,6 +1117,7 @@ components/pages/FormPage/index.tsx, ../../react-typescript-starter-app/src/comp
 ,28,component,"    </MainTemplate>",,jsx-close
 
 components/organisms/FormSample/index.tsx, ../../react-typescript-starter-app/src/components/organisms/FormSample/index.tsx
+,0,import,useNavigate,,react-router-dom
 ,27,function-component,FormSample,export,
 ,29,variable,"  props",,
 ,30,variable,"  navigate",,
@@ -1097,10 +1190,18 @@ components/organisms/FormSample/index.tsx, ../../react-typescript-starter-app/sr
 ,131,component,"    </>",,jsx-close-fragment
 
 features/formSample/selector/index.ts, ../../react-typescript-starter-app/src/features/formSample/selector/index.ts
+,0,import,RootState,,../../react-typescript-starter-app/src/store/index.ts
 ,2,variable,formSampleSelector,export,
 ,2,property,state.formSample,,
 
 features/formSample/components/FormFormikAdapter.tsx, ../../react-typescript-starter-app/src/features/formSample/components/FormFormikAdapter.tsx
+,0,import,React,,react
+,1,import,FormPage,,../../react-typescript-starter-app/src/components/pages/FormPage/index.tsx
+,2,import,useNavigate,,react-router-dom
+,3,import,useFormik,,formik
+,4,import,"FormSampleSize FormSampleFruit",,../../react-typescript-starter-app/src/components/organisms/FormSample/index.tsx
+,8,import,useTemplateProps,,../../react-typescript-starter-app/src/features/utils/index.ts
+,9,import,API,,../../react-typescript-starter-app/src/core/gateways/utils/api.ts
 ,19,function-component,FormFormikAdapter,export,
 ,20,property,"  React.useState",,
 ,21,property,"  React.useState",,
@@ -1187,6 +1288,11 @@ features/formSample/components/FormFormikAdapter.tsx, ../../react-typescript-sta
 ,85,component,"    </form>",,jsx-close
 
 features/article/components/ArticleAdapter.tsx, ../../react-typescript-starter-app/src/features/article/components/ArticleAdapter.tsx
+,0,import,useParams,,react-router-dom
+,1,import,useAppSelector,,../../react-typescript-starter-app/src/store/index.ts
+,2,import,articleSelector,,../selector
+,3,import,ArticlePage,,../../react-typescript-starter-app/src/components/pages/ArticlePage/index.tsx
+,4,import,useTemplateProps,,../../react-typescript-starter-app/src/features/utils/index.ts
 ,6,function-component,ArticleAdapter,export,
 ,7,variable,"  template",,
 ,7,functionCall,"  useTemplateProps",,
@@ -1198,6 +1304,7 @@ features/article/components/ArticleAdapter.tsx, ../../react-typescript-starter-a
 ,11,component,"  <ArticlePage />",,jsx-self-return
 
 components/pages/ArticlePage/index.tsx, ../../react-typescript-starter-app/src/components/pages/ArticlePage/index.tsx
+,0,import,"MainTemplate MainTemplateProps",,../../react-typescript-starter-app/src/components/templates/MainTemplate/index.tsx
 ,13,function-component,ArticlePage,export,
 ,14,variable,"  props",,
 ,17,component,"    <MainTemplate>",,jsx-open-return
@@ -1211,6 +1318,11 @@ components/pages/ArticlePage/index.tsx, ../../react-typescript-starter-app/src/c
 ,20,component,"    </MainTemplate>",,jsx-close
 
 features/mypage/components/MyPageAdapter.tsx, ../../react-typescript-starter-app/src/features/mypage/components/MyPageAdapter.tsx
+,0,import,"MyPage MyPageMessageProps",,../../react-typescript-starter-app/src/components/pages/MyPage/index.tsx
+,1,import,useTemplateProps,,../../react-typescript-starter-app/src/features/utils/index.ts
+,2,import,"useAppSelector useAppDispatch",,../../react-typescript-starter-app/src/store/index.ts
+,3,import,mypageSelector,,../selector
+,4,import,actions,,../../react-typescript-starter-app/src/features/mypage/index.ts
 ,6,variable,messages,,
 ,6,object,"  {",,object-open
 ,7,objectProperty,"  title",,object-prop
@@ -1234,6 +1346,9 @@ features/mypage/components/MyPageAdapter.tsx, ../../react-typescript-starter-app
 ,25,component,"  <MyPage />",,jsx-self-return
 
 components/pages/MyPage/index.tsx, ../../react-typescript-starter-app/src/components/pages/MyPage/index.tsx
+,0,import,"MainTemplate MainTemplateProps",,../../react-typescript-starter-app/src/components/templates/MainTemplate/index.tsx
+,4,import,Button,,../../react-typescript-starter-app/src/components/atoms/Button/index.tsx
+,5,import,useComponentState,,./componentState
 ,21,function-component,MyPage,export,
 ,22,variable,"  props",,
 ,23,variable,"  state",,
@@ -1269,6 +1384,8 @@ components/pages/MyPage/index.tsx, ../../react-typescript-starter-app/src/compon
 ,70,component,"    </MainTemplate>",,jsx-close
 
 components/atoms/Button/index.tsx, ../../react-typescript-starter-app/src/components/atoms/Button/index.tsx
+,0,import,React,,react
+,1,import,,,./button.css
 ,4,comment,"/**
    * Is this the principal call to action on the page?
    */",,
@@ -1300,6 +1417,8 @@ components/atoms/Button/button.css, ../../react-typescript-starter-app/src/compo
 ,16,functionCall,"  rgba",,
 
 components/pages/MyPage/componentState.ts, ../../react-typescript-starter-app/src/components/pages/MyPage/componentState.ts
+,0,import,React,,react
+,1,import,MyPageProps,,.
 ,3,variable,useComponentState,export,
 ,4,property,"  React.useState",,
 ,5,property,"  React.useState",,
@@ -1326,10 +1445,16 @@ components/pages/MyPage/componentState.ts, ../../react-typescript-starter-app/sr
 ,37,object,"    }",,object-close
 
 features/mypage/selector/index.ts, ../../react-typescript-starter-app/src/features/mypage/selector/index.ts
+,0,import,RootState,,../../react-typescript-starter-app/src/store/index.ts
 ,2,variable,mypageSelector,export,
 ,2,property,state.myPage,,
 
 features/testpage/components/TestPageAdapter.tsx, ../../react-typescript-starter-app/src/features/testpage/components/TestPageAdapter.tsx
+,0,import,"MyPage MyPageMessageProps",,../../react-typescript-starter-app/src/components/pages/MyPage/index.tsx
+,1,import,useTemplateProps,,../../react-typescript-starter-app/src/features/utils/index.ts
+,2,import,"useAppSelector useAppDispatch",,../../react-typescript-starter-app/src/store/index.ts
+,3,import,testpageSelector,,../selector
+,4,import,actions,,../
 ,6,variable,messages,,
 ,6,object,"  {",,object-open
 ,7,objectProperty,"  title",,object-prop
@@ -1353,10 +1478,17 @@ features/testpage/components/TestPageAdapter.tsx, ../../react-typescript-starter
 ,25,component,"  <MyPage />",,jsx-self-return
 
 features/testpage/selector/index.ts, ../../react-typescript-starter-app/src/features/testpage/selector/index.ts
+,0,import,RootState,,../../react-typescript-starter-app/src/store/index.ts
 ,2,variable,testpageSelector,export,
 ,2,property,state.testPage,,
 
 features/todo/components/ToDoAdapter.tsx, ../../react-typescript-starter-app/src/features/todo/components/ToDoAdapter.tsx
+,0,import,React,,react
+,1,import,ToDoPage,,../../react-typescript-starter-app/src/components/pages/ToDoPage/index.tsx
+,2,import,"useAppDispatch useAppSelector",,../../react-typescript-starter-app/src/store/index.ts
+,3,import,todoSelector,,../selector
+,4,import,"actions ToDo",,../../react-typescript-starter-app/src/features/todo/index.ts
+,5,import,useTemplateProps,,../../react-typescript-starter-app/src/features/utils/index.ts
 ,7,function-component,ToDoAdapter,export,
 ,8,variable,"  template",,
 ,8,functionCall,"  useTemplateProps",,
@@ -1379,6 +1511,10 @@ features/todo/components/ToDoAdapter.tsx, ../../react-typescript-starter-app/src
 ,29,component,"  <ToDoPage />",,jsx-self-return
 
 components/pages/ToDoPage/index.tsx, ../../react-typescript-starter-app/src/components/pages/ToDoPage/index.tsx
+,0,import,"MainTemplate MainTemplateProps",,../../react-typescript-starter-app/src/components/templates/MainTemplate/index.tsx
+,4,import,"ToDoForm FormProps ToDoFormProps",,../../react-typescript-starter-app/src/components/molecules/ToDoForm/index.tsx
+,8,import,useFormik,,formik
+,9,import,Yup,,yup
 ,25,function-component,ToDoPage,export,
 ,26,variable,"  props",,
 ,27,variable,"  formik",,
@@ -1432,6 +1568,8 @@ components/pages/ToDoPage/index.tsx, ../../react-typescript-starter-app/src/comp
 ,58,component,"    </MainTemplate>",,jsx-close
 
 components/molecules/ToDoForm/index.tsx, ../../react-typescript-starter-app/src/components/molecules/ToDoForm/index.tsx
+,0,import,Button,,../../react-typescript-starter-app/src/components/atoms/Button/index.tsx
+,1,import,FormikProps,,formik
 ,11,variable-component,ToDoForm,export,
 ,12,variable,"  props",,
 ,14,component,"      <>",,jsx-open-return-fragment
@@ -1455,10 +1593,18 @@ components/molecules/ToDoForm/index.tsx, ../../react-typescript-starter-app/src/
 ,29,component,"      </>",,jsx-close-fragment
 
 features/todo/selector/index.ts, ../../react-typescript-starter-app/src/features/todo/selector/index.ts
+,0,import,RootState,,../../react-typescript-starter-app/src/store/index.ts
 ,2,variable,todoSelector,export,
 ,2,property,state.todo,,
 
 features/todoCounter/components/ToDoCounterAdapter.tsx, ../../react-typescript-starter-app/src/features/todoCounter/components/ToDoCounterAdapter.tsx
+,0,import,React,,react
+,1,import,"ToDoCounterPage ToDoCounterPageProps",,../../react-typescript-starter-app/src/components/pages/ToDoCounterPage/index.tsx
+,5,import,"useAppDispatch useAppSelector",,../../react-typescript-starter-app/src/store/index.ts
+,6,import,todoCounterSelector,,../selector
+,7,import,"actions todoCounterActions",,../../react-typescript-starter-app/src/features/todoCounter/index.ts
+,8,import,"actions todoActions",,../../react-typescript-starter-app/src/features/todo/index.ts
+,9,import,useTemplateProps,,../../react-typescript-starter-app/src/features/utils/index.ts
 ,11,function-component,ToDoCounterAdapter,export,
 ,12,variable,"  dispatch",,
 ,12,functionCall,"  useAppDispatch",,
@@ -1484,6 +1630,8 @@ features/todoCounter/components/ToDoCounterAdapter.tsx, ../../react-typescript-s
 ,35,component,"  <ToDoCounterPage />",,jsx-self-return
 
 components/pages/ToDoCounterPage/index.tsx, ../../react-typescript-starter-app/src/components/pages/ToDoCounterPage/index.tsx
+,0,import,"MainTemplate MainTemplateProps",,../../react-typescript-starter-app/src/components/templates/MainTemplate/index.tsx
+,4,import,Button,,../../react-typescript-starter-app/src/components/atoms/Button/index.tsx
 ,14,function-component,ToDoCounterPage,export,
 ,15,variable,"  props",,
 ,17,component,"    <MainTemplate>",,jsx-open-return
@@ -1499,6 +1647,7 @@ components/pages/ToDoCounterPage/index.tsx, ../../react-typescript-starter-app/s
 ,24,component,"    </MainTemplate>",,jsx-close
 
 features/todoCounter/selector/index.ts, ../../react-typescript-starter-app/src/features/todoCounter/selector/index.ts
+,0,import,RootState,,../../react-typescript-starter-app/src/store/index.ts
 ,2,variable,todoCounterSelector,export,
 ,3,variable,"  index",,
 ,4,property,"  .length",,
@@ -1522,6 +1671,9 @@ features/todoCounter/selector/index.ts, ../../react-typescript-starter-app/src/f
 ,11,object,"    }",,object-close
 
 features/d3sample/components/D3SampleLinkAdapter.tsx, ../../react-typescript-starter-app/src/features/d3sample/components/D3SampleLinkAdapter.tsx
+,0,import,Link,,react-router-dom
+,1,import,useTemplateProps,,../../react-typescript-starter-app/src/features/utils/index.ts
+,2,import,MainTemplate,,../../react-typescript-starter-app/src/components/templates/MainTemplate/index.tsx
 ,4,function-component,D3SampleLinkAdapter,export,
 ,5,variable,"  template",,
 ,5,functionCall,"  useTemplateProps",,
@@ -1531,6 +1683,13 @@ features/d3sample/components/D3SampleLinkAdapter.tsx, ../../react-typescript-sta
 ,9,component,"    </MainTemplate>",,jsx-close
 
 features/d3sample/components/D3SamplePageAdapter.tsx, ../../react-typescript-starter-app/src/features/d3sample/components/D3SamplePageAdapter.tsx
+,0,import,React,,react
+,1,import,useParams,,react-router-dom
+,2,import,D3Sample,,../../react-typescript-starter-app/src/components/pages/D3SamplePage/index.tsx
+,3,import,useTemplateProps,,../../react-typescript-starter-app/src/features/utils/index.ts
+,4,import,"useGetD3SampleByNameQuery useUpdateD3SampleMutation",,../../react-typescript-starter-app/src/features/d3sample/services.ts
+,8,import,D3SampleItem,,../../react-typescript-starter-app/src/components/pages/D3SamplePage/types.ts
+,9,import,"D3SampleDataToItem D3SampleItemToData",,../usecase
 ,11,variable-component,D3SamplePageAdapter,export,
 ,12,functionCall,"  useParams",,
 ,13,variable,"  template",,
@@ -1554,6 +1713,10 @@ features/d3sample/components/D3SamplePageAdapter.tsx, ../../react-typescript-sta
 ,29,component,"    <D3Sample />",,jsx-self-return
 
 components/pages/D3SamplePage/index.tsx, ../../react-typescript-starter-app/src/components/pages/D3SamplePage/index.tsx
+,0,import,React,,react
+,1,import,"MainTemplate MainTemplateProps",,../../react-typescript-starter-app/src/components/templates/MainTemplate/index.tsx
+,5,import,useComponentState,,./usecase/componentState
+,6,import,"D3SampleItem D3SampleGraphType",,./types
 ,17,function-component,D3Sample,export,
 ,18,property,"  React.useState",,
 ,19,property,"    D3SampleGraphType.VERTICAL_BAR",,
@@ -1620,6 +1783,12 @@ components/pages/D3SamplePage/index.tsx, ../../react-typescript-starter-app/src/
 ,64,component,"    </MainTemplate>",,jsx-close
 
 components/pages/D3SamplePage/usecase/componentState.ts, ../../react-typescript-starter-app/src/components/pages/D3SamplePage/usecase/componentState.ts
+,0,import,React,,react
+,1,import,D3SampleProps,,..
+,2,import,CSV,,./csv-parser
+,3,import,updateElement,,./updateElement
+,4,import,"D3SampleItem FormProps D3SampleGraphType",,../types
+,5,import,useFormik,,formik
 ,7,variable,toCSVFromData,,
 ,8,variable,"  csvData",,
 ,8,property,"  data.map",,
@@ -1761,6 +1930,12 @@ components/pages/D3SamplePage/usecase/csv-parser.ts, ../../react-typescript-star
 ,91,property,"            col.value",,
 
 components/pages/D3SamplePage/usecase/updateElement.ts, ../../react-typescript-starter-app/src/components/pages/D3SamplePage/usecase/updateElement.ts
+,0,import,d3,,d3
+,1,import,"D3SampleItem D3SampleGraphType",,../types
+,2,import,textGraph,,./graph/normalTextGraph
+,3,import,text2Graph,,./graph/redTextGraph
+,4,import,horizontalBarGraph,,./graph/horizontalBarGraph
+,5,import,verticalBarGraph,,./graph/verticalBarGraph
 ,7,variable,graph,,
 ,7,object,"  {",,object-open
 ,8,property,"  D3SampleGraphType.NORMAL_TEXT",,
@@ -1782,6 +1957,8 @@ components/pages/D3SamplePage/types.ts, ../../react-typescript-starter-app/src/c
 ,0,comment,"// UI側の型定義",,
 
 components/pages/D3SamplePage/usecase/graph/normalTextGraph.ts, ../../react-typescript-starter-app/src/components/pages/D3SamplePage/usecase/graph/normalTextGraph.ts
+,0,import,d3,,d3
+,1,import,D3SampleItem,,../../types
 ,3,variable,textGraph,export,
 ,4,variable,"  toText",,
 ,5,property,"    d.name",,
@@ -1800,6 +1977,8 @@ components/pages/D3SamplePage/usecase/graph/normalTextGraph.ts, ../../react-type
 ,15,property,"  pElement.exit",,
 
 components/pages/D3SamplePage/usecase/graph/redTextGraph.ts, ../../react-typescript-starter-app/src/components/pages/D3SamplePage/usecase/graph/redTextGraph.ts
+,0,import,d3,,d3
+,1,import,D3SampleItem,,../../types
 ,3,variable,text2Graph,export,
 ,4,variable,"  toText",,
 ,5,property,"    d.name",,
@@ -1819,6 +1998,8 @@ components/pages/D3SamplePage/usecase/graph/redTextGraph.ts, ../../react-typescr
 ,15,property,"  pElement.exit",,
 
 components/pages/D3SamplePage/usecase/graph/horizontalBarGraph.ts, ../../react-typescript-starter-app/src/components/pages/D3SamplePage/usecase/graph/horizontalBarGraph.ts
+,0,import,d3,,d3
+,1,import,D3SampleItem,,../../types
 ,3,variable,horizontalBarGraph,export,
 ,7,variable,"  width",,
 ,8,variable,"  height",,
@@ -1878,6 +2059,8 @@ components/pages/D3SamplePage/usecase/graph/horizontalBarGraph.ts, ../../react-t
 ,64,property,"    d3.axisLeft",,
 
 components/pages/D3SamplePage/usecase/graph/verticalBarGraph.ts, ../../react-typescript-starter-app/src/components/pages/D3SamplePage/usecase/graph/verticalBarGraph.ts
+,0,import,d3,,d3
+,1,import,D3SampleItem,,../../types
 ,3,variable,verticalBarGraph,export,
 ,7,variable,"  width",,
 ,8,variable,"  height",,
@@ -1939,6 +2122,8 @@ components/pages/D3SamplePage/usecase/graph/verticalBarGraph.ts, ../../react-typ
 ,64,property,"    d3.axisLeft",,
 
 features/d3sample/usecase/index.ts, ../../react-typescript-starter-app/src/features/d3sample/usecase/index.ts
+,0,import,D3SampleData,,../types
+,1,import,D3SampleItem,,../../react-typescript-starter-app/src/components/pages/D3SamplePage/types.ts
 ,3,variable,D3SampleItemToData,export,
 ,4,property,"  data.map",,
 ,4,object,"        {",,object-open

@@ -203,11 +203,16 @@ class ExportCSV {
   }
 }
 
+interface ParserOption {
+  debug?: boolean;
+}
 class Parser {
   _ptr = 0;
   _info: AstNode[];
-  constructor(info: AstNode[]) {
+  _options: ParserOption;
+  constructor(info: AstNode[], options: ParserOption = {}) {
     this._info = info;
+    this._options = options;
   }
   prev() {
     return this._info[--this._ptr];
@@ -607,7 +612,9 @@ class Parser {
           },
         },
       ]);
-      // this.debugLog(node);
+      if (this._options.debug) {
+        this.debugLog(node);
+      }
       next = this.next();
       if (next.level < node.level) {
         this.stack.splice(next.level + 1);
@@ -641,6 +648,7 @@ async function main(argv: string[]) {
       default: 'csv',
       describe: 'Select output format',
     })
+    .option('debug', { type: 'boolean' })
     .option('source', { type: 'string', demandOption: true })
     .help()
     .parseSync();
@@ -666,7 +674,7 @@ async function main(argv: string[]) {
 
     lineInfo.forEach((n) => initAstNode(n));
 
-    const parser = new Parser(lineInfo);
+    const parser = new Parser(lineInfo, { debug: arg.debug });
 
     const topNode = parser.next();
     parser.traverse(topNode);

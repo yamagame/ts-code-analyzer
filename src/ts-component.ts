@@ -16,18 +16,20 @@ enum AttentionKind {
   arrowVariable,
   export,
   paren,
-  function,
-  functionCall,
-  variable,
+  func,
+  class,
+  call,
+  var,
   component,
   comment,
-  property,
+  expression,
   object,
-  objectProperty,
+  property,
   block,
 }
 
 interface AstNode extends AstInfo {
+  index: number;
   identifier?: AstNode;
   returnStatement?: AstNode;
   children?: AstNode[];
@@ -39,8 +41,14 @@ interface AstNode extends AstInfo {
   };
 }
 
-const initAstNode = (n: AstNode) => {
+interface ResultNode {
+  line: number;
+  kind: string;
+}
+
+const initAstNode = (index: number, n: AstNode) => {
   n.syntax = { export: false };
+  n.index = index;
 };
 
 interface AstRegExp {
@@ -87,6 +95,18 @@ class AstStack extends Array<AstNode> {
     return this.indexFromLast(kind, (index: number) => {
       if (hook) hook(this[index]);
     });
+  }
+  findTop(kind: string, hook?: (node: AstNode) => void) {
+    let f = -1;
+    for (let i = this.length - 2; i >= 0; i--) {
+      if (this[i].kind === kind) {
+        f = i;
+      } else if (f >= 0) {
+        break;
+      }
+    }
+    if (hook) hook(this[f]);
+    return f;
   }
   match(regs: AstRegExp[] | AstRegExp) {
     const path = this.astPath;
@@ -148,44 +168,50 @@ function getText(node: AstNode | undefined, kind = AttentionKind.none): string {
   return '';
 }
 
+const textStr = (node: AstNode) => {
+  const note = node.note || '';
+  if (node.attention === AttentionKind.import) {
+    return `${
+      node.children ? node.children?.map((v) => v.text).join(' ') : ''
+    }`;
+  }
+  const r =
+    node.attention === AttentionKind.comment ||
+    node.attention === AttentionKind.export
+      ? node.text
+      : node.text.replace(/[ \n]/g, '');
+  if (note.indexOf('fragment') < 0) {
+    if (note === 'jsx-close') {
+      return `</${r}>`;
+    }
+    if (note.indexOf('jsx-self') === 0) {
+      return `<${r} />`;
+    }
+    if (note.indexOf('jsx-open') === 0) {
+      return `<${r}>`;
+    }
+  }
+  return r;
+};
+
 class ExportCSV {
   level: number = 0;
   getCsv(node: AstNode | undefined, kind = AttentionKind.none): CSVItem[] {
     if (node) {
       if (
         node.attention === AttentionKind.arrowVariable
+        // node.attention === AttentionKind.call
         // node.attention === AttentionKind.variable ||
         // node.attention === AttentionKind.function
       ) {
         return this.getCsv(node.identifier, node.attention);
       }
       const kindStr =
-        AttentionKind[kind === AttentionKind.none ? node.attention || 0 : kind];
-      const textStr = (node: AstNode) => {
-        const note = node.note || '';
-        if (node.attention === AttentionKind.import) {
-          return `${
-            node.children ? node.children?.map((v) => v.text).join(' ') : ''
-          }`;
-        }
-        const r =
-          node.attention === AttentionKind.comment ||
-          node.attention === AttentionKind.export
-            ? node.text
-            : node.text.replace(/[ \n]/g, '');
-        if (note.indexOf('fragment') < 0) {
-          if (note === 'jsx-close') {
-            return `</${r}>`;
-          }
-          if (note.indexOf('jsx-self') === 0) {
-            return `<${r} />`;
-          }
-          if (note.indexOf('jsx-open') === 0) {
-            return `<${r}>`;
-          }
-        }
-        return r;
-      };
+        kind === AttentionKind.arrowVariable
+          ? 'var-arrow'
+          : AttentionKind[
+              kind === AttentionKind.none ? node.attention || 0 : kind
+            ];
       const getIndentCell = (level: number) => {
         return new Array(level < 0 ? 0 : level).fill('  ').join('');
       };
@@ -194,9 +220,10 @@ class ExportCSV {
       const returnStatement = node.returnStatement;
       const returnComponent = returnStatement ? textStr(returnStatement) : '';
       const getCsvCol = () => {
-        if (kindStr === 'paren' || kindStr === 'block' || kindStr === 'arrow') {
-          return [];
-        } else {
+        // if (kindStr === 'paren' || kindStr === 'block' || kindStr === 'arrow') {
+        //   return [];
+        // } else
+        {
           return [
             { value: `` },
             { value: `${node.line}` },
@@ -222,6 +249,7 @@ interface ParserOption {
   baseDir: string;
   srcPath: string;
 }
+
 class Parser {
   _ptr = 0;
   _info: AstNode[];
@@ -355,7 +383,7 @@ class Parser {
             if (isExport(-4, 'VariableStatement')) {
               ast.syntax.export = true;
             }
-            this.pushAttention(ast, AttentionKind.variable);
+            this.pushAttention(ast, AttentionKind.var);
             this.stack.findFromLast(
               ['VariableDeclaration'],
               (node: AstNode) => {
@@ -364,7 +392,14 @@ class Parser {
             );
           },
         },
-        //
+        // クラスを特定
+        {
+          exp: /ClassDeclaration\/Identifier/,
+          match: () => {
+            const ast = this.stack.last();
+            this.pushAttention(ast, AttentionKind.class);
+          },
+        },
         // 関数名を特定
         {
           exp: /FunctionDeclaration\/Identifier$/,
@@ -373,7 +408,7 @@ class Parser {
             if (isExport(-1)) {
               ast.syntax.export = true;
             }
-            this.pushAttention(ast, AttentionKind.function);
+            this.pushAttention(ast, AttentionKind.func);
             this.stack.findFromLast(
               ['FunctionDeclaration'],
               (node: AstNode) => {
@@ -384,10 +419,25 @@ class Parser {
         },
         // 関数呼び出し
         {
-          exp: /CallExpression\/Identifier$/,
+          exp: [[0, /CallExpression$/]],
           match: () => {
             const ast = this.stack.last();
-            this.pushAttention(ast, AttentionKind.functionCall);
+            this.pushAttention(ast, AttentionKind.call);
+            ast.text = '';
+          },
+        },
+        // 関数呼び出し
+        {
+          exp: [
+            [-2, /CallExpression\/PropertyAccessExpression\/Identifier$/],
+            [-2, /CallExpression\/PropertyAccessExpression\/DotToken$/],
+            [-2, /CallExpression\/PropertyAccessExpression\/QuestionDotToken$/],
+            [-1, /CallExpression\/Identifier$/],
+          ],
+          match: (option) => {
+            const ast = this.stack.last(option);
+            ast.index = node.index;
+            ast.text += node.text;
           },
         },
         // コンポーネントが戻り値になっている関数を特定
@@ -494,6 +544,7 @@ class Parser {
             /JsxOpeningElement\/Identifier$/,
             /JsxOpeningElement\/PropertyAccessExpression\/Identifier$/,
             /JsxOpeningElement\/PropertyAccessExpression\/DotToken$/,
+            /JsxOpeningElement\/PropertyAccessExpression\/QuestionDotToken$/,
             /JsxSelfClosingElement\/Identifier$/,
             /JsxSelfClosingElement\/PropertyAccessExpression\/Identifier$/,
             /JsxClosingElement\/Identifier$/,
@@ -504,6 +555,7 @@ class Parser {
             'jsx-open',
             'jsx-open-prop',
             'jsx-dot-prop',
+            'jsx-question-dot-prop',
             'jsx-self',
             'jsx-self-prop',
             'jsx-close',
@@ -540,31 +592,27 @@ class Parser {
             ['prop', /PropertyAccessExpression$/],
             ['word', /PropertyAccessExpression\/Identifier$/],
             ['word', /PropertyAccessExpression\/DotToken$/],
+            ['word', /PropertyAccessExpression\/QuestionDotToken$/],
           ],
           match: (option) => {
             const ast = this.stack.last();
             if (option === 'word') {
-              this.stack.findFromLast(
-                ['PropertyAccessExpression'],
+              this.stack.findTop(
+                'PropertyAccessExpression',
                 (node: AstNode) => {
                   node.text += ast.text;
                 }
               );
             } else {
-              ast.text = '';
-              this.stack.match({
-                exp: [/PropertyAccessExpression\/PropertyAccessExpression$/],
-                match: (option) => {
-                  // const node = this.stack.last(-1);
-                  // if (!node.children) node.children = [];
-                  // node.children?.push(ast);
-                },
-              });
-              if (option.indexOf('jsx') >= 0) {
-                ast.note = option;
-                this.pushAttention(ast, AttentionKind.component);
-              } else {
-                this.pushAttention(ast, AttentionKind.property);
+              const last = this.stack.last(-1);
+              if (last.kind !== 'PropertyAccessExpression') {
+                ast.text = '';
+                if (option.indexOf('jsx') >= 0) {
+                  ast.note = option;
+                  this.pushAttention(ast, AttentionKind.component);
+                } else {
+                  this.pushAttention(ast, AttentionKind.expression);
+                }
               }
             }
           },
@@ -627,7 +675,7 @@ class Parser {
           match: (option) => {
             const ast = this.stack.last();
             ast.note = 'object-prop';
-            this.pushAttention(ast, AttentionKind.objectProperty);
+            this.pushAttention(ast, AttentionKind.property);
           },
         },
         // エキスポート
@@ -702,7 +750,7 @@ async function main(argv: string[]) {
       demandOption: true,
     })
     .option('mode', {
-      choices: ['log', 'csv'],
+      choices: ['log', 'csv', 'json'],
       default: 'csv',
       describe: 'Select output format',
     })
@@ -714,6 +762,9 @@ async function main(argv: string[]) {
   const baseDir = `${arg.base}`;
   const srcPath = `${arg.source}`;
   const importedFiles = await scanAsync(srcPath, baseDir);
+
+  const jsonResult: { source: string; base: string; nodes: ResultNode[] }[] =
+    [];
 
   const result = new Set(importedFiles.map((file) => file.source));
   new Array(...result).forEach((sourcePath) => {
@@ -730,23 +781,57 @@ async function main(argv: string[]) {
     const lineInfo: AstNode[] = [];
     scanAllChildren(lineInfo, sourceFile, -1);
 
-    lineInfo.forEach((n) => initAstNode(n));
+    lineInfo.forEach((n, i) => initAstNode(i, n));
 
     const parser = new Parser(lineInfo, { debug: arg.debug, srcPath, baseDir });
 
     const topNode = parser.next();
     parser.traverse(topNode);
 
-    const attentions = parser.attentions.sort((a, b) => a.line - b.line);
+    const removeBlankLine = (a: AstNode) => a.text !== '';
+    const sortWithIndex = (a: AstNode, b: AstNode) => a.index - b.index;
+
+    const attentions = parser.attentions
+      .filter(removeBlankLine)
+      .sort(sortWithIndex);
 
     if (arg.mode === 'csv') {
       console.log(`${sourcePath}, ${sourcePathWithBase}`);
       const csvExport = new ExportCSV();
       const csvData = attentions
         .map((c) => csvExport.getCsv(c, 0))
-        .filter((v) => v.length > 0);
+        .filter((v) => v.length > 0)
+        .map((c) => {
+          const t = [...c];
+          t[1].size = 4;
+          t[2].size = 15;
+          t[3] = c[4];
+          t[3].size = 6;
+          t[4] = c[5];
+          t[4].size = 25;
+          t[5] = c[3];
+          t[5].quat = true;
+          return t;
+        });
       console.log(CSV.stringify(csvData));
       console.log('');
+    } else if (arg.mode === 'json') {
+      const json = {
+        source: sourcePath,
+        base: sourcePathWithBase,
+        nodes: attentions.map((node) => {
+          const kindStr = AttentionKind[node.attention || 0];
+          return {
+            line: Number(node.line),
+            kind: kindStr,
+            text: textStr(node),
+            indent: node.level,
+            export: node.syntax.export ? true : false,
+            path: node.path || node.note || '',
+          };
+        }),
+      };
+      jsonResult.push(json);
     } else {
       console.log(`# ${sourcePath}, ${sourcePathWithBase}, ---------`);
       console.log('');
@@ -768,6 +853,10 @@ async function main(argv: string[]) {
       );
     }
   });
+
+  if (arg.mode === 'json') {
+    console.log(JSON.stringify(jsonResult, null, '  '));
+  }
 }
 
 if (require.main === module) {

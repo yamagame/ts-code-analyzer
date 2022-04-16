@@ -1,0 +1,6144 @@
+[
+  {
+    "source": "ts-parser.ts",
+    "base": "src/ts-parser.ts",
+    "nodes": [
+      {
+        "line": 0,
+        "kind": "import",
+        "text": "fs",
+        "indent": 2,
+        "export": false,
+        "path": "fs"
+      },
+      {
+        "line": 1,
+        "kind": "import",
+        "text": "ts",
+        "indent": 2,
+        "export": false,
+        "path": "typescript"
+      },
+      {
+        "line": 2,
+        "kind": "import",
+        "text": "yargs",
+        "indent": 2,
+        "export": false,
+        "path": "yargs"
+      },
+      {
+        "line": 3,
+        "kind": "import",
+        "text": "hideBin",
+        "indent": 2,
+        "export": false,
+        "path": "yargs/helpers"
+      },
+      {
+        "line": 18,
+        "kind": "var",
+        "text": "indent",
+        "indent": 6,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 18,
+        "kind": "paren",
+        "text": "(",
+        "indent": 7,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 18,
+        "kind": "paren",
+        "text": ")",
+        "indent": 7,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 18,
+        "kind": "arrow",
+        "text": "=>",
+        "indent": 7,
+        "export": false,
+        "path": "arrow"
+      },
+      {
+        "line": 18,
+        "kind": "paren",
+        "text": "(",
+        "indent": 12,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 18,
+        "kind": "paren",
+        "text": ")",
+        "indent": 12,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 18,
+        "kind": "call",
+        "text": ".fill",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 18,
+        "kind": "paren",
+        "text": "(",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 18,
+        "kind": "paren",
+        "text": ")",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 18,
+        "kind": "call",
+        "text": ".join",
+        "indent": 7,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 18,
+        "kind": "paren",
+        "text": "(",
+        "indent": 8,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 18,
+        "kind": "paren",
+        "text": ")",
+        "indent": 8,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 20,
+        "kind": "func",
+        "text": "scanAllChildren",
+        "indent": 3,
+        "export": true,
+        "path": ""
+      },
+      {
+        "line": 25,
+        "kind": "block",
+        "text": "{",
+        "indent": 4,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 26,
+        "kind": "var",
+        "text": "startLine",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 26,
+        "kind": "call",
+        "text": "ts.getLineAndCharacterOfPosition",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 26,
+        "kind": "paren",
+        "text": "(",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 27,
+        "kind": "call",
+        "text": "node.getSourceFile",
+        "indent": 11,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 27,
+        "kind": "paren",
+        "text": "(",
+        "indent": 12,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 27,
+        "kind": "paren",
+        "text": ")",
+        "indent": 12,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 28,
+        "kind": "expression",
+        "text": "node.pos",
+        "indent": 11,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 29,
+        "kind": "paren",
+        "text": ")",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 30,
+        "kind": "expression",
+        "text": "node.pos",
+        "indent": 8,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 30,
+        "kind": "call",
+        "text": "node.getLeadingTriviaWidth",
+        "indent": 8,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 30,
+        "kind": "paren",
+        "text": "(",
+        "indent": 9,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 30,
+        "kind": "paren",
+        "text": ")",
+        "indent": 9,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 30,
+        "kind": "block",
+        "text": "{",
+        "indent": 7,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 31,
+        "kind": "var",
+        "text": "trivias",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 31,
+        "kind": "call",
+        "text": "ts.getLeadingCommentRanges",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 31,
+        "kind": "paren",
+        "text": "(",
+        "indent": 13,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 31,
+        "kind": "call",
+        "text": "node.getFullText",
+        "indent": 14,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 31,
+        "kind": "paren",
+        "text": "(",
+        "indent": 15,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 31,
+        "kind": "paren",
+        "text": ")",
+        "indent": 15,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 31,
+        "kind": "paren",
+        "text": ")",
+        "indent": 13,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 32,
+        "kind": "call",
+        "text": "trivias?.forEach",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 32,
+        "kind": "paren",
+        "text": "(",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 32,
+        "kind": "paren",
+        "text": "(",
+        "indent": 12,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 32,
+        "kind": "paren",
+        "text": ")",
+        "indent": 12,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 32,
+        "kind": "arrow",
+        "text": "=>",
+        "indent": 12,
+        "export": false,
+        "path": "arrow"
+      },
+      {
+        "line": 32,
+        "kind": "block",
+        "text": "{",
+        "indent": 13,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 33,
+        "kind": "var",
+        "text": "text",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 33,
+        "kind": "call",
+        "text": "node.getFullText",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 33,
+        "kind": "paren",
+        "text": "(",
+        "indent": 21,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 33,
+        "kind": "paren",
+        "text": ")",
+        "indent": 21,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 33,
+        "kind": "call",
+        "text": ".substring",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 33,
+        "kind": "paren",
+        "text": "(",
+        "indent": 19,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 33,
+        "kind": "expression",
+        "text": "trivia.pos",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 33,
+        "kind": "expression",
+        "text": "trivia.end",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 33,
+        "kind": "paren",
+        "text": ")",
+        "indent": 19,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 34,
+        "kind": "var",
+        "text": "commentStartLine",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 34,
+        "kind": "call",
+        "text": "ts.getLineAndCharacterOfPosition",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 34,
+        "kind": "paren",
+        "text": "(",
+        "indent": 19,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 35,
+        "kind": "call",
+        "text": "node.getSourceFile",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 35,
+        "kind": "paren",
+        "text": "(",
+        "indent": 21,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 35,
+        "kind": "paren",
+        "text": ")",
+        "indent": 21,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 36,
+        "kind": "expression",
+        "text": "node.pos",
+        "indent": 21,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 36,
+        "kind": "expression",
+        "text": "trivia.pos",
+        "indent": 21,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 37,
+        "kind": "paren",
+        "text": ")",
+        "indent": 19,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 38,
+        "kind": "var",
+        "text": "commentEndLine",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 38,
+        "kind": "call",
+        "text": "ts.getLineAndCharacterOfPosition",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 38,
+        "kind": "paren",
+        "text": "(",
+        "indent": 19,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 39,
+        "kind": "call",
+        "text": "node.getSourceFile",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 39,
+        "kind": "paren",
+        "text": "(",
+        "indent": 21,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 39,
+        "kind": "paren",
+        "text": ")",
+        "indent": 21,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 40,
+        "kind": "expression",
+        "text": "node.pos",
+        "indent": 22,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 40,
+        "kind": "expression",
+        "text": "trivia.pos",
+        "indent": 22,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 40,
+        "kind": "expression",
+        "text": "text.length",
+        "indent": 21,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 41,
+        "kind": "paren",
+        "text": ")",
+        "indent": 19,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 42,
+        "kind": "call",
+        "text": "result.push",
+        "indent": 15,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 42,
+        "kind": "paren",
+        "text": "(",
+        "indent": 16,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 42,
+        "kind": "object",
+        "text": "{",
+        "indent": 18,
+        "export": false,
+        "path": "object-open"
+      },
+      {
+        "line": 43,
+        "kind": "property",
+        "text": "element",
+        "indent": 20,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 44,
+        "kind": "property",
+        "text": "level",
+        "indent": 20,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 44,
+        "kind": "property",
+        "text": "depth",
+        "indent": 20,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 45,
+        "kind": "property",
+        "text": "kind",
+        "indent": 20,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 45,
+        "kind": "expression",
+        "text": "ts.Debug",
+        "indent": 21,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 45,
+        "kind": "call",
+        "text": ".formatSyntaxKind",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 45,
+        "kind": "paren",
+        "text": "(",
+        "indent": 21,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 45,
+        "kind": "expression",
+        "text": "trivia.kind",
+        "indent": 22,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 45,
+        "kind": "paren",
+        "text": ")",
+        "indent": 21,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 46,
+        "kind": "property",
+        "text": "line",
+        "indent": 20,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 46,
+        "kind": "expression",
+        "text": "commentStartLine.line",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 47,
+        "kind": "property",
+        "text": "endl",
+        "indent": 20,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 47,
+        "kind": "expression",
+        "text": "commentEndLine.line",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 48,
+        "kind": "property",
+        "text": "pos",
+        "indent": 20,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 48,
+        "kind": "expression",
+        "text": "trivia.pos",
+        "indent": 21,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 48,
+        "kind": "expression",
+        "text": "node.pos",
+        "indent": 21,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 49,
+        "kind": "property",
+        "text": "end",
+        "indent": 20,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 49,
+        "kind": "expression",
+        "text": "trivia.end",
+        "indent": 21,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 49,
+        "kind": "expression",
+        "text": "node.pos",
+        "indent": 21,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 50,
+        "kind": "property",
+        "text": "tsNode",
+        "indent": 20,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 50,
+        "kind": "property",
+        "text": "node",
+        "indent": 20,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 51,
+        "kind": "property",
+        "text": "text",
+        "indent": 20,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 52,
+        "kind": "property",
+        "text": "hasNodes",
+        "indent": 20,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 53,
+        "kind": "comment",
+        "text": "// node,",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 54,
+        "kind": "object",
+        "text": "}",
+        "indent": 18,
+        "export": false,
+        "path": "object-close"
+      },
+      {
+        "line": 54,
+        "kind": "paren",
+        "text": ")",
+        "indent": 16,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 55,
+        "kind": "block",
+        "text": "}",
+        "indent": 13,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 55,
+        "kind": "paren",
+        "text": ")",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 56,
+        "kind": "block",
+        "text": "}",
+        "indent": 7,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 57,
+        "kind": "var",
+        "text": "text",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 57,
+        "kind": "call",
+        "text": "node.getText",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 57,
+        "kind": "paren",
+        "text": "(",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 57,
+        "kind": "paren",
+        "text": ")",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 58,
+        "kind": "var",
+        "text": "nextStartLine",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 58,
+        "kind": "call",
+        "text": "ts.getLineAndCharacterOfPosition",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 58,
+        "kind": "paren",
+        "text": "(",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 59,
+        "kind": "call",
+        "text": "node.getSourceFile",
+        "indent": 11,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 59,
+        "kind": "paren",
+        "text": "(",
+        "indent": 12,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 59,
+        "kind": "paren",
+        "text": ")",
+        "indent": 12,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 60,
+        "kind": "expression",
+        "text": "node.pos",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 60,
+        "kind": "call",
+        "text": "node.getLeadingTriviaWidth",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 60,
+        "kind": "paren",
+        "text": "(",
+        "indent": 13,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 60,
+        "kind": "paren",
+        "text": ")",
+        "indent": 13,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 61,
+        "kind": "paren",
+        "text": ")",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 62,
+        "kind": "var",
+        "text": "nextEndLine",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 62,
+        "kind": "call",
+        "text": "ts.getLineAndCharacterOfPosition",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 62,
+        "kind": "paren",
+        "text": "(",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 63,
+        "kind": "call",
+        "text": "node.getSourceFile",
+        "indent": 11,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 63,
+        "kind": "paren",
+        "text": "(",
+        "indent": 12,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 63,
+        "kind": "paren",
+        "text": ")",
+        "indent": 12,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 64,
+        "kind": "expression",
+        "text": "node.pos",
+        "indent": 13,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 64,
+        "kind": "call",
+        "text": "node.getLeadingTriviaWidth",
+        "indent": 13,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 64,
+        "kind": "paren",
+        "text": "(",
+        "indent": 14,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 64,
+        "kind": "paren",
+        "text": ")",
+        "indent": 14,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 64,
+        "kind": "expression",
+        "text": "text.length",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 65,
+        "kind": "paren",
+        "text": ")",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 66,
+        "kind": "var",
+        "text": "kind",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 66,
+        "kind": "expression",
+        "text": "ts.Debug",
+        "indent": 10,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 66,
+        "kind": "call",
+        "text": ".formatSyntaxKind",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 66,
+        "kind": "paren",
+        "text": "(",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 66,
+        "kind": "expression",
+        "text": "node.kind",
+        "indent": 11,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 66,
+        "kind": "paren",
+        "text": ")",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 67,
+        "kind": "var",
+        "text": "childrend",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 67,
+        "kind": "call",
+        "text": "node.getChildren",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 67,
+        "kind": "paren",
+        "text": "(",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 67,
+        "kind": "paren",
+        "text": ")",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 68,
+        "kind": "call",
+        "text": "result.push",
+        "indent": 6,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 68,
+        "kind": "paren",
+        "text": "(",
+        "indent": 7,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 68,
+        "kind": "object",
+        "text": "{",
+        "indent": 9,
+        "export": false,
+        "path": "object-open"
+      },
+      {
+        "line": 69,
+        "kind": "property",
+        "text": "element",
+        "indent": 11,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 69,
+        "kind": "expression",
+        "text": "childrend.length",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 70,
+        "kind": "property",
+        "text": "level",
+        "indent": 11,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 70,
+        "kind": "property",
+        "text": "depth",
+        "indent": 11,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 71,
+        "kind": "property",
+        "text": "kind",
+        "indent": 11,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 72,
+        "kind": "property",
+        "text": "line",
+        "indent": 11,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 72,
+        "kind": "expression",
+        "text": "nextStartLine.line",
+        "indent": 11,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 73,
+        "kind": "property",
+        "text": "endl",
+        "indent": 11,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 73,
+        "kind": "expression",
+        "text": "nextEndLine.line",
+        "indent": 11,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 74,
+        "kind": "property",
+        "text": "pos",
+        "indent": 11,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 74,
+        "kind": "expression",
+        "text": "node.pos",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 74,
+        "kind": "call",
+        "text": "node.getLeadingTriviaWidth",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 74,
+        "kind": "paren",
+        "text": "(",
+        "indent": 13,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 74,
+        "kind": "paren",
+        "text": ")",
+        "indent": 13,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 75,
+        "kind": "property",
+        "text": "end",
+        "indent": 11,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 75,
+        "kind": "expression",
+        "text": "node.end",
+        "indent": 11,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 76,
+        "kind": "property",
+        "text": "tsNode",
+        "indent": 11,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 76,
+        "kind": "property",
+        "text": "node",
+        "indent": 11,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 77,
+        "kind": "property",
+        "text": "text",
+        "indent": 11,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 78,
+        "kind": "property",
+        "text": "hasNodes",
+        "indent": 11,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 78,
+        "kind": "expression",
+        "text": "childrend.length",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 79,
+        "kind": "comment",
+        "text": "// node,",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 80,
+        "kind": "object",
+        "text": "}",
+        "indent": 9,
+        "export": false,
+        "path": "object-close"
+      },
+      {
+        "line": 80,
+        "kind": "paren",
+        "text": ")",
+        "indent": 7,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 83,
+        "kind": "call",
+        "text": "childrend.forEach",
+        "indent": 6,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 83,
+        "kind": "paren",
+        "text": "(",
+        "indent": 7,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 83,
+        "kind": "paren",
+        "text": "(",
+        "indent": 9,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 83,
+        "kind": "paren",
+        "text": ")",
+        "indent": 9,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 83,
+        "kind": "arrow",
+        "text": "=>",
+        "indent": 9,
+        "export": false,
+        "path": "arrow"
+      },
+      {
+        "line": 83,
+        "kind": "call",
+        "text": "scanAllChildren",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 83,
+        "kind": "paren",
+        "text": "(",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 83,
+        "kind": "expression",
+        "text": "node.pos",
+        "indent": 11,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 83,
+        "kind": "paren",
+        "text": ")",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 83,
+        "kind": "paren",
+        "text": ")",
+        "indent": 7,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 84,
+        "kind": "block",
+        "text": "}",
+        "indent": 4,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 86,
+        "kind": "class",
+        "text": "TreeParser",
+        "indent": 3,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 87,
+        "kind": "block",
+        "text": "{",
+        "indent": 6,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 88,
+        "kind": "comment",
+        "text": "//",
+        "indent": 6,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 89,
+        "kind": "block",
+        "text": "}",
+        "indent": 6,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 91,
+        "kind": "paren",
+        "text": "(",
+        "indent": 6,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 91,
+        "kind": "paren",
+        "text": ")",
+        "indent": 6,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 91,
+        "kind": "arrow",
+        "text": "=>",
+        "indent": 6,
+        "export": false,
+        "path": "arrow"
+      },
+      {
+        "line": 91,
+        "kind": "block",
+        "text": "{",
+        "indent": 7,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 92,
+        "kind": "var",
+        "text": "nodes",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 92,
+        "kind": "expression",
+        "text": ".nodes",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 93,
+        "kind": "var",
+        "text": "node",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 94,
+        "kind": "var",
+        "text": "j",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 94,
+        "kind": "expression",
+        "text": "nodes.length",
+        "indent": 10,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 94,
+        "kind": "block",
+        "text": "{",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 95,
+        "kind": "var",
+        "text": "tnode",
+        "indent": 15,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 96,
+        "kind": "expression",
+        "text": "tnode.level",
+        "indent": 13,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 96,
+        "kind": "expression",
+        "text": "node.level",
+        "indent": 13,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 96,
+        "kind": "block",
+        "text": "{",
+        "indent": 13,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 98,
+        "kind": "block",
+        "text": "}",
+        "indent": 13,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 99,
+        "kind": "block",
+        "text": "}",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 100,
+        "kind": "expression",
+        "text": "nodes.length",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 101,
+        "kind": "block",
+        "text": "}",
+        "indent": 7,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 103,
+        "kind": "paren",
+        "text": "(",
+        "indent": 6,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 103,
+        "kind": "paren",
+        "text": ")",
+        "indent": 6,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 103,
+        "kind": "arrow",
+        "text": "=>",
+        "indent": 6,
+        "export": false,
+        "path": "arrow"
+      },
+      {
+        "line": 103,
+        "kind": "block",
+        "text": "{",
+        "indent": 7,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 104,
+        "kind": "var",
+        "text": "nodes",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 104,
+        "kind": "expression",
+        "text": ".nodes",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 105,
+        "kind": "var",
+        "text": "node",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 106,
+        "kind": "var",
+        "text": "j",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 106,
+        "kind": "block",
+        "text": "{",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 107,
+        "kind": "var",
+        "text": "tnode",
+        "indent": 15,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 108,
+        "kind": "expression",
+        "text": "tnode.level",
+        "indent": 13,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 108,
+        "kind": "expression",
+        "text": "node.level",
+        "indent": 13,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 109,
+        "kind": "expression",
+        "text": "tnode.kind",
+        "indent": 14,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 109,
+        "kind": "call",
+        "text": ".indexOf",
+        "indent": 13,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 109,
+        "kind": "paren",
+        "text": "(",
+        "indent": 14,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 109,
+        "kind": "paren",
+        "text": ")",
+        "indent": 14,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 110,
+        "kind": "block",
+        "text": "}",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 112,
+        "kind": "block",
+        "text": "}",
+        "indent": 7,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 114,
+        "kind": "paren",
+        "text": "(",
+        "indent": 6,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 114,
+        "kind": "paren",
+        "text": ")",
+        "indent": 6,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 114,
+        "kind": "arrow",
+        "text": "=>",
+        "indent": 6,
+        "export": false,
+        "path": "arrow"
+      },
+      {
+        "line": 114,
+        "kind": "block",
+        "text": "{",
+        "indent": 7,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 115,
+        "kind": "var",
+        "text": "nodes",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 115,
+        "kind": "expression",
+        "text": ".nodes",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 116,
+        "kind": "var",
+        "text": "findCore",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 116,
+        "kind": "paren",
+        "text": "(",
+        "indent": 13,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 116,
+        "kind": "paren",
+        "text": ")",
+        "indent": 13,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 116,
+        "kind": "arrow",
+        "text": "=>",
+        "indent": 13,
+        "export": false,
+        "path": "arrow"
+      },
+      {
+        "line": 116,
+        "kind": "block",
+        "text": "{",
+        "indent": 14,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 117,
+        "kind": "var",
+        "text": "node",
+        "indent": 19,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 118,
+        "kind": "var",
+        "text": "j",
+        "indent": 19,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 118,
+        "kind": "expression",
+        "text": "nodes.length",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 118,
+        "kind": "block",
+        "text": "{",
+        "indent": 17,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 119,
+        "kind": "var",
+        "text": "tnode",
+        "indent": 22,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 120,
+        "kind": "expression",
+        "text": "tnode.level",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 120,
+        "kind": "expression",
+        "text": "node.level",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 121,
+        "kind": "expression",
+        "text": ".kind",
+        "indent": 21,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 121,
+        "kind": "call",
+        "text": ".indexOf",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 121,
+        "kind": "paren",
+        "text": "(",
+        "indent": 21,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 121,
+        "kind": "paren",
+        "text": ")",
+        "indent": 21,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 122,
+        "kind": "block",
+        "text": "}",
+        "indent": 17,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 124,
+        "kind": "block",
+        "text": "}",
+        "indent": 14,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 125,
+        "kind": "call",
+        "text": "Array.isArray",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 125,
+        "kind": "paren",
+        "text": "(",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 125,
+        "kind": "paren",
+        "text": ")",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 125,
+        "kind": "block",
+        "text": "{",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 126,
+        "kind": "var",
+        "text": "j",
+        "indent": 15,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 126,
+        "kind": "expression",
+        "text": "kind.length",
+        "indent": 13,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 126,
+        "kind": "block",
+        "text": "{",
+        "indent": 13,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 127,
+        "kind": "call",
+        "text": "findCore",
+        "indent": 16,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 127,
+        "kind": "paren",
+        "text": "(",
+        "indent": 17,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 127,
+        "kind": "paren",
+        "text": ")",
+        "indent": 17,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 129,
+        "kind": "block",
+        "text": "}",
+        "indent": 13,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 131,
+        "kind": "block",
+        "text": "}",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 132,
+        "kind": "call",
+        "text": "findCore",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 132,
+        "kind": "paren",
+        "text": "(",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 132,
+        "kind": "paren",
+        "text": ")",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 133,
+        "kind": "block",
+        "text": "}",
+        "indent": 7,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 136,
+        "kind": "func",
+        "text": "scanJsxFunctions",
+        "indent": 3,
+        "export": true,
+        "path": ""
+      },
+      {
+        "line": 136,
+        "kind": "block",
+        "text": "{",
+        "indent": 4,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 137,
+        "kind": "var",
+        "text": "tree",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 138,
+        "kind": "var",
+        "text": "i",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 138,
+        "kind": "expression",
+        "text": "result.length",
+        "indent": 7,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 138,
+        "kind": "block",
+        "text": "{",
+        "indent": 7,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 139,
+        "kind": "var",
+        "text": "node",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 140,
+        "kind": "expression",
+        "text": "node.kind",
+        "indent": 10,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 140,
+        "kind": "block",
+        "text": "{",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 141,
+        "kind": "var",
+        "text": "f",
+        "indent": 15,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 141,
+        "kind": "call",
+        "text": "tree.nextFind",
+        "indent": 15,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 141,
+        "kind": "paren",
+        "text": "(",
+        "indent": 16,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 141,
+        "kind": "paren",
+        "text": ")",
+        "indent": 16,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 142,
+        "kind": "var",
+        "text": "e",
+        "indent": 15,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 142,
+        "kind": "call",
+        "text": "tree.nextFind",
+        "indent": 15,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 142,
+        "kind": "paren",
+        "text": "(",
+        "indent": 16,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 142,
+        "kind": "paren",
+        "text": ")",
+        "indent": 16,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 143,
+        "kind": "var",
+        "text": "t",
+        "indent": 15,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 143,
+        "kind": "call",
+        "text": "tree.nextFind",
+        "indent": 15,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 143,
+        "kind": "paren",
+        "text": "(",
+        "indent": 16,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 143,
+        "kind": "paren",
+        "text": ")",
+        "indent": 16,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 144,
+        "kind": "call",
+        "text": "tree.nextFind",
+        "indent": 13,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 144,
+        "kind": "paren",
+        "text": "(",
+        "indent": 14,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 144,
+        "kind": "paren",
+        "text": ")",
+        "indent": 14,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 144,
+        "kind": "block",
+        "text": "{",
+        "indent": 13,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 145,
+        "kind": "call",
+        "text": "console.log",
+        "indent": 15,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 145,
+        "kind": "paren",
+        "text": "(",
+        "indent": 16,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 145,
+        "kind": "expression",
+        "text": ".text",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 145,
+        "kind": "paren",
+        "text": ")",
+        "indent": 16,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 146,
+        "kind": "block",
+        "text": "}",
+        "indent": 13,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 147,
+        "kind": "call",
+        "text": "tree.nextFunction",
+        "indent": 13,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 147,
+        "kind": "paren",
+        "text": "(",
+        "indent": 14,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 147,
+        "kind": "paren",
+        "text": ")",
+        "indent": 14,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 148,
+        "kind": "block",
+        "text": "}",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 149,
+        "kind": "expression",
+        "text": "node.kind",
+        "indent": 10,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 149,
+        "kind": "block",
+        "text": "{",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 150,
+        "kind": "var",
+        "text": "a",
+        "indent": 15,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 150,
+        "kind": "call",
+        "text": "tree.nextFind",
+        "indent": 15,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 150,
+        "kind": "paren",
+        "text": "(",
+        "indent": 16,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 150,
+        "kind": "paren",
+        "text": ")",
+        "indent": 16,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 151,
+        "kind": "block",
+        "text": "{",
+        "indent": 13,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 152,
+        "kind": "var",
+        "text": "e",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 152,
+        "kind": "call",
+        "text": "tree.nextFind",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 152,
+        "kind": "paren",
+        "text": "(",
+        "indent": 19,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 152,
+        "kind": "paren",
+        "text": ")",
+        "indent": 19,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 153,
+        "kind": "var",
+        "text": "t",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 153,
+        "kind": "call",
+        "text": "tree.prevFind",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 153,
+        "kind": "paren",
+        "text": "(",
+        "indent": 19,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 153,
+        "kind": "paren",
+        "text": ")",
+        "indent": 19,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 154,
+        "kind": "block",
+        "text": "{",
+        "indent": 16,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 156,
+        "kind": "call",
+        "text": "tree.nextFind",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 156,
+        "kind": "paren",
+        "text": "(",
+        "indent": 21,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 156,
+        "kind": "paren",
+        "text": ")",
+        "indent": 21,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 157,
+        "kind": "call",
+        "text": "tree.nextFind",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 157,
+        "kind": "paren",
+        "text": "(",
+        "indent": 21,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 157,
+        "kind": "paren",
+        "text": ")",
+        "indent": 21,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 158,
+        "kind": "block",
+        "text": "{",
+        "indent": 19,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 159,
+        "kind": "call",
+        "text": "console.log",
+        "indent": 21,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 159,
+        "kind": "paren",
+        "text": "(",
+        "indent": 22,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 159,
+        "kind": "expression",
+        "text": ".text",
+        "indent": 26,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 159,
+        "kind": "paren",
+        "text": ")",
+        "indent": 22,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 160,
+        "kind": "block",
+        "text": "}",
+        "indent": 19,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 161,
+        "kind": "block",
+        "text": "}",
+        "indent": 16,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 162,
+        "kind": "call",
+        "text": "tree.nextFunction",
+        "indent": 16,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 162,
+        "kind": "paren",
+        "text": "(",
+        "indent": 17,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 162,
+        "kind": "paren",
+        "text": ")",
+        "indent": 17,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 163,
+        "kind": "block",
+        "text": "}",
+        "indent": 13,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 164,
+        "kind": "block",
+        "text": "}",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 165,
+        "kind": "block",
+        "text": "}",
+        "indent": 7,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 166,
+        "kind": "block",
+        "text": "}",
+        "indent": 4,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 175,
+        "kind": "func",
+        "text": "scanJsxElements",
+        "indent": 3,
+        "export": true,
+        "path": ""
+      },
+      {
+        "line": 175,
+        "kind": "block",
+        "text": "{",
+        "indent": 4,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 176,
+        "kind": "var",
+        "text": "result",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 177,
+        "kind": "var",
+        "text": "tree",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 178,
+        "kind": "var",
+        "text": "i",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 178,
+        "kind": "expression",
+        "text": "nodes.length",
+        "indent": 7,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 178,
+        "kind": "block",
+        "text": "{",
+        "indent": 7,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 179,
+        "kind": "var",
+        "text": "node",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 180,
+        "kind": "expression",
+        "text": "node.kind",
+        "indent": 10,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 180,
+        "kind": "block",
+        "text": "{",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 181,
+        "kind": "call",
+        "text": "result.push",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 181,
+        "kind": "paren",
+        "text": "(",
+        "indent": 13,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 181,
+        "kind": "object",
+        "text": "{",
+        "indent": 15,
+        "export": false,
+        "path": "object-open"
+      },
+      {
+        "line": 182,
+        "kind": "property",
+        "text": "level",
+        "indent": 17,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 182,
+        "kind": "expression",
+        "text": "node.level",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 183,
+        "kind": "property",
+        "text": "kind",
+        "indent": 17,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 183,
+        "kind": "expression",
+        "text": "node.kind",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 184,
+        "kind": "object",
+        "text": "}",
+        "indent": 15,
+        "export": false,
+        "path": "object-close"
+      },
+      {
+        "line": 184,
+        "kind": "paren",
+        "text": ")",
+        "indent": 13,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 185,
+        "kind": "block",
+        "text": "}",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 185,
+        "kind": "expression",
+        "text": "node.kind",
+        "indent": 11,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 185,
+        "kind": "block",
+        "text": "{",
+        "indent": 11,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 186,
+        "kind": "var",
+        "text": "exp",
+        "indent": 16,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 186,
+        "kind": "call",
+        "text": "tree.nextFind",
+        "indent": 21,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 186,
+        "kind": "paren",
+        "text": "(",
+        "indent": 22,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 186,
+        "kind": "paren",
+        "text": ")",
+        "indent": 22,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 187,
+        "kind": "var",
+        "text": "t",
+        "indent": 16,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 187,
+        "kind": "call",
+        "text": "tree.nextFind",
+        "indent": 16,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 187,
+        "kind": "paren",
+        "text": "(",
+        "indent": 17,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 187,
+        "kind": "paren",
+        "text": ")",
+        "indent": 17,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 188,
+        "kind": "call",
+        "text": "result.push",
+        "indent": 13,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 188,
+        "kind": "paren",
+        "text": "(",
+        "indent": 14,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 188,
+        "kind": "object",
+        "text": "{",
+        "indent": 16,
+        "export": false,
+        "path": "object-open"
+      },
+      {
+        "line": 189,
+        "kind": "property",
+        "text": "level",
+        "indent": 18,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 189,
+        "kind": "expression",
+        "text": "node.level",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 190,
+        "kind": "property",
+        "text": "export",
+        "indent": 18,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 190,
+        "kind": "property",
+        "text": "exp",
+        "indent": 18,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 191,
+        "kind": "property",
+        "text": "kind",
+        "indent": 18,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 191,
+        "kind": "expression",
+        "text": "node.kind",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 192,
+        "kind": "property",
+        "text": "name",
+        "indent": 18,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 192,
+        "kind": "expression",
+        "text": ".text",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 193,
+        "kind": "object",
+        "text": "}",
+        "indent": 16,
+        "export": false,
+        "path": "object-close"
+      },
+      {
+        "line": 193,
+        "kind": "paren",
+        "text": ")",
+        "indent": 14,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 194,
+        "kind": "block",
+        "text": "}",
+        "indent": 11,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 194,
+        "kind": "expression",
+        "text": "node.kind",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 194,
+        "kind": "block",
+        "text": "{",
+        "indent": 12,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 195,
+        "kind": "var",
+        "text": "exp",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 196,
+        "kind": "call",
+        "text": "tree.nextFind",
+        "indent": 22,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 196,
+        "kind": "paren",
+        "text": "(",
+        "indent": 23,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 196,
+        "kind": "paren",
+        "text": ")",
+        "indent": 23,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 198,
+        "kind": "var",
+        "text": "a",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 198,
+        "kind": "call",
+        "text": "tree.nextFind",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 198,
+        "kind": "paren",
+        "text": "(",
+        "indent": 18,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 198,
+        "kind": "paren",
+        "text": ")",
+        "indent": 18,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 199,
+        "kind": "block",
+        "text": "{",
+        "indent": 15,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 200,
+        "kind": "var",
+        "text": "t",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 200,
+        "kind": "call",
+        "text": "tree.prevFind",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 200,
+        "kind": "paren",
+        "text": "(",
+        "indent": 21,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 200,
+        "kind": "paren",
+        "text": ")",
+        "indent": 21,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 201,
+        "kind": "block",
+        "text": "{",
+        "indent": 18,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 202,
+        "kind": "call",
+        "text": "result.push",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 202,
+        "kind": "paren",
+        "text": "(",
+        "indent": 21,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 202,
+        "kind": "object",
+        "text": "{",
+        "indent": 23,
+        "export": false,
+        "path": "object-open"
+      },
+      {
+        "line": 203,
+        "kind": "property",
+        "text": "level",
+        "indent": 25,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 203,
+        "kind": "expression",
+        "text": "node.level",
+        "indent": 25,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 204,
+        "kind": "property",
+        "text": "export",
+        "indent": 25,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 204,
+        "kind": "property",
+        "text": "exp",
+        "indent": 25,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 205,
+        "kind": "property",
+        "text": "kind",
+        "indent": 25,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 205,
+        "kind": "expression",
+        "text": ".kind",
+        "indent": 25,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 206,
+        "kind": "property",
+        "text": "name",
+        "indent": 25,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 206,
+        "kind": "expression",
+        "text": ".text",
+        "indent": 25,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 207,
+        "kind": "object",
+        "text": "}",
+        "indent": 23,
+        "export": false,
+        "path": "object-close"
+      },
+      {
+        "line": 207,
+        "kind": "paren",
+        "text": ")",
+        "indent": 21,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 208,
+        "kind": "block",
+        "text": "}",
+        "indent": 18,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 208,
+        "kind": "block",
+        "text": "{",
+        "indent": 18,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 209,
+        "kind": "call",
+        "text": "result.push",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 209,
+        "kind": "paren",
+        "text": "(",
+        "indent": 21,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 209,
+        "kind": "object",
+        "text": "{",
+        "indent": 23,
+        "export": false,
+        "path": "object-open"
+      },
+      {
+        "line": 210,
+        "kind": "property",
+        "text": "level",
+        "indent": 25,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 210,
+        "kind": "expression",
+        "text": "node.level",
+        "indent": 25,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 211,
+        "kind": "property",
+        "text": "export",
+        "indent": 25,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 211,
+        "kind": "property",
+        "text": "exp",
+        "indent": 25,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 212,
+        "kind": "property",
+        "text": "kind",
+        "indent": 25,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 212,
+        "kind": "expression",
+        "text": ".kind",
+        "indent": 25,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 213,
+        "kind": "object",
+        "text": "}",
+        "indent": 23,
+        "export": false,
+        "path": "object-close"
+      },
+      {
+        "line": 213,
+        "kind": "paren",
+        "text": ")",
+        "indent": 21,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 214,
+        "kind": "block",
+        "text": "}",
+        "indent": 18,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 215,
+        "kind": "block",
+        "text": "}",
+        "indent": 15,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 216,
+        "kind": "block",
+        "text": "}",
+        "indent": 12,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 216,
+        "kind": "expression",
+        "text": "node.kind",
+        "indent": 13,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 216,
+        "kind": "block",
+        "text": "{",
+        "indent": 13,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 217,
+        "kind": "var",
+        "text": "n",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 217,
+        "kind": "call",
+        "text": "tree.nextFind",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 217,
+        "kind": "paren",
+        "text": "(",
+        "indent": 19,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 217,
+        "kind": "paren",
+        "text": ")",
+        "indent": 19,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 218,
+        "kind": "block",
+        "text": "{",
+        "indent": 16,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 219,
+        "kind": "call",
+        "text": "result.push",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 219,
+        "kind": "paren",
+        "text": "(",
+        "indent": 19,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 219,
+        "kind": "object",
+        "text": "{",
+        "indent": 21,
+        "export": false,
+        "path": "object-open"
+      },
+      {
+        "line": 220,
+        "kind": "property",
+        "text": "level",
+        "indent": 23,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 220,
+        "kind": "expression",
+        "text": "node.level",
+        "indent": 23,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 221,
+        "kind": "property",
+        "text": "kind",
+        "indent": 23,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 221,
+        "kind": "expression",
+        "text": "node.kind",
+        "indent": 23,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 222,
+        "kind": "property",
+        "text": "name",
+        "indent": 23,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 222,
+        "kind": "expression",
+        "text": ".text",
+        "indent": 23,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 223,
+        "kind": "object",
+        "text": "}",
+        "indent": 21,
+        "export": false,
+        "path": "object-close"
+      },
+      {
+        "line": 223,
+        "kind": "paren",
+        "text": ")",
+        "indent": 19,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 224,
+        "kind": "block",
+        "text": "}",
+        "indent": 16,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 224,
+        "kind": "block",
+        "text": "{",
+        "indent": 16,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 225,
+        "kind": "call",
+        "text": "result.push",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 225,
+        "kind": "paren",
+        "text": "(",
+        "indent": 19,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 225,
+        "kind": "object",
+        "text": "{",
+        "indent": 21,
+        "export": false,
+        "path": "object-open"
+      },
+      {
+        "line": 226,
+        "kind": "property",
+        "text": "level",
+        "indent": 23,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 226,
+        "kind": "expression",
+        "text": "node.level",
+        "indent": 23,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 227,
+        "kind": "property",
+        "text": "kind",
+        "indent": 23,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 227,
+        "kind": "expression",
+        "text": "node.kind",
+        "indent": 23,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 228,
+        "kind": "object",
+        "text": "}",
+        "indent": 21,
+        "export": false,
+        "path": "object-close"
+      },
+      {
+        "line": 228,
+        "kind": "paren",
+        "text": ")",
+        "indent": 19,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 229,
+        "kind": "block",
+        "text": "}",
+        "indent": 16,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 230,
+        "kind": "block",
+        "text": "}",
+        "indent": 13,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 230,
+        "kind": "expression",
+        "text": "node.kind",
+        "indent": 14,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 230,
+        "kind": "block",
+        "text": "{",
+        "indent": 14,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 231,
+        "kind": "var",
+        "text": "n",
+        "indent": 19,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 231,
+        "kind": "call",
+        "text": "tree.nextFind",
+        "indent": 19,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 231,
+        "kind": "paren",
+        "text": "(",
+        "indent": 20,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 231,
+        "kind": "paren",
+        "text": ")",
+        "indent": 20,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 232,
+        "kind": "block",
+        "text": "{",
+        "indent": 17,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 233,
+        "kind": "call",
+        "text": "result.push",
+        "indent": 19,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 233,
+        "kind": "paren",
+        "text": "(",
+        "indent": 20,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 233,
+        "kind": "object",
+        "text": "{",
+        "indent": 22,
+        "export": false,
+        "path": "object-open"
+      },
+      {
+        "line": 234,
+        "kind": "property",
+        "text": "level",
+        "indent": 24,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 234,
+        "kind": "expression",
+        "text": "node.level",
+        "indent": 24,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 235,
+        "kind": "property",
+        "text": "kind",
+        "indent": 24,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 235,
+        "kind": "expression",
+        "text": "node.kind",
+        "indent": 24,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 236,
+        "kind": "property",
+        "text": "name",
+        "indent": 24,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 236,
+        "kind": "expression",
+        "text": ".text",
+        "indent": 24,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 237,
+        "kind": "object",
+        "text": "}",
+        "indent": 22,
+        "export": false,
+        "path": "object-close"
+      },
+      {
+        "line": 237,
+        "kind": "paren",
+        "text": ")",
+        "indent": 20,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 238,
+        "kind": "block",
+        "text": "}",
+        "indent": 17,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 238,
+        "kind": "block",
+        "text": "{",
+        "indent": 17,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 239,
+        "kind": "call",
+        "text": "result.push",
+        "indent": 19,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 239,
+        "kind": "paren",
+        "text": "(",
+        "indent": 20,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 239,
+        "kind": "object",
+        "text": "{",
+        "indent": 22,
+        "export": false,
+        "path": "object-open"
+      },
+      {
+        "line": 240,
+        "kind": "property",
+        "text": "level",
+        "indent": 24,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 240,
+        "kind": "expression",
+        "text": "node.level",
+        "indent": 24,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 241,
+        "kind": "property",
+        "text": "kind",
+        "indent": 24,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 241,
+        "kind": "expression",
+        "text": "node.kind",
+        "indent": 24,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 242,
+        "kind": "object",
+        "text": "}",
+        "indent": 22,
+        "export": false,
+        "path": "object-close"
+      },
+      {
+        "line": 242,
+        "kind": "paren",
+        "text": ")",
+        "indent": 20,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 243,
+        "kind": "block",
+        "text": "}",
+        "indent": 17,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 244,
+        "kind": "block",
+        "text": "}",
+        "indent": 14,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 245,
+        "kind": "block",
+        "text": "}",
+        "indent": 7,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 246,
+        "kind": "block",
+        "text": "{",
+        "indent": 6,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 247,
+        "kind": "var",
+        "text": "level",
+        "indent": 11,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 248,
+        "kind": "call",
+        "text": "result.map",
+        "indent": 8,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 248,
+        "kind": "paren",
+        "text": "(",
+        "indent": 9,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 248,
+        "kind": "paren",
+        "text": "(",
+        "indent": 11,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 248,
+        "kind": "paren",
+        "text": ")",
+        "indent": 11,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 248,
+        "kind": "arrow",
+        "text": "=>",
+        "indent": 11,
+        "export": false,
+        "path": "arrow"
+      },
+      {
+        "line": 248,
+        "kind": "block",
+        "text": "{",
+        "indent": 12,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 249,
+        "kind": "expression",
+        "text": "level.length",
+        "indent": 15,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 249,
+        "kind": "call",
+        "text": "level.push",
+        "indent": 15,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 249,
+        "kind": "paren",
+        "text": "(",
+        "indent": 16,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 249,
+        "kind": "expression",
+        "text": "node.level",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 249,
+        "kind": "paren",
+        "text": ")",
+        "indent": 16,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 250,
+        "kind": "block",
+        "text": "{",
+        "indent": 15,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 251,
+        "kind": "expression",
+        "text": "level.length",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 251,
+        "kind": "expression",
+        "text": "node.level",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 251,
+        "kind": "block",
+        "text": "{",
+        "indent": 18,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 252,
+        "kind": "call",
+        "text": "level.push",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 252,
+        "kind": "paren",
+        "text": "(",
+        "indent": 21,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 252,
+        "kind": "expression",
+        "text": "node.level",
+        "indent": 22,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 252,
+        "kind": "paren",
+        "text": ")",
+        "indent": 21,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 253,
+        "kind": "block",
+        "text": "}",
+        "indent": 18,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 253,
+        "kind": "expression",
+        "text": "level.length",
+        "indent": 21,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 253,
+        "kind": "expression",
+        "text": "node.level",
+        "indent": 19,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 253,
+        "kind": "block",
+        "text": "{",
+        "indent": 19,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 254,
+        "kind": "call",
+        "text": "level.pop",
+        "indent": 21,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 254,
+        "kind": "paren",
+        "text": "(",
+        "indent": 22,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 254,
+        "kind": "paren",
+        "text": ")",
+        "indent": 22,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 255,
+        "kind": "block",
+        "text": "}",
+        "indent": 19,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 255,
+        "kind": "block",
+        "text": "{",
+        "indent": 19,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 257,
+        "kind": "block",
+        "text": "}",
+        "indent": 19,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 258,
+        "kind": "block",
+        "text": "}",
+        "indent": 15,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 259,
+        "kind": "expression",
+        "text": "node.level",
+        "indent": 15,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 259,
+        "kind": "call",
+        "text": "level.indexOf",
+        "indent": 15,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 259,
+        "kind": "paren",
+        "text": "(",
+        "indent": 16,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 259,
+        "kind": "expression",
+        "text": "node.level",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 259,
+        "kind": "paren",
+        "text": ")",
+        "indent": 16,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 261,
+        "kind": "block",
+        "text": "}",
+        "indent": 12,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 261,
+        "kind": "paren",
+        "text": ")",
+        "indent": 9,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 262,
+        "kind": "block",
+        "text": "}",
+        "indent": 6,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 263,
+        "kind": "block",
+        "text": "}",
+        "indent": 4,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 265,
+        "kind": "func",
+        "text": "main",
+        "indent": 3,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 265,
+        "kind": "block",
+        "text": "{",
+        "indent": 4,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 266,
+        "kind": "var",
+        "text": "argv",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 266,
+        "kind": "call",
+        "text": "yargs",
+        "indent": 21,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 266,
+        "kind": "paren",
+        "text": "(",
+        "indent": 22,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 266,
+        "kind": "call",
+        "text": "hideBin",
+        "indent": 23,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 266,
+        "kind": "paren",
+        "text": "(",
+        "indent": 24,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 266,
+        "kind": "paren",
+        "text": ")",
+        "indent": 24,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 266,
+        "kind": "paren",
+        "text": ")",
+        "indent": 22,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 266,
+        "kind": "call",
+        "text": ".detectLocale",
+        "indent": 19,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 267,
+        "kind": "paren",
+        "text": "(",
+        "indent": 20,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 267,
+        "kind": "paren",
+        "text": ")",
+        "indent": 20,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 266,
+        "kind": "call",
+        "text": ".scriptName",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 268,
+        "kind": "paren",
+        "text": "(",
+        "indent": 18,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 268,
+        "kind": "paren",
+        "text": ")",
+        "indent": 18,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 266,
+        "kind": "call",
+        "text": ".usage",
+        "indent": 15,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 269,
+        "kind": "paren",
+        "text": "(",
+        "indent": 16,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 269,
+        "kind": "paren",
+        "text": ")",
+        "indent": 16,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 266,
+        "kind": "call",
+        "text": ".options",
+        "indent": 13,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 270,
+        "kind": "paren",
+        "text": "(",
+        "indent": 14,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 270,
+        "kind": "object",
+        "text": "{",
+        "indent": 16,
+        "export": false,
+        "path": "object-open"
+      },
+      {
+        "line": 271,
+        "kind": "property",
+        "text": "source",
+        "indent": 18,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 271,
+        "kind": "object",
+        "text": "{",
+        "indent": 19,
+        "export": false,
+        "path": "object-open"
+      },
+      {
+        "line": 271,
+        "kind": "property",
+        "text": "type",
+        "indent": 21,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 271,
+        "kind": "property",
+        "text": "demandOption",
+        "indent": 21,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 271,
+        "kind": "object",
+        "text": "}",
+        "indent": 19,
+        "export": false,
+        "path": "object-close"
+      },
+      {
+        "line": 272,
+        "kind": "property",
+        "text": "mode",
+        "indent": 18,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 272,
+        "kind": "object",
+        "text": "{",
+        "indent": 19,
+        "export": false,
+        "path": "object-open"
+      },
+      {
+        "line": 273,
+        "kind": "property",
+        "text": "choices",
+        "indent": 21,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 281,
+        "kind": "property",
+        "text": "default",
+        "indent": 21,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 282,
+        "kind": "property",
+        "text": "describe",
+        "indent": 21,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 283,
+        "kind": "property",
+        "text": "demandOption",
+        "indent": 21,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 284,
+        "kind": "object",
+        "text": "}",
+        "indent": 19,
+        "export": false,
+        "path": "object-close"
+      },
+      {
+        "line": 285,
+        "kind": "object",
+        "text": "}",
+        "indent": 16,
+        "export": false,
+        "path": "object-close"
+      },
+      {
+        "line": 285,
+        "kind": "paren",
+        "text": ")",
+        "indent": 14,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 266,
+        "kind": "call",
+        "text": ".help",
+        "indent": 11,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 286,
+        "kind": "paren",
+        "text": "(",
+        "indent": 12,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 286,
+        "kind": "paren",
+        "text": ")",
+        "indent": 12,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 266,
+        "kind": "call",
+        "text": ".parseSync",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 287,
+        "kind": "paren",
+        "text": "(",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 287,
+        "kind": "paren",
+        "text": ")",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 289,
+        "kind": "var",
+        "text": "sourcePath",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 289,
+        "kind": "expression",
+        "text": "argv.source",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 291,
+        "kind": "var",
+        "text": "sourceCode",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 291,
+        "kind": "call",
+        "text": "fs.readFileSync",
+        "indent": 11,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 291,
+        "kind": "paren",
+        "text": "(",
+        "indent": 12,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 291,
+        "kind": "paren",
+        "text": ")",
+        "indent": 12,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 291,
+        "kind": "call",
+        "text": ".trim",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 291,
+        "kind": "paren",
+        "text": "(",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 291,
+        "kind": "paren",
+        "text": ")",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 293,
+        "kind": "var",
+        "text": "sourceFile",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 293,
+        "kind": "call",
+        "text": "ts.createSourceFile",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 293,
+        "kind": "paren",
+        "text": "(",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 296,
+        "kind": "expression",
+        "text": "ts.ScriptTarget.ES5",
+        "indent": 11,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 298,
+        "kind": "paren",
+        "text": ")",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 300,
+        "kind": "var",
+        "text": "result",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 301,
+        "kind": "call",
+        "text": "scanAllChildren",
+        "indent": 6,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 301,
+        "kind": "paren",
+        "text": "(",
+        "indent": 7,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 301,
+        "kind": "paren",
+        "text": ")",
+        "indent": 7,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 303,
+        "kind": "comment",
+        "text": "// ソース再生成",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 304,
+        "kind": "expression",
+        "text": "argv.mode",
+        "indent": 7,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 304,
+        "kind": "block",
+        "text": "{",
+        "indent": 7,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 305,
+        "kind": "var",
+        "text": "line",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 306,
+        "kind": "var",
+        "text": "pre",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 307,
+        "kind": "var",
+        "text": "pos",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 308,
+        "kind": "var",
+        "text": "kind",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 309,
+        "kind": "call",
+        "text": "result.forEach",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 309,
+        "kind": "paren",
+        "text": "(",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 309,
+        "kind": "paren",
+        "text": "(",
+        "indent": 12,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 309,
+        "kind": "paren",
+        "text": ")",
+        "indent": 12,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 309,
+        "kind": "arrow",
+        "text": "=>",
+        "indent": 12,
+        "export": false,
+        "path": "arrow"
+      },
+      {
+        "line": 309,
+        "kind": "block",
+        "text": "{",
+        "indent": 13,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 310,
+        "kind": "expression",
+        "text": "node.element",
+        "indent": 15,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 310,
+        "kind": "block",
+        "text": "{",
+        "indent": 16,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 311,
+        "kind": "expression",
+        "text": "node.line",
+        "indent": 19,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 311,
+        "kind": "block",
+        "text": "{",
+        "indent": 19,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 312,
+        "kind": "var",
+        "text": "i",
+        "indent": 24,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 312,
+        "kind": "expression",
+        "text": "node.line",
+        "indent": 23,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 312,
+        "kind": "block",
+        "text": "{",
+        "indent": 22,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 313,
+        "kind": "call",
+        "text": "console.log",
+        "indent": 24,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 313,
+        "kind": "paren",
+        "text": "(",
+        "indent": 25,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 313,
+        "kind": "paren",
+        "text": ")",
+        "indent": 25,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 314,
+        "kind": "block",
+        "text": "}",
+        "indent": 22,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 315,
+        "kind": "expression",
+        "text": "node.pos",
+        "indent": 22,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 316,
+        "kind": "block",
+        "text": "}",
+        "indent": 19,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 317,
+        "kind": "expression",
+        "text": "node.pos",
+        "indent": 19,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 317,
+        "kind": "block",
+        "text": "{",
+        "indent": 19,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 318,
+        "kind": "var",
+        "text": "i",
+        "indent": 24,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 318,
+        "kind": "expression",
+        "text": "node.pos",
+        "indent": 23,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 318,
+        "kind": "block",
+        "text": "{",
+        "indent": 22,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 319,
+        "kind": "expression",
+        "text": "process.stdout",
+        "indent": 25,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 319,
+        "kind": "call",
+        "text": ".write",
+        "indent": 24,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 319,
+        "kind": "paren",
+        "text": "(",
+        "indent": 25,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 319,
+        "kind": "paren",
+        "text": ")",
+        "indent": 25,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 320,
+        "kind": "block",
+        "text": "}",
+        "indent": 22,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 321,
+        "kind": "block",
+        "text": "}",
+        "indent": 19,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 322,
+        "kind": "expression",
+        "text": "node.pos",
+        "indent": 19,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 322,
+        "kind": "block",
+        "text": "{",
+        "indent": 19,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 323,
+        "kind": "expression",
+        "text": "process.stdout",
+        "indent": 22,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 323,
+        "kind": "call",
+        "text": ".write",
+        "indent": 21,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 323,
+        "kind": "paren",
+        "text": "(",
+        "indent": 22,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 323,
+        "kind": "expression",
+        "text": "node.text",
+        "indent": 23,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 323,
+        "kind": "paren",
+        "text": ")",
+        "indent": 22,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 324,
+        "kind": "block",
+        "text": "}",
+        "indent": 19,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 325,
+        "kind": "expression",
+        "text": "node.endl",
+        "indent": 19,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 326,
+        "kind": "expression",
+        "text": "node.end",
+        "indent": 19,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 327,
+        "kind": "expression",
+        "text": "node.kind",
+        "indent": 19,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 329,
+        "kind": "block",
+        "text": "}",
+        "indent": 16,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 330,
+        "kind": "block",
+        "text": "}",
+        "indent": 13,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 330,
+        "kind": "paren",
+        "text": ")",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 331,
+        "kind": "block",
+        "text": "}",
+        "indent": 7,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 333,
+        "kind": "comment",
+        "text": "// JSON形式",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 334,
+        "kind": "expression",
+        "text": "argv.mode",
+        "indent": 7,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 334,
+        "kind": "block",
+        "text": "{",
+        "indent": 7,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 335,
+        "kind": "call",
+        "text": "console.log",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 335,
+        "kind": "paren",
+        "text": "(",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 335,
+        "kind": "call",
+        "text": "JSON.stringify",
+        "indent": 11,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 335,
+        "kind": "paren",
+        "text": "(",
+        "indent": 12,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 335,
+        "kind": "paren",
+        "text": ")",
+        "indent": 12,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 335,
+        "kind": "paren",
+        "text": ")",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 336,
+        "kind": "block",
+        "text": "}",
+        "indent": 7,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 338,
+        "kind": "comment",
+        "text": "// JSON形式(elementのみ)",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 339,
+        "kind": "expression",
+        "text": "argv.mode",
+        "indent": 7,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 339,
+        "kind": "block",
+        "text": "{",
+        "indent": 7,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 340,
+        "kind": "call",
+        "text": "console.log",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 340,
+        "kind": "paren",
+        "text": "(",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 341,
+        "kind": "call",
+        "text": "JSON.stringify",
+        "indent": 11,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 341,
+        "kind": "paren",
+        "text": "(",
+        "indent": 12,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 342,
+        "kind": "call",
+        "text": "result.filter",
+        "indent": 13,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 342,
+        "kind": "paren",
+        "text": "(",
+        "indent": 14,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 342,
+        "kind": "paren",
+        "text": "(",
+        "indent": 16,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 342,
+        "kind": "paren",
+        "text": ")",
+        "indent": 16,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 342,
+        "kind": "arrow",
+        "text": "=>",
+        "indent": 16,
+        "export": false,
+        "path": "arrow"
+      },
+      {
+        "line": 342,
+        "kind": "expression",
+        "text": "v.element",
+        "indent": 16,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 342,
+        "kind": "paren",
+        "text": ")",
+        "indent": 14,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 345,
+        "kind": "paren",
+        "text": ")",
+        "indent": 12,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 346,
+        "kind": "paren",
+        "text": ")",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 347,
+        "kind": "block",
+        "text": "}",
+        "indent": 7,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 349,
+        "kind": "comment",
+        "text": "// TREE形式",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 350,
+        "kind": "expression",
+        "text": "argv.mode",
+        "indent": 7,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 350,
+        "kind": "block",
+        "text": "{",
+        "indent": 7,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 351,
+        "kind": "call",
+        "text": "console.log",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 351,
+        "kind": "paren",
+        "text": "(",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 351,
+        "kind": "paren",
+        "text": ")",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 352,
+        "kind": "call",
+        "text": "result.forEach",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 352,
+        "kind": "paren",
+        "text": "(",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 352,
+        "kind": "paren",
+        "text": "(",
+        "indent": 12,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 352,
+        "kind": "paren",
+        "text": ")",
+        "indent": 12,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 352,
+        "kind": "arrow",
+        "text": "=>",
+        "indent": 12,
+        "export": false,
+        "path": "arrow"
+      },
+      {
+        "line": 352,
+        "kind": "block",
+        "text": "{",
+        "indent": 13,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 353,
+        "kind": "expression",
+        "text": "node.kind",
+        "indent": 16,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 353,
+        "kind": "call",
+        "text": ".match",
+        "indent": 15,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 353,
+        "kind": "paren",
+        "text": "(",
+        "indent": 16,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 353,
+        "kind": "paren",
+        "text": ")",
+        "indent": 16,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 353,
+        "kind": "block",
+        "text": "{",
+        "indent": 16,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 354,
+        "kind": "call",
+        "text": "console.log",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 354,
+        "kind": "paren",
+        "text": "(",
+        "indent": 19,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 355,
+        "kind": "call",
+        "text": "indent",
+        "indent": 23,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 355,
+        "kind": "paren",
+        "text": "(",
+        "indent": 24,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 355,
+        "kind": "expression",
+        "text": "node.level",
+        "indent": 25,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 355,
+        "kind": "paren",
+        "text": ")",
+        "indent": 24,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 355,
+        "kind": "expression",
+        "text": "node.kind",
+        "indent": 23,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 356,
+        "kind": "expression",
+        "text": "node.hasNodes",
+        "indent": 24,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 356,
+        "kind": "expression",
+        "text": "node.text",
+        "indent": 25,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 356,
+        "kind": "call",
+        "text": ".replace",
+        "indent": 24,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 356,
+        "kind": "paren",
+        "text": "(",
+        "indent": 25,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 356,
+        "kind": "paren",
+        "text": ")",
+        "indent": 25,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 358,
+        "kind": "paren",
+        "text": ")",
+        "indent": 19,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 359,
+        "kind": "block",
+        "text": "}",
+        "indent": 16,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 359,
+        "kind": "expression",
+        "text": "node.kind",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 359,
+        "kind": "call",
+        "text": ".match",
+        "indent": 16,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 359,
+        "kind": "paren",
+        "text": "(",
+        "indent": 17,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 359,
+        "kind": "paren",
+        "text": ")",
+        "indent": 17,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 359,
+        "kind": "block",
+        "text": "{",
+        "indent": 17,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 360,
+        "kind": "call",
+        "text": "console.log",
+        "indent": 19,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 360,
+        "kind": "paren",
+        "text": "(",
+        "indent": 20,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 360,
+        "kind": "call",
+        "text": "indent",
+        "indent": 24,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 360,
+        "kind": "paren",
+        "text": "(",
+        "indent": 25,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 360,
+        "kind": "expression",
+        "text": "node.level",
+        "indent": 26,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 360,
+        "kind": "paren",
+        "text": ")",
+        "indent": 25,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 360,
+        "kind": "expression",
+        "text": "node.kind",
+        "indent": 24,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 360,
+        "kind": "expression",
+        "text": "node.text",
+        "indent": 24,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 360,
+        "kind": "paren",
+        "text": ")",
+        "indent": 20,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 361,
+        "kind": "block",
+        "text": "}",
+        "indent": 17,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 361,
+        "kind": "block",
+        "text": "{",
+        "indent": 17,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 362,
+        "kind": "call",
+        "text": "console.log",
+        "indent": 19,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 362,
+        "kind": "paren",
+        "text": "(",
+        "indent": 20,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 363,
+        "kind": "call",
+        "text": "indent",
+        "indent": 24,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 363,
+        "kind": "paren",
+        "text": "(",
+        "indent": 25,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 363,
+        "kind": "expression",
+        "text": "node.level",
+        "indent": 26,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 363,
+        "kind": "paren",
+        "text": ")",
+        "indent": 25,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 363,
+        "kind": "expression",
+        "text": "node.kind",
+        "indent": 24,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 363,
+        "kind": "expression",
+        "text": "node.hasNodes",
+        "indent": 25,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 363,
+        "kind": "expression",
+        "text": "node.text",
+        "indent": 25,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 364,
+        "kind": "paren",
+        "text": ")",
+        "indent": 20,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 365,
+        "kind": "block",
+        "text": "}",
+        "indent": 17,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 366,
+        "kind": "block",
+        "text": "}",
+        "indent": 13,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 366,
+        "kind": "paren",
+        "text": ")",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 367,
+        "kind": "block",
+        "text": "}",
+        "indent": 7,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 369,
+        "kind": "comment",
+        "text": "// Reactコンポーネント",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 370,
+        "kind": "expression",
+        "text": "argv.mode",
+        "indent": 7,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 370,
+        "kind": "block",
+        "text": "{",
+        "indent": 7,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 371,
+        "kind": "call",
+        "text": "console.log",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 371,
+        "kind": "paren",
+        "text": "(",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 371,
+        "kind": "paren",
+        "text": ")",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 372,
+        "kind": "call",
+        "text": "scanJsxFunctions",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 372,
+        "kind": "paren",
+        "text": "(",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 372,
+        "kind": "paren",
+        "text": ")",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 373,
+        "kind": "block",
+        "text": "}",
+        "indent": 7,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 375,
+        "kind": "comment",
+        "text": "// JSXエレメント",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 376,
+        "kind": "expression",
+        "text": "argv.mode",
+        "indent": 7,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 376,
+        "kind": "block",
+        "text": "{",
+        "indent": 7,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 377,
+        "kind": "call",
+        "text": "console.log",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 377,
+        "kind": "paren",
+        "text": "(",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 377,
+        "kind": "paren",
+        "text": ")",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 378,
+        "kind": "var",
+        "text": "retval",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 378,
+        "kind": "call",
+        "text": "scanJsxElements",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 378,
+        "kind": "paren",
+        "text": "(",
+        "indent": 13,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 378,
+        "kind": "paren",
+        "text": ")",
+        "indent": 13,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 379,
+        "kind": "comment",
+        "text": "// console.log(JSON.stringify(retval, null, '  '));",
+        "indent": 8,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 380,
+        "kind": "call",
+        "text": "retval.forEach",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 380,
+        "kind": "paren",
+        "text": "(",
+        "indent": 10,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 380,
+        "kind": "paren",
+        "text": "(",
+        "indent": 12,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 380,
+        "kind": "paren",
+        "text": ")",
+        "indent": 12,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 380,
+        "kind": "arrow",
+        "text": "=>",
+        "indent": 12,
+        "export": false,
+        "path": "arrow"
+      },
+      {
+        "line": 381,
+        "kind": "call",
+        "text": "console.log",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 381,
+        "kind": "paren",
+        "text": "(",
+        "indent": 13,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 382,
+        "kind": "call",
+        "text": "indent",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 382,
+        "kind": "paren",
+        "text": "(",
+        "indent": 18,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 382,
+        "kind": "expression",
+        "text": "node.level",
+        "indent": 19,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 382,
+        "kind": "paren",
+        "text": ")",
+        "indent": 18,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 382,
+        "kind": "expression",
+        "text": "node.kind",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 383,
+        "kind": "expression",
+        "text": "node.name",
+        "indent": 19,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 383,
+        "kind": "expression",
+        "text": "node.name",
+        "indent": 21,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 385,
+        "kind": "paren",
+        "text": ")",
+        "indent": 13,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 386,
+        "kind": "paren",
+        "text": ")",
+        "indent": 10,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 387,
+        "kind": "block",
+        "text": "}",
+        "indent": 7,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 388,
+        "kind": "block",
+        "text": "}",
+        "indent": 4,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 390,
+        "kind": "expression",
+        "text": "require.main",
+        "indent": 4,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 390,
+        "kind": "block",
+        "text": "{",
+        "indent": 4,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 391,
+        "kind": "call",
+        "text": "main",
+        "indent": 6,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 391,
+        "kind": "paren",
+        "text": "(",
+        "indent": 7,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 391,
+        "kind": "expression",
+        "text": "process.argv",
+        "indent": 8,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 391,
+        "kind": "paren",
+        "text": ")",
+        "indent": 7,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 392,
+        "kind": "block",
+        "text": "}",
+        "indent": 4,
+        "export": false,
+        "path": "close"
+      }
+    ]
+  }
+]

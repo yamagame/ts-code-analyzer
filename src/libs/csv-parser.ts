@@ -2,6 +2,8 @@ export const delim = ',';
 
 export interface CSVItem {
   value: string;
+  size?: number;
+  quat?: boolean;
 }
 
 export function parse(src: string) {
@@ -72,6 +74,11 @@ export function parse(src: string) {
   return row;
 }
 
+function indentSpace(str: string, size = 0) {
+  const space = new Array(size).fill(' ');
+  return `${space.join('')}${str}`.slice(-Math.max(size, str.length));
+}
+
 export function stringify(parsed: CSVItem[][]) {
   let ret = '';
   parsed.forEach((row, i) => {
@@ -88,9 +95,11 @@ export function stringify(parsed: CSVItem[][]) {
         col.value.indexOf('"') >= 0 ||
         col.value.indexOf('\n') >= 0
       ) {
-        ret += `"${col.value.replace(/"/g, '""')}"`;
+        ret += `"${indentSpace(col.value.replace(/"/g, '""'), col.size)}"`;
       } else {
-        ret += col.value;
+        ret += `${col.quat ? '"' : ''}${indentSpace(col.value, col.size)}${
+          col.quat ? '"' : ''
+        }`;
       }
     });
   });

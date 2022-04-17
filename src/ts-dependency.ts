@@ -183,14 +183,14 @@ function printDirectoryDependencyCSV(
 
   const dependencies = makeDirectoryDependencyList(directoryGroups, false);
 
-  const result: ReturnType<typeof CSV.parse> = [];
+  const result: CSV.CSVItem[][] = [];
 
   const printDependency = (dependencies: { [index: string]: string[] }) => {
     Object.entries(dependencies).forEach(([dir, imports]) => {
       imports.forEach((importDir) => {
         result.push([
-          { value: rootIsRoot(dir), quat: '' },
-          { value: rootIsRoot(importDir), quat: '' },
+          { value: rootIsRoot(dir) },
+          { value: rootIsRoot(importDir) },
         ]);
       });
     });

@@ -14,6 +14,7 @@ enum AttentionKind {
   import,
   arrow,
   arrowVariable,
+  parameter,
   export,
   paren,
   func,
@@ -73,8 +74,12 @@ class AstStack extends Array<AstNode> {
   last(offset: number = 0) {
     return this[this.length - 1 + offset];
   }
-  indexFromLast(kind: string | string[], hook?: (index: number) => void) {
-    for (let i = this.length - 2; i >= 0; i--) {
+  indexFromLast(
+    kind: string | string[],
+    offset: number = -1,
+    hook?: (index: number) => void
+  ) {
+    for (let i = this.length - 1 + offset; i >= 0; i--) {
       if (Array.isArray(kind)) {
         for (let j = 0; j < kind.length; j++) {
           if (this[i].kind === kind[j]) {
@@ -91,8 +96,12 @@ class AstStack extends Array<AstNode> {
     }
     return -1;
   }
-  findFromLast(kind: string | string[], hook?: (node: AstNode) => void) {
-    return this.indexFromLast(kind, (index: number) => {
+  findFromLast(
+    kind: string | string[],
+    offset: number = -1,
+    hook?: (node: AstNode) => void
+  ) {
+    return this.indexFromLast(kind, offset, (index: number) => {
       if (hook) hook(this[index]);
     });
   }
@@ -357,10 +366,14 @@ class Parser {
           ],
           match: () => {
             const ast = this.stack.last();
-            this.stack.findFromLast(['ImportDeclaration'], (node: AstNode) => {
-              if (!node.children) node.children = [];
-              node.children?.push(ast);
-            });
+            this.stack.findFromLast(
+              ['ImportDeclaration'],
+              -1,
+              (node: AstNode) => {
+                if (!node.children) node.children = [];
+                node.children?.push(ast);
+              }
+            );
           },
         },
         // import パス
@@ -368,11 +381,15 @@ class Parser {
           exp: [/ImportDeclaration\/StringLiteral$/],
           match: () => {
             const ast = this.stack.last();
-            this.stack.findFromLast(['ImportDeclaration'], (node: AstNode) => {
-              // if (!node.children) node.children = [];
-              node.path = `${this.toAbsolutePath(trimQuat(ast.text))}`;
-              // node.children?.push(ast);
-            });
+            this.stack.findFromLast(
+              ['ImportDeclaration'],
+              -1,
+              (node: AstNode) => {
+                // if (!node.children) node.children = [];
+                node.path = `${this.toAbsolutePath(trimQuat(ast.text))}`;
+                // node.children?.push(ast);
+              }
+            );
           },
         },
         // 変数を特定
@@ -386,6 +403,7 @@ class Parser {
             this.pushAttention(ast, AttentionKind.var);
             this.stack.findFromLast(
               ['VariableDeclaration'],
+              -1,
               (node: AstNode) => {
                 node.identifier = ast;
               }
@@ -411,6 +429,7 @@ class Parser {
             this.pushAttention(ast, AttentionKind.func);
             this.stack.findFromLast(
               ['FunctionDeclaration'],
+              -1,
               (node: AstNode) => {
                 node.identifier = ast;
               }
@@ -478,6 +497,7 @@ class Parser {
             this.pushAttention(ast, AttentionKind.component);
             this.stack.findFromLast(
               ['FunctionDeclaration', 'VariableDeclaration'],
+              -1,
               (node: AstNode) => {
                 if (node.identifier) {
                   node.identifier.returnStatement = ast;
@@ -568,6 +588,7 @@ class Parser {
             if (option.indexOf('prop') >= 0) {
               this.stack.findFromLast(
                 ['PropertyAccessExpression'],
+                -1,
                 (node: AstNode) => {
                   node.text += ast.text;
                 }
@@ -575,6 +596,7 @@ class Parser {
             } else {
               this.stack.findFromLast(
                 ['FunctionDeclaration', 'VariableDeclaration'],
+                -1,
                 (node: AstNode) => {
                   // if (!node.children) node.children = [];
                   // node.children?.push(ast);
@@ -615,6 +637,41 @@ class Parser {
                 }
               }
             }
+          },
+        },
+        // パラメータ
+        {
+          exp: [['', /Parameter\/Identifier$/]],
+          match: (option) => {
+            const ast = this.stack.last();
+            this.pushAttention(ast, AttentionKind.parameter);
+          },
+        },
+        // パラメータ
+        {
+          exp: [
+            [
+              -4,
+              /ObjectBindingPattern\/SyntaxList\/BindingElement\/Identifier$/,
+            ],
+          ],
+          match: (option) => {
+            const ast = this.stack.last();
+            this.pushAttention(ast, AttentionKind.parameter);
+            this.stack.findFromLast(
+              ['ObjectBindingPattern'],
+              -1,
+              (node: AstNode) => {
+                node.text = ast.text;
+              }
+            );
+            this.stack.findFromLast(
+              ['ObjectBindingPattern'],
+              option,
+              (node: AstNode) => {
+                ast.text = `${node.text}.${ast.text}`;
+              }
+            );
           },
         },
         // アロー関数
@@ -767,6 +824,9 @@ async function main(argv: string[]) {
     [];
 
   const result = new Set(importedFiles.map((file) => file.source));
+  if (arg.debug) {
+    console.log(result);
+  }
   new Array(...result).forEach((sourcePath) => {
     const sourcePathWithBase = path.join(baseDir, sourcePath);
     const sourceCode = fs.readFileSync(sourcePathWithBase, 'utf-8').trim();

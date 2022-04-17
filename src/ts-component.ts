@@ -799,11 +799,11 @@ async function main(argv: string[]) {
   const arg = yargs(hideBin(argv))
     .detectLocale(false)
     .scriptName('ts-component')
-    .usage('$0 [options] <source>', 'Extract react component.')
-    .option('base', {
+    .usage('$0 [options] <entry>', 'Extract react component.')
+    .option('context', {
       type: 'string',
       default: '',
-      describe: 'Set base directory',
+      describe: 'Set context directory',
       demandOption: true,
     })
     .option('mode', {
@@ -812,12 +812,12 @@ async function main(argv: string[]) {
       describe: 'Select output format',
     })
     .option('debug', { type: 'boolean' })
-    .option('source', { type: 'string', demandOption: true })
+    .option('entry', { type: 'string', demandOption: true })
     .help()
     .parseSync();
 
-  const baseDir = `${arg.base}`;
-  const srcPath = `${arg.source}`;
+  const baseDir = `${arg.context}`;
+  const srcPath = `${arg.entry}`;
   const importedFiles = await scanAsync(srcPath, baseDir);
 
   const jsonResult: { source: string; base: string; nodes: ResultNode[] }[] =

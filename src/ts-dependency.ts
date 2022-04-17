@@ -229,11 +229,11 @@ async function main(argv: string[]) {
   const arg = yargs(hideBin(argv))
     .detectLocale(false)
     .scriptName('ts-dependency')
-    .usage('$0 [options] <source>', 'Parse typescript source dependency.')
-    .option('base', {
+    .usage('$0 [options] <entry>', 'Parse typescript source dependency.')
+    .option('context', {
       type: 'string',
       default: '',
-      describe: 'Set base directory',
+      describe: 'Set context directory',
       demandOption: true,
     })
     .option('title', {
@@ -241,7 +241,7 @@ async function main(argv: string[]) {
       default: 'Typescript project',
       describe: 'Set UML title',
     })
-    .option('source', { type: 'string', demandOption: true })
+    .option('entry', { type: 'string', demandOption: true })
     .option('target', {
       choices: ['file', 'dir'],
       default: 'file',
@@ -255,8 +255,8 @@ async function main(argv: string[]) {
     .help()
     .parseSync();
 
-  const baseDir = `${arg.base}`;
-  const srcPath = `${arg.source}`;
+  const baseDir = `${arg.context}`;
+  const srcPath = `${arg.entry}`;
   const options = { title: arg.title };
   const cachedFiles = await scanAsync(srcPath, baseDir);
   if (arg.mode === 'uml') {

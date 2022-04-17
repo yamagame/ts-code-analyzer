@@ -154,20 +154,20 @@ async function main(argv: string[]) {
   const arg = yargs(hideBin(argv))
     .detectLocale(false)
     .scriptName('ts-scan')
-    .usage('$0 [options] <source>', 'Scan typescript import files.')
-    .option('base', {
+    .usage('$0 [options] <entry>', 'Scan typescript import files.')
+    .option('context', {
       type: 'string',
       default: '',
-      describe: 'Set base directory',
+      describe: 'Set context directory',
       demandOption: true,
     })
-    .option('source', { type: 'string' })
+    .option('entry', { type: 'string' })
     .demandCommand(1)
     .help()
     .parseSync();
 
-  const srcPath = `${arg.source}`;
-  const baseDir = `${arg.base}`;
+  const srcPath = `${arg.entry}`;
+  const baseDir = `${arg.context}`;
 
   const result = await scanAsync(srcPath, baseDir);
   console.log(JSON.stringify(result, null, '  '));

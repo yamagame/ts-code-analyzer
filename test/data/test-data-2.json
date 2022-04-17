@@ -53,6 +53,14 @@
       },
       {
         "line": 18,
+        "kind": "parameter",
+        "text": "level",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 18,
         "kind": "paren",
         "text": ")",
         "indent": 7,
@@ -137,6 +145,38 @@
         "text": "scanAllChildren",
         "indent": 3,
         "export": true,
+        "path": ""
+      },
+      {
+        "line": 21,
+        "kind": "parameter",
+        "text": "result",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 22,
+        "kind": "parameter",
+        "text": "node",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 23,
+        "kind": "parameter",
+        "text": "pos",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 24,
+        "kind": "parameter",
+        "text": "depth",
+        "indent": 5,
+        "export": false,
         "path": ""
       },
       {
@@ -330,6 +370,14 @@
         "indent": 12,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 32,
+        "kind": "parameter",
+        "text": "trivia",
+        "indent": 14,
+        "export": false,
+        "path": ""
       },
       {
         "line": 32,
@@ -1373,6 +1421,14 @@
       },
       {
         "line": 83,
+        "kind": "parameter",
+        "text": "c",
+        "indent": 11,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 83,
         "kind": "paren",
         "text": ")",
         "indent": 9,
@@ -1445,6 +1501,14 @@
       },
       {
         "line": 87,
+        "kind": "parameter",
+        "text": "nodes",
+        "indent": 7,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 87,
         "kind": "block",
         "text": "{",
         "indent": 6,
@@ -1474,6 +1538,14 @@
         "indent": 6,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 91,
+        "kind": "parameter",
+        "text": "i",
+        "indent": 8,
+        "export": false,
+        "path": ""
       },
       {
         "line": 91,
@@ -1621,6 +1693,22 @@
       },
       {
         "line": 103,
+        "kind": "parameter",
+        "text": "i",
+        "indent": 8,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 103,
+        "kind": "parameter",
+        "text": "kind",
+        "indent": 8,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 103,
         "kind": "paren",
         "text": ")",
         "indent": 6,
@@ -1765,6 +1853,22 @@
       },
       {
         "line": 114,
+        "kind": "parameter",
+        "text": "i",
+        "indent": 8,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 114,
+        "kind": "parameter",
+        "text": "kind",
+        "indent": 8,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 114,
         "kind": "paren",
         "text": ")",
         "indent": 6,
@@ -1818,6 +1922,22 @@
         "indent": 13,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 116,
+        "kind": "parameter",
+        "text": "i",
+        "indent": 15,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 116,
+        "kind": "parameter",
+        "text": "kind",
+        "indent": 15,
+        "export": false,
+        "path": ""
       },
       {
         "line": 116,
@@ -2081,6 +2201,14 @@
         "text": "scanJsxFunctions",
         "indent": 3,
         "export": true,
+        "path": ""
+      },
+      {
+        "line": 136,
+        "kind": "parameter",
+        "text": "result",
+        "indent": 5,
+        "export": false,
         "path": ""
       },
       {
@@ -2641,6 +2769,14 @@
         "text": "scanJsxElements",
         "indent": 3,
         "export": true,
+        "path": ""
+      },
+      {
+        "line": 175,
+        "kind": "parameter",
+        "text": "nodes",
+        "indent": 5,
+        "export": false,
         "path": ""
       },
       {
@@ -3893,6 +4029,14 @@
       },
       {
         "line": 248,
+        "kind": "parameter",
+        "text": "node",
+        "indent": 13,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 248,
         "kind": "paren",
         "text": ")",
         "indent": 11,
@@ -4184,6 +4328,14 @@
         "kind": "func",
         "text": "main",
         "indent": 3,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 265,
+        "kind": "parameter",
+        "text": "arg",
+        "indent": 5,
         "export": false,
         "path": ""
       },
@@ -4733,6 +4885,14 @@
       },
       {
         "line": 309,
+        "kind": "parameter",
+        "text": "node",
+        "indent": 14,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 309,
         "kind": "paren",
         "text": ")",
         "indent": 12,
@@ -5229,6 +5389,14 @@
       },
       {
         "line": 342,
+        "kind": "parameter",
+        "text": "v",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 342,
         "kind": "paren",
         "text": ")",
         "indent": 16,
@@ -5354,6 +5522,14 @@
         "indent": 12,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 352,
+        "kind": "parameter",
+        "text": "node",
+        "indent": 14,
+        "export": false,
+        "path": ""
       },
       {
         "line": 352,
@@ -5962,6 +6138,14 @@
         "indent": 12,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 380,
+        "kind": "parameter",
+        "text": "node",
+        "indent": 14,
+        "export": false,
+        "path": ""
       },
       {
         "line": 380,

@@ -229,6 +229,14 @@
       },
       {
         "line": 22,
+        "kind": "parameter",
+        "text": "store",
+        "indent": 8,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 22,
         "kind": "block",
         "text": "{",
         "indent": 4,
@@ -798,6 +806,14 @@
         "path": "../../react-typescript-starter-app/src/features/d3sample/services.ts"
       },
       {
+        "line": 17,
+        "kind": "parameter",
+        "text": "ReturnType",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
         "line": 24,
         "kind": "var",
         "text": "useAppDispatch",
@@ -1108,6 +1124,14 @@
         "indent": 12,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 41,
+        "kind": "parameter",
+        "text": "getDefaultMiddleware",
+        "indent": 14,
+        "export": false,
+        "path": ""
       },
       {
         "line": 41,
@@ -1617,6 +1641,14 @@
       },
       {
         "line": 22,
+        "kind": "parameter",
+        "text": "amount",
+        "indent": 11,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 22,
         "kind": "paren",
         "text": ")",
         "indent": 9,
@@ -1793,6 +1825,14 @@
       },
       {
         "line": 34,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 34,
         "kind": "paren",
         "text": ")",
         "indent": 15,
@@ -1913,6 +1953,14 @@
       },
       {
         "line": 41,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 41,
         "kind": "paren",
         "text": ")",
         "indent": 15,
@@ -2006,6 +2054,22 @@
         "indent": 15,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 45,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 45,
+        "kind": "parameter",
+        "text": "action",
+        "indent": 17,
+        "export": false,
+        "path": ""
       },
       {
         "line": 45,
@@ -2129,6 +2193,14 @@
       },
       {
         "line": 51,
+        "kind": "parameter",
+        "text": "builder",
+        "indent": 14,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 51,
         "kind": "paren",
         "text": ")",
         "indent": 12,
@@ -2182,6 +2254,14 @@
         "indent": 20,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 53,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 22,
+        "export": false,
+        "path": ""
       },
       {
         "line": 53,
@@ -2262,6 +2342,22 @@
         "indent": 18,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 56,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 56,
+        "kind": "parameter",
+        "text": "action",
+        "indent": 20,
+        "export": false,
+        "path": ""
       },
       {
         "line": 56,
@@ -2385,6 +2481,30 @@
       },
       {
         "line": 63,
+        "kind": "parameter",
+        "text": "increment",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 63,
+        "kind": "parameter",
+        "text": "decrement",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 63,
+        "kind": "parameter",
+        "text": "incrementByAmount",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 63,
         "kind": "expression",
         "text": "counterSlice.actions",
         "indent": 6,
@@ -2430,6 +2550,14 @@
         "indent": 7,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 68,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 9,
+        "export": false,
+        "path": ""
       },
       {
         "line": 68,
@@ -2489,6 +2617,14 @@
       },
       {
         "line": 73,
+        "kind": "parameter",
+        "text": "amount",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 73,
         "kind": "paren",
         "text": ")",
         "indent": 7,
@@ -2510,6 +2646,22 @@
         "indent": 8,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 74,
+        "kind": "parameter",
+        "text": "dispatch",
+        "indent": 10,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 74,
+        "kind": "parameter",
+        "text": "getState",
+        "indent": 10,
+        "export": false,
+        "path": ""
       },
       {
         "line": 74,
@@ -2751,6 +2903,14 @@
       },
       {
         "line": 1,
+        "kind": "parameter",
+        "text": "amount",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 1,
         "kind": "block",
         "text": "{",
         "indent": 4,
@@ -2764,6 +2924,14 @@
         "indent": 9,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 2,
+        "kind": "parameter",
+        "text": "resolve",
+        "indent": 11,
+        "export": false,
+        "path": ""
       },
       {
         "line": 2,
@@ -2909,6 +3077,22 @@
       },
       {
         "line": 1,
+        "kind": "parameter",
+        "text": "leftValue",
+        "indent": 7,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 1,
+        "kind": "parameter",
+        "text": "rightValue",
+        "indent": 7,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 1,
         "kind": "block",
         "text": "{",
         "indent": 6,
@@ -2922,6 +3106,22 @@
         "indent": 6,
         "export": false,
         "path": "close"
+      },
+      {
+        "line": 5,
+        "kind": "parameter",
+        "text": "leftValue",
+        "indent": 7,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 5,
+        "kind": "parameter",
+        "text": "rightValue",
+        "indent": 7,
+        "export": false,
+        "path": ""
       },
       {
         "line": 5,
@@ -3091,6 +3291,14 @@
       },
       {
         "line": 17,
+        "kind": "parameter",
+        "text": "builder",
+        "indent": 14,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 17,
         "kind": "paren",
         "text": ")",
         "indent": 12,
@@ -3144,6 +3352,14 @@
         "indent": 22,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 19,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 24,
+        "export": false,
+        "path": ""
       },
       {
         "line": 19,
@@ -3224,6 +3440,22 @@
         "indent": 20,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 22,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 22,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 22,
+        "kind": "parameter",
+        "text": "action",
+        "indent": 22,
+        "export": false,
+        "path": ""
       },
       {
         "line": 22,
@@ -3336,6 +3568,22 @@
         "indent": 18,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 26,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 26,
+        "kind": "parameter",
+        "text": "action",
+        "indent": 20,
+        "export": false,
+        "path": ""
       },
       {
         "line": 26,
@@ -3903,6 +4151,22 @@
       },
       {
         "line": 33,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 33,
+        "kind": "parameter",
+        "text": "action",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 33,
         "kind": "paren",
         "text": ")",
         "indent": 15,
@@ -3964,6 +4228,22 @@
         "indent": 15,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 36,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 36,
+        "kind": "parameter",
+        "text": "action",
+        "indent": 17,
+        "export": false,
+        "path": ""
       },
       {
         "line": 36,
@@ -4031,6 +4311,22 @@
       },
       {
         "line": 39,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 39,
+        "kind": "parameter",
+        "text": "action",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 39,
         "kind": "paren",
         "text": ")",
         "indent": 15,
@@ -4092,6 +4388,22 @@
         "indent": 15,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 43,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 44,
+        "kind": "parameter",
+        "text": "action",
+        "indent": 17,
+        "export": false,
+        "path": ""
       },
       {
         "line": 45,
@@ -4188,6 +4500,22 @@
         "indent": 15,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 51,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 51,
+        "kind": "parameter",
+        "text": "action",
+        "indent": 17,
+        "export": false,
+        "path": ""
       },
       {
         "line": 51,
@@ -4453,6 +4781,14 @@
       },
       {
         "line": 34,
+        "kind": "parameter",
+        "text": "builder",
+        "indent": 14,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 34,
         "kind": "paren",
         "text": ")",
         "indent": 12,
@@ -4514,6 +4850,14 @@
         "indent": 34,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 37,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 36,
+        "export": false,
+        "path": ""
       },
       {
         "line": 37,
@@ -4594,6 +4938,22 @@
         "indent": 32,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 40,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 34,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 40,
+        "kind": "parameter",
+        "text": "action",
+        "indent": 34,
+        "export": false,
+        "path": ""
       },
       {
         "line": 40,
@@ -4693,6 +5053,14 @@
       },
       {
         "line": 44,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 32,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 44,
         "kind": "paren",
         "text": ")",
         "indent": 30,
@@ -4781,6 +5149,14 @@
       },
       {
         "line": 48,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 30,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 48,
         "kind": "paren",
         "text": ")",
         "indent": 28,
@@ -4858,6 +5234,22 @@
         "indent": 26,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 51,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 28,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 51,
+        "kind": "parameter",
+        "text": "action",
+        "indent": 28,
+        "export": false,
+        "path": ""
       },
       {
         "line": 51,
@@ -4965,6 +5357,14 @@
       },
       {
         "line": 55,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 26,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 55,
         "kind": "paren",
         "text": ")",
         "indent": 24,
@@ -5053,6 +5453,14 @@
       },
       {
         "line": 59,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 24,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 59,
         "kind": "paren",
         "text": ")",
         "indent": 22,
@@ -5133,6 +5541,22 @@
       },
       {
         "line": 62,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 22,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 62,
+        "kind": "parameter",
+        "text": "action",
+        "indent": 22,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 62,
         "kind": "paren",
         "text": ")",
         "indent": 20,
@@ -5202,6 +5626,14 @@
         "indent": 29,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 64,
+        "kind": "parameter",
+        "text": "v",
+        "indent": 31,
+        "export": false,
+        "path": ""
       },
       {
         "line": 64,
@@ -5341,6 +5773,14 @@
       },
       {
         "line": 69,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 69,
         "kind": "paren",
         "text": ")",
         "indent": 18,
@@ -5442,6 +5882,22 @@
         "indent": 9,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 77,
+        "kind": "parameter",
+        "text": "_",
+        "indent": 11,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 77,
+        "kind": "parameter",
+        "text": "thunkAPI",
+        "indent": 11,
+        "export": false,
+        "path": ""
       },
       {
         "line": 77,
@@ -5594,6 +6050,22 @@
         "indent": 9,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 86,
+        "kind": "parameter",
+        "text": "todo",
+        "indent": 11,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 86,
+        "kind": "parameter",
+        "text": "thunkAPI",
+        "indent": 11,
+        "export": false,
+        "path": ""
       },
       {
         "line": 86,
@@ -5754,6 +6226,22 @@
         "indent": 9,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 95,
+        "kind": "parameter",
+        "text": "todo",
+        "indent": 11,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 95,
+        "kind": "parameter",
+        "text": "thunkAPI",
+        "indent": 11,
+        "export": false,
+        "path": ""
       },
       {
         "line": 95,
@@ -6026,6 +6514,14 @@
         "path": "open"
       },
       {
+        "line": 24,
+        "kind": "parameter",
+        "text": "_",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
         "line": 25,
         "kind": "paren",
         "text": ")",
@@ -6170,6 +6666,14 @@
         "path": "open"
       },
       {
+        "line": 44,
+        "kind": "parameter",
+        "text": "payload",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
         "line": 45,
         "kind": "paren",
         "text": ")",
@@ -6192,6 +6696,14 @@
         "indent": 8,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 46,
+        "kind": "parameter",
+        "text": "todo",
+        "indent": 16,
+        "export": false,
+        "path": ""
       },
       {
         "line": 46,
@@ -6402,6 +6914,14 @@
         "path": "open"
       },
       {
+        "line": 68,
+        "kind": "parameter",
+        "text": "payload",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
         "line": 69,
         "kind": "paren",
         "text": ")",
@@ -6424,6 +6944,14 @@
         "indent": 8,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 70,
+        "kind": "parameter",
+        "text": "todo",
+        "indent": 16,
+        "export": false,
+        "path": ""
       },
       {
         "line": 70,
@@ -6633,6 +7161,14 @@
       },
       {
         "line": 2,
+        "kind": "parameter",
+        "text": "config",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 2,
         "kind": "paren",
         "text": ")",
         "indent": 7,
@@ -6742,6 +7278,30 @@
         "indent": 7,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 12,
+        "kind": "parameter",
+        "text": "url",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 12,
+        "kind": "parameter",
+        "text": "method",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 12,
+        "kind": "parameter",
+        "text": "config",
+        "indent": 9,
+        "export": false,
+        "path": ""
       },
       {
         "line": 12,
@@ -7065,6 +7625,22 @@
       },
       {
         "line": 23,
+        "kind": "parameter",
+        "text": "url",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 23,
+        "kind": "parameter",
+        "text": "config",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 23,
         "kind": "paren",
         "text": ")",
         "indent": 10,
@@ -7137,6 +7713,22 @@
       },
       {
         "line": 26,
+        "kind": "parameter",
+        "text": "url",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 26,
+        "kind": "parameter",
+        "text": "config",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 26,
         "kind": "paren",
         "text": ")",
         "indent": 10,
@@ -7206,6 +7798,22 @@
         "indent": 10,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 29,
+        "kind": "parameter",
+        "text": "url",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 29,
+        "kind": "parameter",
+        "text": "config",
+        "indent": 12,
+        "export": false,
+        "path": ""
       },
       {
         "line": 29,
@@ -7286,6 +7894,30 @@
         "indent": 7,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 34,
+        "kind": "parameter",
+        "text": "url",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 34,
+        "kind": "parameter",
+        "text": "method",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 34,
+        "kind": "parameter",
+        "text": "config",
+        "indent": 9,
+        "export": false,
+        "path": ""
       },
       {
         "line": 34,
@@ -7609,6 +8241,22 @@
       },
       {
         "line": 52,
+        "kind": "parameter",
+        "text": "url",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 52,
+        "kind": "parameter",
+        "text": "config",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 52,
         "kind": "paren",
         "text": ")",
         "indent": 10,
@@ -7681,6 +8329,22 @@
       },
       {
         "line": 55,
+        "kind": "parameter",
+        "text": "url",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 55,
+        "kind": "parameter",
+        "text": "config",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 55,
         "kind": "paren",
         "text": ")",
         "indent": 10,
@@ -7750,6 +8414,22 @@
         "indent": 10,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 58,
+        "kind": "parameter",
+        "text": "url",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 58,
+        "kind": "parameter",
+        "text": "config",
+        "indent": 12,
+        "export": false,
+        "path": ""
       },
       {
         "line": 58,
@@ -7959,6 +8639,14 @@
       },
       {
         "line": 14,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 14,
         "kind": "paren",
         "text": ")",
         "indent": 15,
@@ -8012,6 +8700,14 @@
         "indent": 15,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 17,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 17,
+        "export": false,
+        "path": ""
       },
       {
         "line": 17,
@@ -8076,6 +8772,14 @@
         "indent": 15,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 20,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 17,
+        "export": false,
+        "path": ""
       },
       {
         "line": 20,
@@ -8309,6 +9013,14 @@
       },
       {
         "line": 14,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 14,
         "kind": "paren",
         "text": ")",
         "indent": 15,
@@ -8365,6 +9077,14 @@
       },
       {
         "line": 17,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 17,
         "kind": "paren",
         "text": ")",
         "indent": 15,
@@ -8418,6 +9138,14 @@
         "indent": 15,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 20,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 17,
+        "export": false,
+        "path": ""
       },
       {
         "line": 20,
@@ -8482,6 +9210,14 @@
         "indent": 15,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 23,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 17,
+        "export": false,
+        "path": ""
       },
       {
         "line": 23,
@@ -8715,6 +9451,14 @@
       },
       {
         "line": 14,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 14,
         "kind": "paren",
         "text": ")",
         "indent": 15,
@@ -8768,6 +9512,14 @@
         "indent": 15,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 17,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 17,
+        "export": false,
+        "path": ""
       },
       {
         "line": 17,
@@ -9207,6 +9959,14 @@
       },
       {
         "line": 12,
+        "kind": "parameter",
+        "text": "builder",
+        "indent": 14,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 12,
         "kind": "paren",
         "text": ")",
         "indent": 12,
@@ -9284,6 +10044,14 @@
         "indent": 22,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 14,
+        "kind": "parameter",
+        "text": "name",
+        "indent": 24,
+        "export": false,
+        "path": ""
       },
       {
         "line": 14,
@@ -9372,6 +10140,22 @@
         "indent": 22,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 18,
+        "kind": "parameter",
+        "text": "name",
+        "indent": 27,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 18,
+        "kind": "parameter",
+        "text": "patch",
+        "indent": 27,
+        "export": false,
+        "path": ""
       },
       {
         "line": 18,
@@ -9511,9 +10295,25 @@
       },
       {
         "line": 29,
+        "kind": "parameter",
+        "text": "useGetD3SampleByNameQuery",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 29,
         "kind": "comment",
         "text": "// 読込",
         "indent": 8,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 30,
+        "kind": "parameter",
+        "text": "useUpdateD3SampleMutation",
+        "indent": 9,
         "export": false,
         "path": ""
       },
@@ -10241,6 +11041,22 @@
       },
       {
         "line": 28,
+        "kind": "parameter",
+        "text": "value",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 28,
+        "kind": "parameter",
+        "text": "count",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 28,
         "kind": "call",
         "text": "useAppSelector",
         "indent": 9,
@@ -10657,6 +11473,14 @@
       },
       {
         "line": 45,
+        "kind": "parameter",
+        "text": "amount",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 45,
         "kind": "paren",
         "text": ")",
         "indent": 16,
@@ -10737,6 +11561,14 @@
       },
       {
         "line": 47,
+        "kind": "parameter",
+        "text": "value",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 47,
         "kind": "paren",
         "text": ")",
         "indent": 16,
@@ -10814,6 +11646,14 @@
         "indent": 16,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 49,
+        "kind": "parameter",
+        "text": "value",
+        "indent": 18,
+        "export": false,
+        "path": ""
       },
       {
         "line": 49,
@@ -10927,6 +11767,14 @@
       },
       {
         "line": 2,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 2,
         "kind": "paren",
         "text": ")",
         "indent": 7,
@@ -11013,11 +11861,43 @@
       },
       {
         "line": 15,
+        "kind": "parameter",
+        "text": "props",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 15,
         "kind": "block",
         "text": "{",
         "indent": 4,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 16,
+        "kind": "parameter",
+        "text": "count",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 16,
+        "kind": "parameter",
+        "text": "actions",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 16,
+        "kind": "parameter",
+        "text": "cards",
+        "indent": 12,
+        "export": false,
+        "path": ""
       },
       {
         "line": 16,
@@ -11154,6 +12034,30 @@
         "path": "./Counter.module.css"
       },
       {
+        "line": 8,
+        "kind": "parameter",
+        "text": "amount",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 9,
+        "kind": "parameter",
+        "text": "value",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 10,
+        "kind": "parameter",
+        "text": "value",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
         "line": 14,
         "kind": "func",
         "text": "Counter",
@@ -11163,11 +12067,35 @@
       },
       {
         "line": 14,
+        "kind": "parameter",
+        "text": "props",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 14,
         "kind": "block",
         "text": "{",
         "indent": 4,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 15,
+        "kind": "parameter",
+        "text": "count",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 15,
+        "kind": "parameter",
+        "text": "actions",
+        "indent": 12,
+        "export": false,
+        "path": ""
       },
       {
         "line": 15,
@@ -11392,6 +12320,14 @@
         "indent": 17,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 44,
+        "kind": "parameter",
+        "text": "e",
+        "indent": 19,
+        "export": false,
+        "path": ""
       },
       {
         "line": 44,
@@ -12047,11 +12983,43 @@
       },
       {
         "line": 9,
+        "kind": "parameter",
+        "text": "props",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 9,
         "kind": "block",
         "text": "{",
         "indent": 4,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 10,
+        "kind": "parameter",
+        "text": "header",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 10,
+        "kind": "parameter",
+        "text": "version",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 10,
+        "kind": "parameter",
+        "text": "children",
+        "indent": 12,
+        "export": false,
+        "path": ""
       },
       {
         "line": 10,
@@ -12483,6 +13451,14 @@
       },
       {
         "line": 9,
+        "kind": "parameter",
+        "text": "props",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 9,
         "kind": "paren",
         "text": ")",
         "indent": 7,
@@ -12552,6 +13528,22 @@
         "indent": 17,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 12,
+        "kind": "parameter",
+        "text": "value",
+        "indent": 19,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 12,
+        "kind": "parameter",
+        "text": "i",
+        "indent": 19,
+        "export": false,
+        "path": ""
       },
       {
         "line": 12,
@@ -12678,6 +13670,14 @@
         "indent": 7,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 8,
+        "kind": "parameter",
+        "text": "props",
+        "indent": 9,
+        "export": false,
+        "path": ""
       },
       {
         "line": 8,
@@ -12815,6 +13815,14 @@
       },
       {
         "line": 5,
+        "kind": "parameter",
+        "text": "props",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 5,
         "kind": "paren",
         "text": ")",
         "indent": 7,
@@ -12836,6 +13844,22 @@
         "indent": 8,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 6,
+        "kind": "parameter",
+        "text": "name",
+        "indent": 16,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 6,
+        "kind": "parameter",
+        "text": "href",
+        "indent": 16,
+        "export": false,
+        "path": ""
       },
       {
         "line": 6,
@@ -13408,6 +14432,14 @@
       },
       {
         "line": 18,
+        "kind": "parameter",
+        "text": "pages",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 18,
         "kind": "call",
         "text": "useAppSelector",
         "indent": 9,
@@ -13478,6 +14510,14 @@
       },
       {
         "line": 2,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 2,
         "kind": "paren",
         "text": ")",
         "indent": 7,
@@ -13532,11 +14572,35 @@
       },
       {
         "line": 19,
+        "kind": "parameter",
+        "text": "props",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 19,
         "kind": "block",
         "text": "{",
         "indent": 4,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 20,
+        "kind": "parameter",
+        "text": "pages",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 20,
+        "kind": "parameter",
+        "text": "urls",
+        "indent": 12,
+        "export": false,
+        "path": ""
       },
       {
         "line": 20,
@@ -13601,6 +14665,14 @@
         "indent": 17,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 25,
+        "kind": "parameter",
+        "text": "page",
+        "indent": 19,
+        "export": false,
+        "path": ""
       },
       {
         "line": 25,
@@ -13738,6 +14810,14 @@
       },
       {
         "line": 6,
+        "kind": "parameter",
+        "text": "props",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 6,
         "kind": "paren",
         "text": ")",
         "indent": 7,
@@ -13807,6 +14887,14 @@
         "indent": 17,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 9,
+        "kind": "parameter",
+        "text": "v",
+        "indent": 19,
+        "export": false,
+        "path": ""
       },
       {
         "line": 9,
@@ -14200,6 +15288,14 @@
       },
       {
         "line": 22,
+        "kind": "parameter",
+        "text": "name",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 22,
         "kind": "paren",
         "text": ")",
         "indent": 16,
@@ -14280,6 +15376,14 @@
       },
       {
         "line": 23,
+        "kind": "parameter",
+        "text": "size",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 23,
         "kind": "paren",
         "text": ")",
         "indent": 16,
@@ -14357,6 +15461,22 @@
         "indent": 16,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 24,
+        "kind": "parameter",
+        "text": "fruit",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 24,
+        "kind": "parameter",
+        "text": "value",
+        "indent": 18,
+        "export": false,
+        "path": ""
       },
       {
         "line": 24,
@@ -14472,6 +15592,14 @@
       },
       {
         "line": 26,
+        "kind": "parameter",
+        "text": "blood",
+        "indent": 18,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 26,
         "kind": "paren",
         "text": ")",
         "indent": 16,
@@ -14549,6 +15677,14 @@
         "indent": 16,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 27,
+        "kind": "parameter",
+        "text": "option",
+        "indent": 18,
+        "export": false,
+        "path": ""
       },
       {
         "line": 27,
@@ -14718,11 +15854,83 @@
       },
       {
         "line": 13,
+        "kind": "parameter",
+        "text": "props",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 13,
         "kind": "block",
         "text": "{",
         "indent": 4,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 14,
+        "kind": "parameter",
+        "text": "name",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 14,
+        "kind": "parameter",
+        "text": "size",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 14,
+        "kind": "parameter",
+        "text": "fruit",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 14,
+        "kind": "parameter",
+        "text": "blood",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 14,
+        "kind": "parameter",
+        "text": "actions",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 14,
+        "kind": "parameter",
+        "text": "disabled",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 14,
+        "kind": "parameter",
+        "text": "option",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 14,
+        "kind": "parameter",
+        "text": "options",
+        "indent": 12,
+        "export": false,
+        "path": ""
       },
       {
         "line": 15,
@@ -14787,6 +15995,54 @@
         "path": "react-router-dom"
       },
       {
+        "line": 18,
+        "kind": "parameter",
+        "text": "name",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 19,
+        "kind": "parameter",
+        "text": "size",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 20,
+        "kind": "parameter",
+        "text": "fruit",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 20,
+        "kind": "parameter",
+        "text": "value",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 21,
+        "kind": "parameter",
+        "text": "blood",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 22,
+        "kind": "parameter",
+        "text": "option",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
         "line": 27,
         "kind": "func",
         "text": "FormSample",
@@ -14796,11 +16052,83 @@
       },
       {
         "line": 27,
+        "kind": "parameter",
+        "text": "props",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 27,
         "kind": "block",
         "text": "{",
         "indent": 4,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 28,
+        "kind": "parameter",
+        "text": "name",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 28,
+        "kind": "parameter",
+        "text": "actions",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 28,
+        "kind": "parameter",
+        "text": "size",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 28,
+        "kind": "parameter",
+        "text": "fruit",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 28,
+        "kind": "parameter",
+        "text": "blood",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 28,
+        "kind": "parameter",
+        "text": "disabled",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 28,
+        "kind": "parameter",
+        "text": "option",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 28,
+        "kind": "parameter",
+        "text": "options",
+        "indent": 12,
+        "export": false,
+        "path": ""
       },
       {
         "line": 29,
@@ -14905,6 +16233,14 @@
         "indent": 17,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 43,
+        "kind": "parameter",
+        "text": "e",
+        "indent": 19,
+        "export": false,
+        "path": ""
       },
       {
         "line": 43,
@@ -15124,6 +16460,14 @@
       },
       {
         "line": 70,
+        "kind": "parameter",
+        "text": "e",
+        "indent": 19,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 70,
         "kind": "paren",
         "text": ")",
         "indent": 17,
@@ -15196,6 +16540,14 @@
       },
       {
         "line": 78,
+        "kind": "parameter",
+        "text": "e",
+        "indent": 19,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 78,
         "kind": "paren",
         "text": ")",
         "indent": 17,
@@ -15265,6 +16617,14 @@
         "indent": 17,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 86,
+        "kind": "parameter",
+        "text": "e",
+        "indent": 19,
+        "export": false,
+        "path": ""
       },
       {
         "line": 86,
@@ -15345,6 +16705,14 @@
         "indent": 18,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 95,
+        "kind": "parameter",
+        "text": "e",
+        "indent": 20,
+        "export": false,
+        "path": ""
       },
       {
         "line": 95,
@@ -15500,6 +16868,14 @@
       },
       {
         "line": 108,
+        "kind": "parameter",
+        "text": "e",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 108,
         "kind": "paren",
         "text": ")",
         "indent": 18,
@@ -15569,6 +16945,14 @@
         "indent": 17,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 110,
+        "kind": "parameter",
+        "text": "option",
+        "indent": 19,
+        "export": false,
+        "path": ""
       },
       {
         "line": 110,
@@ -15815,6 +17199,14 @@
         "indent": 7,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 2,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 9,
+        "export": false,
+        "path": ""
       },
       {
         "line": 2,
@@ -16176,6 +17568,14 @@
       },
       {
         "line": 36,
+        "kind": "parameter",
+        "text": "values",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 36,
         "kind": "paren",
         "text": ")",
         "indent": 15,
@@ -16325,6 +17725,14 @@
         "indent": 15,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 42,
+        "kind": "parameter",
+        "text": "name",
+        "indent": 17,
+        "export": false,
+        "path": ""
       },
       {
         "line": 42,
@@ -16525,6 +17933,14 @@
         "indent": 33,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 47,
+        "kind": "parameter",
+        "text": "d",
+        "indent": 35,
+        "export": false,
+        "path": ""
       },
       {
         "line": 47,
@@ -16824,6 +18240,14 @@
       },
       {
         "line": 69,
+        "kind": "parameter",
+        "text": "name",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 69,
         "kind": "paren",
         "text": ")",
         "indent": 18,
@@ -16960,6 +18384,14 @@
       },
       {
         "line": 76,
+        "kind": "parameter",
+        "text": "size",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 76,
         "kind": "paren",
         "text": ")",
         "indent": 18,
@@ -17013,6 +18445,22 @@
         "indent": 18,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 77,
+        "kind": "parameter",
+        "text": "fruit",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 77,
+        "kind": "parameter",
+        "text": "value",
+        "indent": 20,
+        "export": false,
+        "path": ""
       },
       {
         "line": 77,
@@ -17072,6 +18520,14 @@
       },
       {
         "line": 79,
+        "kind": "parameter",
+        "text": "blood",
+        "indent": 20,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 79,
         "kind": "paren",
         "text": ")",
         "indent": 18,
@@ -17125,6 +18581,14 @@
         "indent": 18,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 80,
+        "kind": "parameter",
+        "text": "option",
+        "indent": 20,
+        "export": false,
+        "path": ""
       },
       {
         "line": 80,
@@ -17366,6 +18830,14 @@
       },
       {
         "line": 8,
+        "kind": "parameter",
+        "text": "pages",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 8,
         "kind": "call",
         "text": "useAppSelector",
         "indent": 9,
@@ -17387,6 +18859,14 @@
         "indent": 10,
         "export": false,
         "path": "close"
+      },
+      {
+        "line": 9,
+        "kind": "parameter",
+        "text": "pageId",
+        "indent": 12,
+        "export": false,
+        "path": ""
       },
       {
         "line": 9,
@@ -17443,6 +18923,14 @@
         "indent": 12,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 10,
+        "kind": "parameter",
+        "text": "page",
+        "indent": 14,
+        "export": false,
+        "path": ""
       },
       {
         "line": 10,
@@ -17516,11 +19004,27 @@
       },
       {
         "line": 13,
+        "kind": "parameter",
+        "text": "props",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 13,
         "kind": "block",
         "text": "{",
         "indent": 4,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 14,
+        "kind": "parameter",
+        "text": "page",
+        "indent": 12,
+        "export": false,
+        "path": ""
       },
       {
         "line": 14,
@@ -17775,6 +19279,14 @@
         "indent": 10,
         "export": false,
         "path": "close"
+      },
+      {
+        "line": 14,
+        "kind": "parameter",
+        "text": "count",
+        "indent": 12,
+        "export": false,
+        "path": ""
       },
       {
         "line": 14,
@@ -18144,11 +19656,35 @@
       },
       {
         "line": 21,
+        "kind": "parameter",
+        "text": "props",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 21,
         "kind": "block",
         "text": "{",
         "indent": 4,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 22,
+        "kind": "parameter",
+        "text": "count",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 22,
+        "kind": "parameter",
+        "text": "messages",
+        "indent": 12,
+        "export": false,
+        "path": ""
       },
       {
         "line": 22,
@@ -18677,6 +20213,46 @@
         "path": "open"
       },
       {
+        "line": 30,
+        "kind": "parameter",
+        "text": "primary",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 31,
+        "kind": "parameter",
+        "text": "size",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 32,
+        "kind": "parameter",
+        "text": "backgroundColor",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 33,
+        "kind": "parameter",
+        "text": "label",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 34,
+        "kind": "parameter",
+        "text": "props",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
         "line": 35,
         "kind": "paren",
         "text": ")",
@@ -18962,6 +20538,14 @@
       },
       {
         "line": 3,
+        "kind": "parameter",
+        "text": "props",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 3,
         "kind": "paren",
         "text": ")",
         "indent": 7,
@@ -19031,6 +20615,14 @@
         "indent": 14,
         "export": false,
         "path": "close"
+      },
+      {
+        "line": 6,
+        "kind": "parameter",
+        "text": "count",
+        "indent": 16,
+        "export": false,
+        "path": ""
       },
       {
         "line": 6,
@@ -19640,6 +21232,14 @@
       },
       {
         "line": 2,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 2,
         "kind": "paren",
         "text": ")",
         "indent": 7,
@@ -19827,6 +21427,14 @@
         "indent": 10,
         "export": false,
         "path": "close"
+      },
+      {
+        "line": 14,
+        "kind": "parameter",
+        "text": "count",
+        "indent": 12,
+        "export": false,
+        "path": ""
       },
       {
         "line": 14,
@@ -20188,6 +21796,14 @@
       },
       {
         "line": 2,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 2,
         "kind": "paren",
         "text": ")",
         "indent": 7,
@@ -20346,6 +21962,22 @@
       },
       {
         "line": 10,
+        "kind": "parameter",
+        "text": "todos",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 10,
+        "kind": "parameter",
+        "text": "status",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 10,
         "kind": "call",
         "text": "useAppSelector",
         "indent": 9,
@@ -20450,6 +22082,14 @@
       },
       {
         "line": 14,
+        "kind": "parameter",
+        "text": "todo",
+        "indent": 19,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 14,
         "kind": "paren",
         "text": ")",
         "indent": 17,
@@ -20543,6 +22183,14 @@
         "indent": 17,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 17,
+        "kind": "parameter",
+        "text": "todo",
+        "indent": 19,
+        "export": false,
+        "path": ""
       },
       {
         "line": 17,
@@ -20815,6 +22463,22 @@
         "path": "yup"
       },
       {
+        "line": 17,
+        "kind": "parameter",
+        "text": "todo",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 18,
+        "kind": "parameter",
+        "text": "todo",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
         "line": 25,
         "kind": "func",
         "text": "ToDoPage",
@@ -20824,11 +22488,43 @@
       },
       {
         "line": 25,
+        "kind": "parameter",
+        "text": "props",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 25,
         "kind": "block",
         "text": "{",
         "indent": 4,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 26,
+        "kind": "parameter",
+        "text": "todos",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 26,
+        "kind": "parameter",
+        "text": "actions",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 26,
+        "kind": "parameter",
+        "text": "status",
+        "indent": 12,
+        "export": false,
+        "path": ""
       },
       {
         "line": 26,
@@ -21045,6 +22741,14 @@
         "indent": 15,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 34,
+        "kind": "parameter",
+        "text": "values",
+        "indent": 17,
+        "export": false,
+        "path": ""
       },
       {
         "line": 34,
@@ -21312,6 +23016,14 @@
       },
       {
         "line": 46,
+        "kind": "parameter",
+        "text": "v",
+        "indent": 15,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 46,
         "kind": "paren",
         "text": ")",
         "indent": 13,
@@ -21381,6 +23093,14 @@
         "indent": 22,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 52,
+        "kind": "parameter",
+        "text": "e",
+        "indent": 24,
+        "export": false,
+        "path": ""
       },
       {
         "line": 52,
@@ -21534,6 +23254,14 @@
       },
       {
         "line": 11,
+        "kind": "parameter",
+        "text": "props",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 11,
         "kind": "paren",
         "text": ")",
         "indent": 7,
@@ -21555,6 +23283,14 @@
         "indent": 8,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 12,
+        "kind": "parameter",
+        "text": "formik",
+        "indent": 16,
+        "export": false,
+        "path": ""
       },
       {
         "line": 12,
@@ -21595,6 +23331,14 @@
         "indent": 19,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 18,
+        "kind": "parameter",
+        "text": "e",
+        "indent": 21,
+        "export": false,
+        "path": ""
       },
       {
         "line": 18,
@@ -21836,6 +23580,14 @@
       },
       {
         "line": 2,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 2,
         "kind": "paren",
         "text": ")",
         "indent": 7,
@@ -21999,6 +23751,22 @@
         "indent": 10,
         "export": false,
         "path": "close"
+      },
+      {
+        "line": 14,
+        "kind": "parameter",
+        "text": "todo",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 14,
+        "kind": "parameter",
+        "text": "count",
+        "indent": 12,
+        "export": false,
+        "path": ""
       },
       {
         "line": 14,
@@ -22488,11 +24256,35 @@
       },
       {
         "line": 14,
+        "kind": "parameter",
+        "text": "props",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 14,
         "kind": "block",
         "text": "{",
         "indent": 4,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 15,
+        "kind": "parameter",
+        "text": "todo",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 15,
+        "kind": "parameter",
+        "text": "count",
+        "indent": 12,
+        "export": false,
+        "path": ""
       },
       {
         "line": 15,
@@ -22627,6 +24419,14 @@
         "indent": 7,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 2,
+        "kind": "parameter",
+        "text": "state",
+        "indent": 9,
+        "export": false,
+        "path": ""
       },
       {
         "line": 2,
@@ -22986,6 +24786,14 @@
       },
       {
         "line": 12,
+        "kind": "parameter",
+        "text": "pageName",
+        "indent": 16,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 12,
         "kind": "call",
         "text": "useParams",
         "indent": 13,
@@ -23049,6 +24857,30 @@
         "path": ""
       },
       {
+        "line": 16,
+        "kind": "parameter",
+        "text": "data",
+        "indent": 16,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 17,
+        "kind": "parameter",
+        "text": "error",
+        "indent": 16,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 18,
+        "kind": "parameter",
+        "text": "isLoading",
+        "indent": 16,
+        "export": false,
+        "path": ""
+      },
+      {
         "line": 19,
         "kind": "call",
         "text": "useGetD3SampleByNameQuery",
@@ -23077,6 +24909,22 @@
         "kind": "comment",
         "text": "// データの書き出しフック",
         "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 21,
+        "kind": "parameter",
+        "text": "isLoading",
+        "indent": 19,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 21,
+        "kind": "parameter",
+        "text": "isUpdating",
+        "indent": 19,
         "export": false,
         "path": ""
       },
@@ -23127,6 +24975,14 @@
         "indent": 14,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 23,
+        "kind": "parameter",
+        "text": "data",
+        "indent": 16,
+        "export": false,
+        "path": ""
       },
       {
         "line": 23,
@@ -23399,11 +25255,27 @@
         "path": "./types"
       },
       {
+        "line": 14,
+        "kind": "parameter",
+        "text": "data",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
         "line": 17,
         "kind": "func",
         "text": "D3Sample",
         "indent": 3,
         "export": true,
+        "path": ""
+      },
+      {
+        "line": 17,
+        "kind": "parameter",
+        "text": "props",
+        "indent": 5,
+        "export": false,
         "path": ""
       },
       {
@@ -23493,6 +25365,14 @@
         "indent": 10,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 22,
+        "kind": "parameter",
+        "text": "e",
+        "indent": 12,
+        "export": false,
+        "path": ""
       },
       {
         "line": 22,
@@ -24094,6 +25974,14 @@
       },
       {
         "line": 7,
+        "kind": "parameter",
+        "text": "data",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 7,
         "kind": "paren",
         "text": ")",
         "indent": 7,
@@ -24147,6 +26035,14 @@
         "indent": 16,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 8,
+        "kind": "parameter",
+        "text": "d",
+        "indent": 18,
+        "export": false,
+        "path": ""
       },
       {
         "line": 8,
@@ -24334,6 +26230,14 @@
       },
       {
         "line": 15,
+        "kind": "parameter",
+        "text": "text",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 15,
         "kind": "paren",
         "text": ")",
         "indent": 7,
@@ -24395,6 +26299,14 @@
         "indent": 15,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 16,
+        "kind": "parameter",
+        "text": "value",
+        "indent": 17,
+        "export": false,
+        "path": ""
       },
       {
         "line": 16,
@@ -24566,6 +26478,14 @@
       },
       {
         "line": 25,
+        "kind": "parameter",
+        "text": "d",
+        "indent": 21,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 25,
         "kind": "paren",
         "text": ")",
         "indent": 19,
@@ -24619,6 +26539,14 @@
         "indent": 17,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 27,
+        "kind": "parameter",
+        "text": "d",
+        "indent": 19,
+        "export": false,
+        "path": ""
       },
       {
         "line": 27,
@@ -24757,6 +26685,22 @@
         "path": "open"
       },
       {
+        "line": 33,
+        "kind": "parameter",
+        "text": "props",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 34,
+        "kind": "parameter",
+        "text": "graphType",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
         "line": 35,
         "kind": "paren",
         "text": ")",
@@ -24862,6 +26806,14 @@
       },
       {
         "line": 40,
+        "kind": "parameter",
+        "text": "values",
+        "indent": 21,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 40,
         "kind": "paren",
         "text": ")",
         "indent": 19,
@@ -24915,6 +26867,14 @@
         "indent": 19,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 43,
+        "kind": "parameter",
+        "text": "values",
+        "indent": 21,
+        "export": false,
+        "path": ""
       },
       {
         "line": 43,
@@ -25334,6 +27294,14 @@
       },
       {
         "line": 63,
+        "kind": "parameter",
+        "text": "e",
+        "indent": 16,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 63,
         "kind": "paren",
         "text": ")",
         "indent": 14,
@@ -25528,6 +27496,14 @@
         "text": "parse",
         "indent": 3,
         "export": true,
+        "path": ""
+      },
+      {
+        "line": 6,
+        "kind": "parameter",
+        "text": "src",
+        "indent": 5,
+        "export": false,
         "path": ""
       },
       {
@@ -26300,6 +28276,14 @@
       },
       {
         "line": 74,
+        "kind": "parameter",
+        "text": "parsed",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 74,
         "kind": "block",
         "text": "{",
         "indent": 4,
@@ -26337,6 +28321,22 @@
         "indent": 9,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 76,
+        "kind": "parameter",
+        "text": "row",
+        "indent": 11,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 76,
+        "kind": "parameter",
+        "text": "i",
+        "indent": 11,
+        "export": false,
+        "path": ""
       },
       {
         "line": 76,
@@ -26401,6 +28401,22 @@
         "indent": 15,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 80,
+        "kind": "parameter",
+        "text": "col",
+        "indent": 17,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 80,
+        "kind": "parameter",
+        "text": "i",
+        "indent": 17,
+        "export": false,
+        "path": ""
       },
       {
         "line": 80,
@@ -26809,6 +28825,30 @@
         "path": "open"
       },
       {
+        "line": 15,
+        "kind": "parameter",
+        "text": "element",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 16,
+        "kind": "parameter",
+        "text": "mindmapData",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 17,
+        "kind": "parameter",
+        "text": "graphType",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
         "line": 18,
         "kind": "paren",
         "text": ")",
@@ -26990,6 +29030,22 @@
       },
       {
         "line": 3,
+        "kind": "parameter",
+        "text": "element",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 3,
+        "kind": "parameter",
+        "text": "dataset",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 3,
         "kind": "paren",
         "text": ")",
         "indent": 7,
@@ -27027,6 +29083,14 @@
         "indent": 14,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 4,
+        "kind": "parameter",
+        "text": "d",
+        "indent": 16,
+        "export": false,
+        "path": ""
       },
       {
         "line": 4,
@@ -27348,6 +29412,22 @@
       },
       {
         "line": 3,
+        "kind": "parameter",
+        "text": "element",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 3,
+        "kind": "parameter",
+        "text": "dataset",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 3,
         "kind": "paren",
         "text": ")",
         "indent": 7,
@@ -27385,6 +29465,14 @@
         "indent": 14,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 4,
+        "kind": "parameter",
+        "text": "d",
+        "indent": 16,
+        "export": false,
+        "path": ""
       },
       {
         "line": 4,
@@ -27729,6 +29817,22 @@
         "path": "open"
       },
       {
+        "line": 4,
+        "kind": "parameter",
+        "text": "element",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 5,
+        "kind": "parameter",
+        "text": "dataset",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
         "line": 6,
         "kind": "paren",
         "text": ")",
@@ -27991,6 +30095,14 @@
         "indent": 18,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 23,
+        "kind": "parameter",
+        "text": "d",
+        "indent": 20,
+        "export": false,
+        "path": ""
       },
       {
         "line": 23,
@@ -28306,6 +30418,14 @@
       },
       {
         "line": 42,
+        "kind": "parameter",
+        "text": "d",
+        "indent": 23,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 42,
         "kind": "paren",
         "text": ")",
         "indent": 21,
@@ -28351,6 +30471,14 @@
         "indent": 19,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 43,
+        "kind": "parameter",
+        "text": "d",
+        "indent": 21,
+        "export": false,
+        "path": ""
       },
       {
         "line": 43,
@@ -28431,6 +30559,14 @@
         "indent": 17,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 44,
+        "kind": "parameter",
+        "text": "d",
+        "indent": 19,
+        "export": false,
+        "path": ""
       },
       {
         "line": 44,
@@ -28983,6 +31119,22 @@
         "path": "open"
       },
       {
+        "line": 4,
+        "kind": "parameter",
+        "text": "element",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 5,
+        "kind": "parameter",
+        "text": "dataset",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
         "line": 6,
         "kind": "paren",
         "text": ")",
@@ -29157,6 +31309,14 @@
         "indent": 18,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 17,
+        "kind": "parameter",
+        "text": "d",
+        "indent": 20,
+        "export": false,
+        "path": ""
       },
       {
         "line": 17,
@@ -29560,6 +31720,14 @@
       },
       {
         "line": 42,
+        "kind": "parameter",
+        "text": "d",
+        "indent": 23,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 42,
         "kind": "paren",
         "text": ")",
         "indent": 21,
@@ -29637,6 +31805,14 @@
         "indent": 19,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 43,
+        "kind": "parameter",
+        "text": "d",
+        "indent": 21,
+        "export": false,
+        "path": ""
       },
       {
         "line": 43,
@@ -29765,6 +31941,14 @@
         "indent": 15,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 45,
+        "kind": "parameter",
+        "text": "d",
+        "indent": 17,
+        "export": false,
+        "path": ""
       },
       {
         "line": 45,
@@ -30270,6 +32454,14 @@
       },
       {
         "line": 3,
+        "kind": "parameter",
+        "text": "data",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 3,
         "kind": "paren",
         "text": ")",
         "indent": 7,
@@ -30315,6 +32507,14 @@
         "indent": 13,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 4,
+        "kind": "parameter",
+        "text": "d",
+        "indent": 15,
+        "export": false,
+        "path": ""
       },
       {
         "line": 4,
@@ -30430,6 +32630,14 @@
       },
       {
         "line": 7,
+        "kind": "parameter",
+        "text": "data",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 7,
         "kind": "paren",
         "text": ")",
         "indent": 7,
@@ -30475,6 +32683,14 @@
         "indent": 13,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 8,
+        "kind": "parameter",
+        "text": "d",
+        "indent": 15,
+        "export": false,
+        "path": ""
       },
       {
         "line": 8,
@@ -30747,11 +32963,35 @@
         "path": "close"
       },
       {
+        "line": 23,
+        "kind": "parameter",
+        "text": "registration",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 24,
+        "kind": "parameter",
+        "text": "registration",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
         "line": 27,
         "kind": "func",
         "text": "register",
         "indent": 3,
         "export": true,
+        "path": ""
+      },
+      {
+        "line": 27,
+        "kind": "parameter",
+        "text": "config",
+        "indent": 5,
+        "export": false,
         "path": ""
       },
       {
@@ -31180,6 +33420,22 @@
       },
       {
         "line": 61,
+        "kind": "parameter",
+        "text": "swUrl",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 61,
+        "kind": "parameter",
+        "text": "config",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 61,
         "kind": "block",
         "text": "{",
         "indent": 4,
@@ -31241,6 +33497,14 @@
         "indent": 11,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 64,
+        "kind": "parameter",
+        "text": "registration",
+        "indent": 13,
+        "export": false,
+        "path": ""
       },
       {
         "line": 64,
@@ -31708,6 +33972,14 @@
       },
       {
         "line": 100,
+        "kind": "parameter",
+        "text": "error",
+        "indent": 11,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 100,
         "kind": "paren",
         "text": ")",
         "indent": 9,
@@ -31783,6 +34055,22 @@
         "kind": "func",
         "text": "checkValidServiceWorker",
         "indent": 3,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 105,
+        "kind": "parameter",
+        "text": "swUrl",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 105,
+        "kind": "parameter",
+        "text": "config",
+        "indent": 5,
         "export": false,
         "path": ""
       },
@@ -31889,6 +34177,14 @@
         "indent": 11,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 110,
+        "kind": "parameter",
+        "text": "response",
+        "indent": 13,
+        "export": false,
+        "path": ""
       },
       {
         "line": 110,
@@ -32057,6 +34353,14 @@
         "indent": 20,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 118,
+        "kind": "parameter",
+        "text": "registration",
+        "indent": 22,
+        "export": false,
+        "path": ""
       },
       {
         "line": 118,
@@ -32444,6 +34748,14 @@
       },
       {
         "line": 138,
+        "kind": "parameter",
+        "text": "registration",
+        "indent": 16,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 138,
         "kind": "paren",
         "text": ")",
         "indent": 14,
@@ -32529,6 +34841,14 @@
         "indent": 12,
         "export": false,
         "path": "open"
+      },
+      {
+        "line": 141,
+        "kind": "parameter",
+        "text": "error",
+        "indent": 14,
+        "export": false,
+        "path": ""
       },
       {
         "line": 141,

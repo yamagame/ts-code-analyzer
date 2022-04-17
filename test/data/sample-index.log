@@ -1,0 +1,560 @@
+Set(3) {
+  'test/sample/index.ts',
+  'test/sample/libs/hello1.ts',
+  'test/sample/libs/hello2.ts'
+}
+SourceFile
+  SyntaxList
+    ImportDeclaration
+SourceFile/SyntaxList/ImportDeclaration import { address } from './libs/hello1';
+      ImportKeyword - import
+      ImportClause
+        NamedImports
+          OpenBraceToken
+          SyntaxList
+            ImportSpecifier
+              Identifier - address
+SourceFile/SyntaxList/ImportDeclaration/ImportClause/NamedImports/SyntaxList/ImportSpecifier/Identifier address
+          CloseBraceToken
+      FromKeyword
+      StringLiteral
+      SemicolonToken
+    ImportDeclaration
+SourceFile/SyntaxList/ImportDeclaration import { hello as hello2 } from 'libs/hello2';
+      ImportKeyword - import
+      ImportClause
+        NamedImports
+          OpenBraceToken
+          SyntaxList
+            ImportSpecifier
+              Identifier - hello
+SourceFile/SyntaxList/ImportDeclaration/ImportClause/NamedImports/SyntaxList/ImportSpecifier/Identifier hello
+              AsKeyword
+              Identifier - hello2
+SourceFile/SyntaxList/ImportDeclaration/ImportClause/NamedImports/SyntaxList/ImportSpecifier/Identifier hello2
+          CloseBraceToken
+      FromKeyword
+      StringLiteral
+      SemicolonToken
+    InterfaceDeclaration
+SourceFile/SyntaxList/InterfaceDeclaration export interface propType {
+  id: string;
+  info: {
+    name: string;
+    address: {
+      postalCode: string;
+      address1: string;
+      address2: string;
+    };
+  };
+}
+      SyntaxList
+        ExportKeyword
+SourceFile/SyntaxList/InterfaceDeclaration/SyntaxList/ExportKeyword export
+      InterfaceKeyword
+      Identifier - propType
+SourceFile/SyntaxList/InterfaceDeclaration/Identifier propType
+      OpenBraceToken
+      SyntaxList
+        PropertySignature
+          Identifier - id
+SourceFile/SyntaxList/InterfaceDeclaration/SyntaxList/PropertySignature/Identifier id
+          ColonToken
+          StringKeyword
+          SemicolonToken
+        PropertySignature
+          Identifier - info
+SourceFile/SyntaxList/InterfaceDeclaration/SyntaxList/PropertySignature/Identifier info
+          ColonToken
+          TypeLiteral
+            OpenBraceToken
+            SyntaxList
+              PropertySignature
+                Identifier - name
+SourceFile/SyntaxList/InterfaceDeclaration/SyntaxList/PropertySignature/TypeLiteral/SyntaxList/PropertySignature/Identifier name
+                ColonToken
+                StringKeyword
+                SemicolonToken
+              PropertySignature
+                Identifier - address
+SourceFile/SyntaxList/InterfaceDeclaration/SyntaxList/PropertySignature/TypeLiteral/SyntaxList/PropertySignature/Identifier address
+                ColonToken
+                TypeLiteral
+                  OpenBraceToken
+                  SyntaxList
+                    PropertySignature
+                      Identifier - postalCode
+SourceFile/SyntaxList/InterfaceDeclaration/SyntaxList/PropertySignature/TypeLiteral/SyntaxList/PropertySignature/TypeLiteral/SyntaxList/PropertySignature/Identifier postalCode
+                      ColonToken
+                      StringKeyword
+                      SemicolonToken
+                    PropertySignature
+                      Identifier - address1
+SourceFile/SyntaxList/InterfaceDeclaration/SyntaxList/PropertySignature/TypeLiteral/SyntaxList/PropertySignature/TypeLiteral/SyntaxList/PropertySignature/Identifier address1
+                      ColonToken
+                      StringKeyword
+                      SemicolonToken
+                    PropertySignature
+                      Identifier - address2
+SourceFile/SyntaxList/InterfaceDeclaration/SyntaxList/PropertySignature/TypeLiteral/SyntaxList/PropertySignature/TypeLiteral/SyntaxList/PropertySignature/Identifier address2
+                      ColonToken
+                      StringKeyword
+                      SemicolonToken
+                  CloseBraceToken
+                SemicolonToken
+            CloseBraceToken
+          SemicolonToken
+      CloseBraceToken
+    VariableStatement
+      VariableDeclarationList
+        ConstKeyword
+        SyntaxList
+          VariableDeclaration
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration props = {
+  id: '1000',
+  info: {
+    name: 'user-name',
+    address: {
+      postalCode: '100-1000',
+      address1: 'address1',
+      address2: 'address2',
+    },
+  },
+}
+            Identifier - props
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/Identifier props
+            EqualsToken
+            ObjectLiteralExpression
+              OpenBraceToken
+              SyntaxList
+                PropertyAssignment
+                  Identifier - id
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ObjectLiteralExpression/SyntaxList/PropertyAssignment/Identifier id
+                  ColonToken
+                  StringLiteral
+                CommaToken
+                PropertyAssignment
+                  Identifier - info
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ObjectLiteralExpression/SyntaxList/PropertyAssignment/Identifier info
+                  ColonToken
+                  ObjectLiteralExpression
+                    OpenBraceToken
+                    SyntaxList
+                      PropertyAssignment
+                        Identifier - name
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ObjectLiteralExpression/SyntaxList/PropertyAssignment/ObjectLiteralExpression/SyntaxList/PropertyAssignment/Identifier name
+                        ColonToken
+                        StringLiteral
+                      CommaToken
+                      PropertyAssignment
+                        Identifier - address
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ObjectLiteralExpression/SyntaxList/PropertyAssignment/ObjectLiteralExpression/SyntaxList/PropertyAssignment/Identifier address
+                        ColonToken
+                        ObjectLiteralExpression
+                          OpenBraceToken
+                          SyntaxList
+                            PropertyAssignment
+                              Identifier - postalCode
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ObjectLiteralExpression/SyntaxList/PropertyAssignment/ObjectLiteralExpression/SyntaxList/PropertyAssignment/ObjectLiteralExpression/SyntaxList/PropertyAssignment/Identifier postalCode
+                              ColonToken
+                              StringLiteral
+                            CommaToken
+                            PropertyAssignment
+                              Identifier - address1
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ObjectLiteralExpression/SyntaxList/PropertyAssignment/ObjectLiteralExpression/SyntaxList/PropertyAssignment/ObjectLiteralExpression/SyntaxList/PropertyAssignment/Identifier address1
+                              ColonToken
+                              StringLiteral
+                            CommaToken
+                            PropertyAssignment
+                              Identifier - address2
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ObjectLiteralExpression/SyntaxList/PropertyAssignment/ObjectLiteralExpression/SyntaxList/PropertyAssignment/ObjectLiteralExpression/SyntaxList/PropertyAssignment/Identifier address2
+                              ColonToken
+                              StringLiteral
+                            CommaToken
+                          CloseBraceToken
+                      CommaToken
+                    CloseBraceToken
+                CommaToken
+              CloseBraceToken
+      SemicolonToken
+    FunctionDeclaration
+SourceFile/SyntaxList/FunctionDeclaration async function main(argv: string[]) {
+  console.log(argv[0]);
+  console.log(address(props));
+  console.log(hello2);
+}
+      SyntaxList
+        AsyncKeyword
+      FunctionKeyword
+      Identifier - main
+SourceFile/SyntaxList/FunctionDeclaration/Identifier main
+      OpenParenToken
+      SyntaxList
+        Parameter
+          Identifier - argv
+SourceFile/SyntaxList/FunctionDeclaration/SyntaxList/Parameter/Identifier argv
+          ColonToken
+          ArrayType
+            StringKeyword
+            OpenBracketToken
+            CloseBracketToken
+      CloseParenToken
+SourceFile/SyntaxList/FunctionDeclaration/CloseParenToken )
+      Block
+        OpenBraceToken
+        SyntaxList
+          ExpressionStatement
+            CallExpression
+              PropertyAccessExpression
+                Identifier - console
+SourceFile/SyntaxList/FunctionDeclaration/Block/SyntaxList/ExpressionStatement/CallExpression/PropertyAccessExpression/Identifier console
+                DotToken
+                Identifier - log
+SourceFile/SyntaxList/FunctionDeclaration/Block/SyntaxList/ExpressionStatement/CallExpression/PropertyAccessExpression/Identifier log
+              OpenParenToken
+              SyntaxList
+                ElementAccessExpression
+                  Identifier - argv
+SourceFile/SyntaxList/FunctionDeclaration/Block/SyntaxList/ExpressionStatement/CallExpression/SyntaxList/ElementAccessExpression/Identifier argv
+                  OpenBracketToken
+                  NumericLiteral
+                  CloseBracketToken
+              CloseParenToken
+SourceFile/SyntaxList/FunctionDeclaration/Block/SyntaxList/ExpressionStatement/CallExpression/CloseParenToken )
+            SemicolonToken
+          ExpressionStatement
+            CallExpression
+              PropertyAccessExpression
+                Identifier - console
+SourceFile/SyntaxList/FunctionDeclaration/Block/SyntaxList/ExpressionStatement/CallExpression/PropertyAccessExpression/Identifier console
+                DotToken
+                Identifier - log
+SourceFile/SyntaxList/FunctionDeclaration/Block/SyntaxList/ExpressionStatement/CallExpression/PropertyAccessExpression/Identifier log
+              OpenParenToken
+              SyntaxList
+                CallExpression
+                  Identifier - address
+SourceFile/SyntaxList/FunctionDeclaration/Block/SyntaxList/ExpressionStatement/CallExpression/SyntaxList/CallExpression/Identifier address
+                  OpenParenToken
+                  SyntaxList
+                    Identifier - props
+SourceFile/SyntaxList/FunctionDeclaration/Block/SyntaxList/ExpressionStatement/CallExpression/SyntaxList/CallExpression/SyntaxList/Identifier props
+                  CloseParenToken
+SourceFile/SyntaxList/FunctionDeclaration/Block/SyntaxList/ExpressionStatement/CallExpression/SyntaxList/CallExpression/CloseParenToken )
+              CloseParenToken
+SourceFile/SyntaxList/FunctionDeclaration/Block/SyntaxList/ExpressionStatement/CallExpression/CloseParenToken )
+            SemicolonToken
+          ExpressionStatement
+            CallExpression
+              PropertyAccessExpression
+                Identifier - console
+SourceFile/SyntaxList/FunctionDeclaration/Block/SyntaxList/ExpressionStatement/CallExpression/PropertyAccessExpression/Identifier console
+                DotToken
+                Identifier - log
+SourceFile/SyntaxList/FunctionDeclaration/Block/SyntaxList/ExpressionStatement/CallExpression/PropertyAccessExpression/Identifier log
+              OpenParenToken
+              SyntaxList
+                Identifier - hello2
+SourceFile/SyntaxList/FunctionDeclaration/Block/SyntaxList/ExpressionStatement/CallExpression/SyntaxList/Identifier hello2
+              CloseParenToken
+SourceFile/SyntaxList/FunctionDeclaration/Block/SyntaxList/ExpressionStatement/CallExpression/CloseParenToken )
+            SemicolonToken
+        CloseBraceToken
+    IfStatement
+      IfKeyword
+      OpenParenToken
+      BinaryExpression
+        PropertyAccessExpression
+          Identifier - require
+SourceFile/SyntaxList/IfStatement/BinaryExpression/PropertyAccessExpression/Identifier require
+          DotToken
+          Identifier - main
+SourceFile/SyntaxList/IfStatement/BinaryExpression/PropertyAccessExpression/Identifier main
+        EqualsEqualsEqualsToken
+        Identifier - module
+SourceFile/SyntaxList/IfStatement/BinaryExpression/Identifier module
+      CloseParenToken
+SourceFile/SyntaxList/IfStatement/CloseParenToken )
+      Block
+        OpenBraceToken
+        SyntaxList
+          ExpressionStatement
+            CallExpression
+              Identifier - main
+SourceFile/SyntaxList/IfStatement/Block/SyntaxList/ExpressionStatement/CallExpression/Identifier main
+              OpenParenToken
+              SyntaxList
+                PropertyAccessExpression
+                  Identifier - process
+SourceFile/SyntaxList/IfStatement/Block/SyntaxList/ExpressionStatement/CallExpression/SyntaxList/PropertyAccessExpression/Identifier process
+                  DotToken
+                  Identifier - argv
+SourceFile/SyntaxList/IfStatement/Block/SyntaxList/ExpressionStatement/CallExpression/SyntaxList/PropertyAccessExpression/Identifier argv
+              CloseParenToken
+SourceFile/SyntaxList/IfStatement/Block/SyntaxList/ExpressionStatement/CallExpression/CloseParenToken )
+            SemicolonToken
+        CloseBraceToken
+# test/sample/index.ts, test/sample/index.ts, ---------
+
+## imports
+[
+  'test/sample/libs/hello1.ts',
+  'test/sample/libs/hello2.ts',
+  'test/sample/libs/hello1.ts',
+  'test/sample/libs/hello2.ts'
+]
+## attentions
+[
+  "0 import: import { address } from './libs/hello1'; #, !intarnal",
+  "1 import: import { hello as hello2 } from 'libs/hello2'; #, !intarnal",
+  "15 var: props #, !intarnal",
+  "15 object: { #object-open, !intarnal",
+  "16 property: id #object-prop, !intarnal",
+  "17 property: info #object-prop, !intarnal",
+  "17 object: { #object-open, !intarnal",
+  "18 property: name #object-prop, !intarnal",
+  "19 property: address #object-prop, !intarnal",
+  "19 object: { #object-open, !intarnal",
+  "20 property: postalCode #object-prop, !intarnal",
+  "21 property: address1 #object-prop, !intarnal",
+  "22 property: address2 #object-prop, !intarnal",
+  "23 object: } #object-close, !intarnal",
+  "24 object: } #object-close, !intarnal",
+  "25 object: } #object-close, !intarnal",
+  "27 func: main #, !intarnal",
+  "27 parameter: argv #, !intarnal",
+  "27 block: { #open, !intarnal",
+  "28 call: console.log #, !intarnal",
+  "28 paren: ( #open, !intarnal",
+  "28 paren: ) #close, !intarnal",
+  "29 call: console.log #, !intarnal",
+  "29 paren: ( #open, !intarnal",
+  "29 call: address #, !intarnal",
+  "29 paren: ( #open, !intarnal",
+  "29 paren: ) #close, !intarnal",
+  "29 paren: ) #close, !intarnal",
+  "30 call: console.log #, !intarnal",
+  "30 paren: ( #open, !intarnal",
+  "30 paren: ) #close, !intarnal",
+  "31 block: } #close, !intarnal",
+  "33 expression: require.main #, !intarnal",
+  "33 block: { #open, !intarnal",
+  "34 call: main #, !intarnal",
+  "34 paren: ( #open, !intarnal",
+  "34 expression: process.argv #, !intarnal",
+  "34 paren: ) #close, !intarnal",
+  "35 block: } #close, !intarnal"
+]
+SourceFile
+  SyntaxList
+    ImportDeclaration
+SourceFile/SyntaxList/ImportDeclaration import { propType } from '../index';
+      ImportKeyword - import
+      ImportClause
+        NamedImports
+          OpenBraceToken
+          SyntaxList
+            ImportSpecifier
+              Identifier - propType
+SourceFile/SyntaxList/ImportDeclaration/ImportClause/NamedImports/SyntaxList/ImportSpecifier/Identifier propType
+          CloseBraceToken
+      FromKeyword
+      StringLiteral
+      SemicolonToken
+    VariableStatement
+      SyntaxList
+        ExportKeyword
+SourceFile/SyntaxList/VariableStatement/SyntaxList/ExportKeyword export
+      VariableDeclarationList
+        ConstKeyword
+        SyntaxList
+          VariableDeclaration
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration address = (props: propType) => {
+  return `address: ${props.info.address.address1} ${props.info.address.address2}`;
+}
+            Identifier - address
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/Identifier address
+            EqualsToken
+            ArrowFunction
+              OpenParenToken
+              SyntaxList
+                Parameter
+                  Identifier - props
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ArrowFunction/SyntaxList/Parameter/Identifier props
+                  ColonToken
+                  TypeReference
+                    Identifier - propType
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ArrowFunction/SyntaxList/Parameter/TypeReference/Identifier propType
+              CloseParenToken
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ArrowFunction/CloseParenToken )
+              EqualsGreaterThanToken
+              Block
+                OpenBraceToken
+                SyntaxList
+                  ReturnStatement
+                    ReturnKeyword
+                    TemplateExpression
+                      TemplateHead
+                      SyntaxList
+                        TemplateSpan
+                          PropertyAccessExpression
+                            PropertyAccessExpression
+                              PropertyAccessExpression
+                                Identifier - props
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ArrowFunction/Block/SyntaxList/ReturnStatement/TemplateExpression/SyntaxList/TemplateSpan/PropertyAccessExpression/PropertyAccessExpression/PropertyAccessExpression/Identifier props
+                                DotToken
+                                Identifier - info
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ArrowFunction/Block/SyntaxList/ReturnStatement/TemplateExpression/SyntaxList/TemplateSpan/PropertyAccessExpression/PropertyAccessExpression/PropertyAccessExpression/Identifier info
+                              DotToken
+                              Identifier - address
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ArrowFunction/Block/SyntaxList/ReturnStatement/TemplateExpression/SyntaxList/TemplateSpan/PropertyAccessExpression/PropertyAccessExpression/Identifier address
+                            DotToken
+                            Identifier - address1
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ArrowFunction/Block/SyntaxList/ReturnStatement/TemplateExpression/SyntaxList/TemplateSpan/PropertyAccessExpression/Identifier address1
+                          TemplateMiddle
+                        TemplateSpan
+                          PropertyAccessExpression
+                            PropertyAccessExpression
+                              PropertyAccessExpression
+                                Identifier - props
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ArrowFunction/Block/SyntaxList/ReturnStatement/TemplateExpression/SyntaxList/TemplateSpan/PropertyAccessExpression/PropertyAccessExpression/PropertyAccessExpression/Identifier props
+                                DotToken
+                                Identifier - info
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ArrowFunction/Block/SyntaxList/ReturnStatement/TemplateExpression/SyntaxList/TemplateSpan/PropertyAccessExpression/PropertyAccessExpression/PropertyAccessExpression/Identifier info
+                              DotToken
+                              Identifier - address
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ArrowFunction/Block/SyntaxList/ReturnStatement/TemplateExpression/SyntaxList/TemplateSpan/PropertyAccessExpression/PropertyAccessExpression/Identifier address
+                            DotToken
+                            Identifier - address2
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ArrowFunction/Block/SyntaxList/ReturnStatement/TemplateExpression/SyntaxList/TemplateSpan/PropertyAccessExpression/Identifier address2
+                          TemplateTail
+                    SemicolonToken
+                CloseBraceToken
+      SemicolonToken
+    VariableStatement
+      SyntaxList
+        ExportKeyword
+SourceFile/SyntaxList/VariableStatement/SyntaxList/ExportKeyword export
+      VariableDeclarationList
+        ConstKeyword
+        SyntaxList
+          VariableDeclaration
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration user = ({ id, info: { address } }: propType) => {
+  return `userid ${id} ${address.address1} ${address.address2}`;
+}
+            Identifier - user
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/Identifier user
+            EqualsToken
+            ArrowFunction
+              OpenParenToken
+              SyntaxList
+                Parameter
+                  ObjectBindingPattern
+                    OpenBraceToken
+                    SyntaxList
+                      BindingElement
+                        Identifier - id
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ArrowFunction/SyntaxList/Parameter/ObjectBindingPattern/SyntaxList/BindingElement/Identifier id
+                      CommaToken
+                      BindingElement
+                        Identifier - info
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ArrowFunction/SyntaxList/Parameter/ObjectBindingPattern/SyntaxList/BindingElement/Identifier info
+                        ColonToken
+                        ObjectBindingPattern
+                          OpenBraceToken
+                          SyntaxList
+                            BindingElement
+                              Identifier - info.address
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ArrowFunction/SyntaxList/Parameter/ObjectBindingPattern/SyntaxList/BindingElement/ObjectBindingPattern/SyntaxList/BindingElement/Identifier info.address
+                          CloseBraceToken
+                    CloseBraceToken
+                  ColonToken
+                  TypeReference
+                    Identifier - propType
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ArrowFunction/SyntaxList/Parameter/TypeReference/Identifier propType
+              CloseParenToken
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ArrowFunction/CloseParenToken )
+              EqualsGreaterThanToken
+              Block
+                OpenBraceToken
+                SyntaxList
+                  ReturnStatement
+                    ReturnKeyword
+                    TemplateExpression
+                      TemplateHead
+                      SyntaxList
+                        TemplateSpan
+                          Identifier - id
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ArrowFunction/Block/SyntaxList/ReturnStatement/TemplateExpression/SyntaxList/TemplateSpan/Identifier id
+                          TemplateMiddle
+                        TemplateSpan
+                          PropertyAccessExpression
+                            Identifier - address
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ArrowFunction/Block/SyntaxList/ReturnStatement/TemplateExpression/SyntaxList/TemplateSpan/PropertyAccessExpression/Identifier address
+                            DotToken
+                            Identifier - address1
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ArrowFunction/Block/SyntaxList/ReturnStatement/TemplateExpression/SyntaxList/TemplateSpan/PropertyAccessExpression/Identifier address1
+                          TemplateMiddle
+                        TemplateSpan
+                          PropertyAccessExpression
+                            Identifier - address
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ArrowFunction/Block/SyntaxList/ReturnStatement/TemplateExpression/SyntaxList/TemplateSpan/PropertyAccessExpression/Identifier address
+                            DotToken
+                            Identifier - address2
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/ArrowFunction/Block/SyntaxList/ReturnStatement/TemplateExpression/SyntaxList/TemplateSpan/PropertyAccessExpression/Identifier address2
+                          TemplateTail
+                    SemicolonToken
+                CloseBraceToken
+      SemicolonToken
+# test/sample/libs/hello1.ts, test/sample/libs/hello1.ts, ---------
+
+## imports
+[ 'test/sample/index.ts' ]
+## attentions
+[
+  "0 import: import { propType } from '../index'; #, !intarnal",
+  "2 var: address #, !export",
+  "2 paren: ( #open, !intarnal",
+  "2 parameter: props #, !intarnal",
+  "2 paren: ) #close, !intarnal",
+  "2 arrow: => #arrow, !intarnal",
+  "2 block: { #open, !intarnal",
+  "3 expression: props.info.address.address1 #, !intarnal",
+  "3 expression: props.info.address.address2 #, !intarnal",
+  "4 block: } #close, !intarnal",
+  "6 var: user #, !export",
+  "6 paren: ( #open, !intarnal",
+  "6 parameter: id #, !intarnal",
+  "6 parameter: info #, !intarnal",
+  "6 parameter: info.address #, !intarnal",
+  "6 paren: ) #close, !intarnal",
+  "6 arrow: => #arrow, !intarnal",
+  "6 block: { #open, !intarnal",
+  "7 expression: address.address1 #, !intarnal",
+  "7 expression: address.address2 #, !intarnal",
+  "8 block: } #close, !intarnal"
+]
+SourceFile
+  SyntaxList
+    VariableStatement
+      SyntaxList
+        ExportKeyword
+SourceFile/SyntaxList/VariableStatement/SyntaxList/ExportKeyword export
+      VariableDeclarationList
+        ConstKeyword
+        SyntaxList
+          VariableDeclaration
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration hello = 'hello'
+            Identifier - hello
+SourceFile/SyntaxList/VariableStatement/VariableDeclarationList/SyntaxList/VariableDeclaration/Identifier hello
+            EqualsToken
+            StringLiteral
+      SemicolonToken
+# test/sample/libs/hello2.ts, test/sample/libs/hello2.ts, ---------
+
+## imports
+[]
+## attentions
+[
+  "0 var: hello #, !export"
+]

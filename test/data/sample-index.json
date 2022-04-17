@@ -1,0 +1,508 @@
+[
+  {
+    "source": "test/sample/index.ts",
+    "base": "test/sample/index.ts",
+    "nodes": [
+      {
+        "line": 0,
+        "kind": "import",
+        "text": "address",
+        "indent": 2,
+        "export": false,
+        "path": "test/sample/libs/hello1.ts"
+      },
+      {
+        "line": 1,
+        "kind": "import",
+        "text": "hello hello2",
+        "indent": 2,
+        "export": false,
+        "path": "test/sample/libs/hello2.ts"
+      },
+      {
+        "line": 15,
+        "kind": "var",
+        "text": "props",
+        "indent": 6,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 15,
+        "kind": "object",
+        "text": "{",
+        "indent": 7,
+        "export": false,
+        "path": "object-open"
+      },
+      {
+        "line": 16,
+        "kind": "property",
+        "text": "id",
+        "indent": 9,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 17,
+        "kind": "property",
+        "text": "info",
+        "indent": 9,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 17,
+        "kind": "object",
+        "text": "{",
+        "indent": 10,
+        "export": false,
+        "path": "object-open"
+      },
+      {
+        "line": 18,
+        "kind": "property",
+        "text": "name",
+        "indent": 12,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 19,
+        "kind": "property",
+        "text": "address",
+        "indent": 12,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 19,
+        "kind": "object",
+        "text": "{",
+        "indent": 13,
+        "export": false,
+        "path": "object-open"
+      },
+      {
+        "line": 20,
+        "kind": "property",
+        "text": "postalCode",
+        "indent": 15,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 21,
+        "kind": "property",
+        "text": "address1",
+        "indent": 15,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 22,
+        "kind": "property",
+        "text": "address2",
+        "indent": 15,
+        "export": false,
+        "path": "object-prop"
+      },
+      {
+        "line": 23,
+        "kind": "object",
+        "text": "}",
+        "indent": 13,
+        "export": false,
+        "path": "object-close"
+      },
+      {
+        "line": 24,
+        "kind": "object",
+        "text": "}",
+        "indent": 10,
+        "export": false,
+        "path": "object-close"
+      },
+      {
+        "line": 25,
+        "kind": "object",
+        "text": "}",
+        "indent": 7,
+        "export": false,
+        "path": "object-close"
+      },
+      {
+        "line": 27,
+        "kind": "func",
+        "text": "main",
+        "indent": 3,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 27,
+        "kind": "parameter",
+        "text": "argv",
+        "indent": 5,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 27,
+        "kind": "block",
+        "text": "{",
+        "indent": 4,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 28,
+        "kind": "call",
+        "text": "console.log",
+        "indent": 6,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 28,
+        "kind": "paren",
+        "text": "(",
+        "indent": 7,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 28,
+        "kind": "paren",
+        "text": ")",
+        "indent": 7,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 29,
+        "kind": "call",
+        "text": "console.log",
+        "indent": 6,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 29,
+        "kind": "paren",
+        "text": "(",
+        "indent": 7,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 29,
+        "kind": "call",
+        "text": "address",
+        "indent": 8,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 29,
+        "kind": "paren",
+        "text": "(",
+        "indent": 9,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 29,
+        "kind": "paren",
+        "text": ")",
+        "indent": 9,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 29,
+        "kind": "paren",
+        "text": ")",
+        "indent": 7,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 30,
+        "kind": "call",
+        "text": "console.log",
+        "indent": 6,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 30,
+        "kind": "paren",
+        "text": "(",
+        "indent": 7,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 30,
+        "kind": "paren",
+        "text": ")",
+        "indent": 7,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 31,
+        "kind": "block",
+        "text": "}",
+        "indent": 4,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 33,
+        "kind": "expression",
+        "text": "require.main",
+        "indent": 4,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 33,
+        "kind": "block",
+        "text": "{",
+        "indent": 4,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 34,
+        "kind": "call",
+        "text": "main",
+        "indent": 6,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 34,
+        "kind": "paren",
+        "text": "(",
+        "indent": 7,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 34,
+        "kind": "expression",
+        "text": "process.argv",
+        "indent": 8,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 34,
+        "kind": "paren",
+        "text": ")",
+        "indent": 7,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 35,
+        "kind": "block",
+        "text": "}",
+        "indent": 4,
+        "export": false,
+        "path": "close"
+      }
+    ]
+  },
+  {
+    "source": "test/sample/libs/hello1.ts",
+    "base": "test/sample/libs/hello1.ts",
+    "nodes": [
+      {
+        "line": 0,
+        "kind": "import",
+        "text": "propType",
+        "indent": 2,
+        "export": false,
+        "path": "../index"
+      },
+      {
+        "line": 2,
+        "kind": "var",
+        "text": "address",
+        "indent": 6,
+        "export": true,
+        "path": ""
+      },
+      {
+        "line": 2,
+        "kind": "paren",
+        "text": "(",
+        "indent": 7,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 2,
+        "kind": "parameter",
+        "text": "props",
+        "indent": 9,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 2,
+        "kind": "paren",
+        "text": ")",
+        "indent": 7,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 2,
+        "kind": "arrow",
+        "text": "=>",
+        "indent": 7,
+        "export": false,
+        "path": "arrow"
+      },
+      {
+        "line": 2,
+        "kind": "block",
+        "text": "{",
+        "indent": 8,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 3,
+        "kind": "expression",
+        "text": "props.info.address.address1",
+        "indent": 13,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 3,
+        "kind": "expression",
+        "text": "props.info.address.address2",
+        "indent": 13,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 4,
+        "kind": "block",
+        "text": "}",
+        "indent": 8,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 6,
+        "kind": "var",
+        "text": "user",
+        "indent": 6,
+        "export": true,
+        "path": ""
+      },
+      {
+        "line": 6,
+        "kind": "paren",
+        "text": "(",
+        "indent": 7,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 6,
+        "kind": "parameter",
+        "text": "id",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 6,
+        "kind": "parameter",
+        "text": "info",
+        "indent": 12,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 6,
+        "kind": "parameter",
+        "text": "info.address",
+        "indent": 15,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 6,
+        "kind": "paren",
+        "text": ")",
+        "indent": 7,
+        "export": false,
+        "path": "close"
+      },
+      {
+        "line": 6,
+        "kind": "arrow",
+        "text": "=>",
+        "indent": 7,
+        "export": false,
+        "path": "arrow"
+      },
+      {
+        "line": 6,
+        "kind": "block",
+        "text": "{",
+        "indent": 8,
+        "export": false,
+        "path": "open"
+      },
+      {
+        "line": 7,
+        "kind": "expression",
+        "text": "address.address1",
+        "indent": 13,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 7,
+        "kind": "expression",
+        "text": "address.address2",
+        "indent": 13,
+        "export": false,
+        "path": ""
+      },
+      {
+        "line": 8,
+        "kind": "block",
+        "text": "}",
+        "indent": 8,
+        "export": false,
+        "path": "close"
+      }
+    ]
+  },
+  {
+    "source": "test/sample/libs/hello2.ts",
+    "base": "test/sample/libs/hello2.ts",
+    "nodes": [
+      {
+        "line": 0,
+        "kind": "var",
+        "text": "hello",
+        "indent": 6,
+        "export": true,
+        "path": ""
+      }
+    ]
+  }
+]
